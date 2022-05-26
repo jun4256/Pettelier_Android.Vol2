@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBF6F6"
+    android:orientation="vertical">
+    tools:context=".Real_Main">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:baselineAligned="false">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/petlogo3" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="40dp"
+        android:background="#FBF6F6">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/google_nickname"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="로그인"
+                    android:textColor="#000000"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|left"
+                    android:layout_weight="1"
+                    android:gravity="bottom|left"
+                    android:text="해주세요."
+                    android:textColor="#000000"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="162dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <Button
+                    android:id="@+id/ClientFragment1_userInfoBtn"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginRight="30dp"
+
+                    android:text="회원 \n등록하기"
+
+                    android:textSize="18dp" />
+
+                <Button
+                    android:id="@+id/ClientFragment1_userInfoChangeBtn"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+
+                    android:text="반려동물 \n등록하기"
+
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="HOT YOUTUBE"
+
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ClientFragment1_youtube1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:onClick="onyoutube1"
+                        android:background="@drawable/img_youtube1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="속삭이는몽자" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ClientFragment1_youtube2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:onClick="onyoutube2"
+                        android:background="@drawable/img_youtube2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="23dp"
+                        android:layout_marginTop="10dp"
+                        android:text="hahaha" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ClientFragment1_youtube3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:onClick="onyoutube2"
+                        android:background="@drawable/img_youtube3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:text="MochaMilk" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="펫 매거진"
+
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <!--card는 10~2 까지 있으며 10이 가장상단,최신뉴스임-->
+
+                <ImageButton
+                    android:id="@+id/ClientFragment1_card10"
+                    android:layout_width="320dp"
+                    android:layout_height="320dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/img_card10" />
+
+                <ImageButton
+                    android:id="@+id/ClientFragment1_card9"
+                    android:layout_width="320dp"
+                    android:layout_height="320dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/img_card9" />
+
+                <ImageButton
+                    android:id="@+id/ClientFragment1_card8"
+                    android:layout_width="320dp"
+                    android:layout_height="320dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/img_card8" />
+
+                <ImageButton
+                    android:id="@+id/ClientFragment1_card7"
+                    android:layout_width="320dp"
+                    android:layout_height="320dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/img_card7" />
+
+                <ImageButton
+                    android:id="@+id/ClientFragment1_card6"
+                    android:layout_width="320dp"
+                    android:layout_height="320dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/img_card6" />
+
+                <ImageButton
+                    android:id="@+id/ClientFragment1_card5"
+                    android:layout_width="320dp"
+                    android:layout_height="320dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/img_card5" />
+
+                <ImageButton
+                    android:id="@+id/ClientFragment1_card4"
+                    android:layout_width="320dp"
+                    android:layout_height="320dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/img_card4" />
+
+                <ImageButton
+                    android:id="@+id/ClientFragment1_card3"
+                    android:layout_width="320dp"
+                    android:layout_height="320dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/img_card3" />
+
+                <ImageButton
+                    android:id="@+id/ClientFragment1_card2"
+                    android:layout_width="320dp"
+                    android:layout_height="320dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/img_card2" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="10dp"
+                    android:text="댕겨와는 거래 중개자로서 거래의 당사자가 아니며\n 상품 거래정보 및 거래 등에 대해 책임을 지지 않습니다."
+                    android:textAlignment="center"
+
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

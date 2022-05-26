@@ -7,7 +7,7 @@
     tools:context=".Main_Page">
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/frame"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/navi"
@@ -18,11 +18,11 @@
 
         <VideoView
             android:id="@+id/vv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="166dp"
+            android:layout_height="308dp" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/btn_feed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="300dp"
@@ -37,11 +37,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottommenu">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-

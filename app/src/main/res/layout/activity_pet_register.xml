@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:gravity="center_horizontal|center_vertical"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+        android:text="반려견 정보 입력"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/ManagerFragment1_Petprofile"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="50dp"
+        android:src="@drawable/img_add" />
+
+    <EditText
+        android:id="@+id/ManagerFragment1_SalesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="이름 입력"
+        android:inputType="textPersonName"
+        android:textColor="#090808"
+        android:textColorHint="#A7A1A1" />
+
+    <EditText
+        android:id="@+id/ManagerFragment1_address2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="품종 입력"
+        android:inputType="textPersonName"
+        android:textColor="#090808"
+        android:textColorHint="#A7A1A1" />
+
+    <EditText
+        android:id="@+id/ManagerFragment1_hashtag1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="나이 입력"
+        android:inputType="textPersonName"
+        android:textColor="#090808"
+        android:textColorHint="#A7A1A1" />
+
+    <EditText
+        android:id="@+id/ManagerFragment1_hashtag2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="특이사항 입력"
+        android:inputType="textPersonName"
+        android:textColor="#090808"
+        android:textColorHint="#A7A1A1" />
+
+    <LinearLayout
+        android:layout_width="381dp"
+        android:layout_height="30dp"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F6907B"
+        android:shadowColor="#F6907B"
+        android:text="Button"
+        android:textColor="#F3F3F6"
+        android:textColorHighlight="#F6907B"
+        android:textColorHint="#F6907B"
+        android:textColorLink="#F6907B"
+        app:rippleColor="#F6907B"
+        app:strokeColor="#F6907B"
+        tools:ignore="TextContrastCheck" />
+
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+</LinearLayout>

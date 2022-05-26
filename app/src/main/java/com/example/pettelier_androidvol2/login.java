@@ -68,14 +68,14 @@ public class login extends AppCompatActivity {
                     //로그인 성공 0은 로그인실패
                     try {
                         JSONObject jsonObject = new JSONObject(response);   //response가 JSON타입이 아닐 수 있어서 예외처리 해주기
-                        String id = jsonObject.getString("id");
-                        String pw = jsonObject.getString("pw");
-                        String nick = jsonObject.getString("nick");
-                        String name = jsonObject.getString("name");
-                        String phone = jsonObject.getString("phone");
-                        String address = jsonObject.getString("address");
-                        String joindate = jsonObject.getString("joindate");
-                        String type = jsonObject.getString("type");
+                        String id = jsonObject.getString("mb_id");
+                        String pw = jsonObject.getString("mb_pw");
+                        String nick = jsonObject.getString("mb_nick");
+                        String name = jsonObject.getString("mb_name");
+                        String phone = jsonObject.getString("mb_phone");
+                        String address = jsonObject.getString("mb_address");
+                        String joindate = jsonObject.getString("mb_joindate");
+                        String type = jsonObject.getString("mb_type");
 
                         //로그인 성공시 LoginSuccess 로 이동,
                         // MemberVO 만들어서 넘기기
@@ -127,8 +127,8 @@ public class login extends AppCompatActivity {
                 String pw = login_pw.getText().toString();
 
 
-                params.put("id", id);
-                params.put("pw",pw);
+                params.put("mb_id", id);
+                params.put("mb_pw",pw);
                 // key값은 서버에서 지정한 name과 동일하게
 
                 return params;

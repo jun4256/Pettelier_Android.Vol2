@@ -35,16 +35,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="아이디"
-        android:inputType="textPersonName" />
+        android:hint="아이디 입력"
+        android:inputType="textPersonName"
+        android:textColorHint="#707070" />
 
     <EditText
         android:id="@+id/login_pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="비밀번호"
-        android:inputType="textPersonName" />
+        android:hint="비밀번호 입력"
+        android:inputType="textPersonName"
+        android:textColorHint="#707070" />
 
     <RelativeLayout
         android:layout_width="wrap_content"

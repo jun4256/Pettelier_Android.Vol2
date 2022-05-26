@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fm_home">
 
-
-
     <TextView
         android:id="@+id/tv_home"
         android:layout_width="wrap_content"
@@ -17,5 +15,4 @@
         android:text="HOME"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

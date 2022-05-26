@@ -7,7 +7,6 @@
     tools:context=".fm_board">
 
 
-
     <TextView
         android:id="@+id/tv_board"
         android:layout_width="wrap_content"

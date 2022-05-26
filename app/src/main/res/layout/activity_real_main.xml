@@ -37,23 +37,35 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/google_nickname"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="쫑이님, "
-                android:textColor="#000000"
-                android:textSize="30dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="반려동물을 위해 준비하세요."
-                android:textColor="#000000"
-                android:textSize="22dp"
-                android:textStyle="bold" />
+                <Button
+                    android:id="@+id/google_nickname"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="로그인"
+                    android:textColor="#000000"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|left"
+                    android:layout_weight="1"
+                    android:gravity="bottom|left"
+                    android:text="해주세요."
+                    android:textColor="#000000"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -149,7 +161,7 @@
                         android:id="@+id/ClientFragment1_youtube3"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:onClick="onyoutube3"
+                        android:onClick="onyoutube2"
                         android:background="@drawable/img_youtube3" />
 
                     <TextView

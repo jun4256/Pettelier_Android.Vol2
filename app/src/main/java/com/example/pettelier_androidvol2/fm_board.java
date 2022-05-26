@@ -18,7 +18,7 @@ public class fm_board extends Fragment {
 
     @Override
     @Nullable
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
+    public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View fragment = inflater.inflate(R.layout.board, container, false);
 
         //board 페이지에서 만든 각종 요소

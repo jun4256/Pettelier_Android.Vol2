@@ -6,14 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".fm_board">
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="229dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_board" />
 
     <TextView
         android:id="@+id/tv_board"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="237dp"
-        android:layout_marginBottom="268dp"
-        android:text="BOARD"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_width="174dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="게시판"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

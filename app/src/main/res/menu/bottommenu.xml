@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/info"
+        android:id="@+id/board"
         android:icon="@android:drawable/stat_notify_chat"
         android:title="게시판" />
     <item
-        android:id="@+id/list"
+        android:id="@+id/go_home"
         android:icon="@android:drawable/star_big_on"
         android:title="홈" />
     <item

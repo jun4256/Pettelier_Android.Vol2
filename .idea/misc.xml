@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_login.xml" value="0.35507246376811596" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_login.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_main.xml" value="0.296195652173913" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_main_page.xml" value="0.35507246376811596" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_pet_register.xml" value="0.35507246376811596" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_main_page.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_pet_register.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_real_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/board.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/menu/activity_main_drawer.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/menu/bottommenu.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/menu/main__pre_login.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>

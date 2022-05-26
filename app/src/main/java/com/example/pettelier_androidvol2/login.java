@@ -80,6 +80,8 @@ public class login extends AppCompatActivity {
                         //로그인 성공시 LoginSuccess 로 이동,
                         // MemberVO 만들어서 넘기기
                         MemberVO vo = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
+                        vo = loginCheck.info;
+
                         //Intent intent = new Intent(getApplicationContext(),LoginSuccess.class);
                         //intent.putExtra("vo",vo);
                         //startActivity(intent);

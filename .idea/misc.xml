@@ -3,11 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_login.xml" value="0.35507246376811596" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_main.xml" value="0.296195652173913" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_main_page.xml" value="0.35507246376811596" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_pet_register.xml" value="0.35507246376811596" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/menu/bottommenu.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/font/goldman.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_find_id.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_find_id_fail.xml" value="0.29393115942028986" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_find_id_success.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_join.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_main_page.xml" value="0.2767210144927536" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_new_pw_reset.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_pet_register.xml" value="0.2609375" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_pw_reset.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/find_id.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/find_id2.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/find_id_fail.xml" value="0.33" />
       </map>
     </option>
   </component>

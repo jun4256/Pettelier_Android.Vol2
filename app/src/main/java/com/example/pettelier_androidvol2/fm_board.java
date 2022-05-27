@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -29,6 +30,7 @@ public class fm_board extends Fragment {
     private ArrayList<String> items = new ArrayList<>();    //어댑터에 들어갈 데이터
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
+    private Button btn_write;
 
 
 
@@ -37,9 +39,11 @@ public class fm_board extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View fragment = inflater.inflate(R.layout.board, container, false);
 
-        //board 페이지에서 만든 각종 요소
+        //객체 찾아옴
         tv_board = fragment.findViewById(R.id.tv_board);
         board_list = fragment.findViewById(R.id.board_list);
+        btn_write = fragment.findViewById(R.id.btn_write);
+
 
         //spinner 객체 생성 (드롭다운)
         Spinner spinner = fragment.findViewById(R.id.spinner);
@@ -48,11 +52,14 @@ public class fm_board extends Fragment {
         adapter.setDropDownViewResource((android.R.layout.simple_dropdown_item_1line));
         spinner.setAdapter(adapter);
 
+
         //드롭다운 선택시 텍스트뷰에 나타남
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 tv_board.setText(board_drop[i]);
+                
+
             }
 
             @Override

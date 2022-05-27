@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:background="#F6907B"
         android:shadowColor="#F6907B"
-        android:text="Button"
+        android:text="등록"
         android:textColor="#F3F3F6"
         android:textColorHighlight="#F6907B"
         android:textColorHint="#F6907B"

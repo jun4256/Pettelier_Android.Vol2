@@ -25,7 +25,7 @@ public class fm_board extends Fragment {
     private TextView tv_board;
     private String[] board_drop = {"정보공유","문의","당근"};
     private ListView board_list;
-    private ArrayAdapter<String> boardAdapter;   //리스트뷰에 적용되는 어댑터
+    private ArrayAdapter<String> boardAdapter;   //리스트뷰에 적용되는 보드어댑터
     private ArrayList<String> items = new ArrayList<>();    //어댑터에 들어갈 데이터
     private RequestQueue requestQueue;
     private StringRequest stringRequest;

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.pettelier_androidvol2">
 
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,26 +15,25 @@
         android:theme="@style/Theme.Pettelier_AndroidVol2"
         tools:targetApi="31">
         <activity
-            android:name=".pet_regi_retouch"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            android:name=".Real_Main"
+            android:exported="true" >
         </activity>
 
         <activity
-            android:name=".Real_Main"
-            android:exported="true"></activity>
-        <activity
             android:name=".Main_Page"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
     </application>
 
 </manifest>

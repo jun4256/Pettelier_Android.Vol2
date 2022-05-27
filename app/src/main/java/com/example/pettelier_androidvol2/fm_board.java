@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -29,6 +30,7 @@ public class fm_board extends Fragment {
     private ArrayList<String> items = new ArrayList<>();    //어댑터에 들어갈 데이터
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
+    private Button btn_write;
 
 
 
@@ -53,6 +55,7 @@ public class fm_board extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 tv_board.setText(board_drop[i]);
+
             }
 
             @Override

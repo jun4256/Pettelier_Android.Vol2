@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FBF6F6"
     android:orientation="vertical">
-    tools:context=".Real_Main">
+    tools:context=".After_Login_Main">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:text="로그인"
+                    android:text="크르릌컄"
                     android:textColor="#000000"
                     android:textSize="30dp"
                     android:textStyle="bold" />
@@ -60,7 +60,7 @@
                     android:layout_gravity="bottom|left"
                     android:layout_weight="1"
                     android:gravity="bottom|left"
-                    android:text="해주세요."
+                    android:text="님 환영합니다."
                     android:textColor="#000000"
                     android:textSize="22dp"
                     android:textStyle="bold" />
@@ -80,7 +80,7 @@
                     android:layout_height="110dp"
                     android:layout_marginRight="30dp"
 
-                    android:text="회원가입"
+                    android:text="반려동물 \n등록하기"
 
                     android:textSize="18dp" />
 
@@ -89,7 +89,7 @@
                     android:layout_width="110dp"
                     android:layout_height="110dp"
 
-                    android:text="ID/PW \n찾기"
+                    android:text="반려동물 \n모니터링"
 
                     android:textSize="18dp" />
 

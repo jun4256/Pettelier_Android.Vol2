@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ public class fm_setting extends Fragment {
     private ListView listView;
     private ArrayList<String> items = new ArrayList<String>();
     private ArrayAdapter<String> adapter;
-
+    private int stop=1;
 
 
     @Nullable
@@ -30,18 +31,20 @@ public class fm_setting extends Fragment {
         View fragment = inflater.inflate(R.layout.setting, container, false);
         tv_setting = fragment.findViewById(R.id.tv_setting);
         listView = fragment.findViewById(R.id.listview);
+
+        if(stop==1){
         items.add("1.내 정보 수정");
         items.add("2.개 정보 수정");
         items.add("3.개 추가 ");
+        stop=stop-1;
+        }
         adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1,items);
-
+        listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-
-
-
+                String value = (String) adapterView.getItemAtPosition(i);
+                Log.v("myValue",value);
             }
         });
 

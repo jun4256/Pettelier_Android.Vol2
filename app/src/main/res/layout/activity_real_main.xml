@@ -161,7 +161,7 @@
                         android:id="@+id/ClientFragment1_youtube3"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:onClick="onyoutube2"
+                        android:onClick="onyoutube3"
                         android:background="@drawable/img_youtube3" />
 
                     <TextView
@@ -195,6 +195,7 @@
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
+                    android:onClick="info10"
                     android:background="@drawable/img_card10" />
 
                 <ImageButton
@@ -202,6 +203,7 @@
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
+                    android:onClick="info9"
                     android:background="@drawable/img_card9" />
 
                 <ImageButton
@@ -209,6 +211,7 @@
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
+                    android:onClick="info8"
                     android:background="@drawable/img_card8" />
 
                 <ImageButton
@@ -216,6 +219,7 @@
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
+                    android:onClick="info7"
                     android:background="@drawable/img_card7" />
 
                 <ImageButton
@@ -223,6 +227,7 @@
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
+                    android:onClick="info6"
                     android:background="@drawable/img_card6" />
 
                 <ImageButton
@@ -230,6 +235,7 @@
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
+                    android:onClick="info5"
                     android:background="@drawable/img_card5" />
 
                 <ImageButton
@@ -237,6 +243,7 @@
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
+                    android:onClick="info4"
                     android:background="@drawable/img_card4" />
 
                 <ImageButton
@@ -244,6 +251,7 @@
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
+                    android:onClick="info3"
                     android:background="@drawable/img_card3" />
 
                 <ImageButton
@@ -251,6 +259,7 @@
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
+                    android:onClick="info2"
                     android:background="@drawable/img_card2" />
 
 
@@ -259,7 +268,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginVertical="10dp"
-                    android:text="댕겨와는 거래 중개자로서 거래의 당사자가 아니며\n 상품 거래정보 및 거래 등에 대해 책임을 지지 않습니다."
+                    android:text="펫텔리어는 거래 중개자로서 거래의 당사자가 아니며\n 상품 거래정보 및 거래 등에 대해 책임을 지지 않습니다."
                     android:textAlignment="center"
 
                     android:textSize="10dp" />

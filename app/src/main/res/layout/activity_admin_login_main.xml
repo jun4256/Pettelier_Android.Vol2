@@ -75,7 +75,7 @@
                 android:paddingTop="20dp">
 
                 <Button
-                    android:id="@+id/ClientFragment1_userInfoBtn"
+                    android:id="@+id/ClientFragment1_CageRegisterBtn"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:layout_marginRight="30dp"
@@ -86,7 +86,7 @@
                     android:textSize="18dp" />
 
                 <Button
-                    android:id="@+id/ClientFragment1_userInfoChangeBtn"
+                    android:id="@+id/ClientFragment1_PetMonitoringBtn"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
 
@@ -105,7 +105,7 @@
                 android:paddingTop="20dp">
 
                 <Button
-                    android:id="@+id/ClientFragment1_userInfoBtn"
+                    android:id="@+id/ClientFragment1_PetFeedBtn"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:layout_marginRight="30dp"
@@ -116,7 +116,7 @@
                     android:textSize="18dp" />
 
                 <Button
-                    android:id="@+id/ClientFragment1_userInfoChangeBtn"
+                    android:id="@+id/ClientFragment1_PetVentilatorBtn"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
 

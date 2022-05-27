@@ -39,6 +39,7 @@ public class fm_board extends Fragment {
 
         //board 페이지에서 만든 각종 요소
         tv_board = fragment.findViewById(R.id.tv_board);
+        board_list = fragment.findViewById(R.id.board_list);
 
         //spinner 객체 생성 (드롭다운)
         Spinner spinner = fragment.findViewById(R.id.spinner);

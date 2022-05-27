@@ -6,14 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".fm_board">
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="229dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_board" />
+    <ListView
+        android:id="@+id/board_list"
+        android:layout_width="409dp"
+        android:layout_height="514dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="144dp" />
 
     <TextView
         android:id="@+id/tv_board"
@@ -27,10 +25,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/board_list"
-        android:layout_width="409dp"
-        android:layout_height="514dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="144dp" />
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="229dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_board" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

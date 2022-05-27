@@ -28,7 +28,7 @@ public class Main_Page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
-
+        vv=findViewById(R.id.vv);                // 동영상 추후 변경
         Uri viedeoURI = Uri.parse("ddaf.mp4");   // 동영상 추후 변경
 
         board = new fm_board();   // 네비바 게시판

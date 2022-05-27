@@ -16,6 +16,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <VideoView
+            android:id="@+id/vv"
+            android:layout_width="166dp"
+            android:layout_height="308dp" />
+
         <ImageButton
             android:id="@+id/btn_feed"
             android:layout_width="wrap_content"

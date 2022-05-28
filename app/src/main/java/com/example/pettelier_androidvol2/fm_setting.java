@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -38,13 +40,28 @@ public class fm_setting extends Fragment {
         items.add("3.개 추가 ");
         stop=stop-1;
         }
+
         adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1,items);
+
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String value = (String) adapterView.getItemAtPosition(i);
-                Log.v("myValue",value);
+
+                 String num = (String) adapterView.getItemAtPosition(i);
+
+                Log.v("i",num);
+
+                if(num=="2.개 정보 수정"){
+                    Intent intent = new Intent(getContext(),pet_regi_retouch.class);
+                    startActivity(intent);
+                }
+
+                if(num=="1.내 정보 수정"){
+                    Intent intent = new Intent(getContext(),fm_board.class);
+                    startActivity(intent);
+                }
             }
         });
 

@@ -47,18 +47,18 @@ public class fm_setting extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String value = (String) adapterView.getItemAtPosition(i);
+
 
                  String num = (String) adapterView.getItemAtPosition(i);
 
                 Log.v("i",num);
 
-                if(num=="2.개 정보 수정"){
+                if(num=="2.개 정보 수정"){  // Manifest에 activity 클래스 추가해주고 쓰세요 ^^
                     Intent intent = new Intent(getContext(),pet_regi_retouch.class);
                     startActivity(intent);
                 }
 
-                if(num=="1.내 정보 수정"){
+                if(num=="1.내 정보 수정"){     //임시로 넣음 아무튼 일단 됨 .,
                     Intent intent = new Intent(getContext(),fm_board.class);
                     startActivity(intent);
                 }

@@ -32,6 +32,8 @@ public class login extends AppCompatActivity {
     private EditText login_id,login_pw;
     private Button btn_login;
     private TextView tv_find,tv_join;
+
+
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
 
@@ -59,7 +61,7 @@ public class login extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.24:8082/web/andLogin.do";
+        String url = "http://59.0.129.176:8081/web/andLogin.do";
 
         // 1.객체만들고 요청 주소만듦
 

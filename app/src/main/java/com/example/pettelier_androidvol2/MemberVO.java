@@ -77,6 +77,7 @@ public class MemberVO {
     public MemberVO(){
 
     }
+
     public MemberVO(String id, String pw, String nick, String name, String phone, String address, String joindate, String type) {
         this.id = id;
         this.pw = pw;
@@ -86,5 +87,19 @@ public class MemberVO {
         this.address = address;
         this.joindate = joindate;
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "MemberVO{" +
+                "id='" + id + '\'' +
+                ", pw='" + pw + '\'' +
+                ", nick='" + nick + '\'' +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", joindate='" + joindate + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
 }

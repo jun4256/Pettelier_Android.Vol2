@@ -24,7 +24,13 @@ public class Loading extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        },2000);
+        },900);
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
     }
 }

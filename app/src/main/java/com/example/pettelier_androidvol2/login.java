@@ -59,7 +59,7 @@ public class login extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.24:8082/web/andLogin.do";
+        String url = "http://172.30.1.28:8089/web/andLogin.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -92,7 +92,7 @@ public class login extends AppCompatActivity {
                         //intent.putExtra("vo",vo);
                         //startActivity(intent);
 
-
+                        Toast.makeText(login.this,"로그인성공",Toast.LENGTH_SHORT).show();
 
                     } catch (JSONException e) {
                         e.printStackTrace();

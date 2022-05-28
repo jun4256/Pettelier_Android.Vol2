@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -30,6 +31,7 @@ import java.util.Map;
 public class login extends AppCompatActivity {
     private EditText login_id,login_pw;
     private Button btn_login;
+    private TextView tv_find,tv_join;
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
 
@@ -40,6 +42,9 @@ public class login extends AppCompatActivity {
         login_id = findViewById(R.id.login_id);
         login_pw = findViewById(R.id.login_pw);
         btn_login = findViewById(R.id.btn_login);
+        tv_join = findViewById(R.id.tv_join);
+        tv_find = findViewById(R.id.tv_find);
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

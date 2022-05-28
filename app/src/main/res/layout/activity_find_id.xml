@@ -72,7 +72,8 @@
             android:layout_marginLeft="125dp"
             android:layout_marginTop="30dp"
             android:gravity="center"
-            android:text="아이디 찾기" />
+            android:text="아이디 찾기"
+            android:textColor="#F3F3F6" />
     </LinearLayout>
 
 </LinearLayout>

@@ -53,7 +53,8 @@
             android:layout_marginTop="30dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="아이디 찾기" />
+            android:text="아이디 찾기"
+            android:textColor="#F3F3F6" />
 
         <View
             android:id="@+id/view"
@@ -69,7 +70,8 @@
             android:layout_marginRight="70dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="회원가입하기" />
+            android:text="회원가입하기"
+            android:textColor="#F3F3F6" />
     </LinearLayout>
 
 </LinearLayout>

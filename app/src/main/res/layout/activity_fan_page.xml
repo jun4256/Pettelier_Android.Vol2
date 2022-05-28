@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="ToggleButton"
-                    android:textColor="#4E4E4E" />
+                    android:textColor="#F3F3F6" />
             </LinearLayout>
 
         </LinearLayout>
@@ -123,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="ToggleButton"
-                    android:textColor="#4E4E4E" />
+                    android:textColor="#F3F3F6" />
             </LinearLayout>
         </LinearLayout>
 
@@ -161,7 +161,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="ToggleButton"
-                    android:textColor="#4E4E4E" />
+                    android:textColor="#F3F3F6" />
             </LinearLayout>
         </LinearLayout>
 
@@ -199,7 +199,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="ToggleButton"
-                    android:textColor="#4E4E4E" />
+                    android:textColor="#F3F3F6" />
             </LinearLayout>
         </LinearLayout>
 
@@ -237,7 +237,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="ToggleButton"
-                    android:textColor="#4E4E4E" />
+                    android:textColor="#F3F3F6" />
             </LinearLayout>
         </LinearLayout>
 
@@ -275,7 +275,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="ToggleButton"
-                    android:textColor="#4E4E4E" />
+                    android:textColor="#F3F3F6" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

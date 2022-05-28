@@ -14,18 +14,21 @@ import android.widget.VideoView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Main_Page extends AppCompatActivity {
+    private    VideoView vv;           // 비디오 나중에 작성
 
     private BottomNavigationView navi;   // 하단 네비게이션 바
     private fm_board board;   //프라그먼트 보드 (게시판 페이지 만든거 이름변경 하세요)
     private fm_home home;     // 프라그먼트 홈 ( 홈 페이지 만든거에 맞춰 이름변경 하세요)
     private fm_setting setting;   // 이거는 내가 만들었음
     private FragmentManager fm;  // fragment 객체 관리
+    private Button btn_feed;    // Feed 밥주기 버튼
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+        vv=findViewById(R.id.vv);                // 동영상 추후 변경
         Uri viedeoURI = Uri.parse("ddaf.mp4");   // 동영상 추후 변경
 
         board = new fm_board();   // 네비바 게시판

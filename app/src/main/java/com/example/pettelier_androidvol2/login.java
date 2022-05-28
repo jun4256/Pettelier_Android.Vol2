@@ -2,6 +2,7 @@ package com.example.pettelier_androidvol2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -59,7 +60,7 @@ public class login extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/andLogin.do";
+        String url = "http://218.149.140.51:8089/web/andLogin.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -68,7 +69,7 @@ public class login extends AppCompatActivity {
             // 응답데이터를 받아오는 곳
             @Override
             public void onResponse(String response) {
-                Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
+                Log.v("resultValue", response);         //응답글자 수 보여짐,
                 if(response.length() > 0) {
                     //로그인 성공
                     // 0은 로그인실패
@@ -83,24 +84,23 @@ public class login extends AppCompatActivity {
                         String joindate = jsonObject.getString("mb_joindate");
                         String type = jsonObject.getString("mb_type");
 
-                        //로그인 성공시 LoginSuccess 로 이동,
                         // MemberVO 만들어서 넘기기
-                        MemberVO vo = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
-                        vo = loginCheck.info;
+                        loginCheck.info = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
+                        Log.v("info",loginCheck.info.getAddress());
 
-                        //Intent intent = new Intent(getApplicationContext(),LoginSuccess.class);
-                        //intent.putExtra("vo",vo);
-                        //startActivity(intent);
 
-                        Toast.makeText(login.this,"로그인성공",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(),Real_Main.class);
+                        startActivity(intent);
+
+
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
+                    Toast.makeText(getApplicationContext(),"로그인성공",Toast.LENGTH_SHORT).show();
                 }else {
                     //로그인실패
-                    Toast.makeText(login.this, "로그인실패", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "로그인실패", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -131,7 +131,6 @@ public class login extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 String id = login_id.getText().toString();
                 String pw = login_pw.getText().toString();
-
 
                 params.put("mb_id", id);
                 params.put("mb_pw",pw);

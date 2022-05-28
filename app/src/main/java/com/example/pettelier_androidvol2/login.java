@@ -70,7 +70,8 @@ public class login extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
                 if(response.length() > 0) {
-                    //로그인 성공 0은 로그인실패
+                    //로그인 성공
+                    // 0은 로그인실패
                     try {
                         JSONObject jsonObject = new JSONObject(response);   //response가 JSON타입이 아닐 수 있어서 예외처리 해주기
                         String id = jsonObject.getString("mb_id");

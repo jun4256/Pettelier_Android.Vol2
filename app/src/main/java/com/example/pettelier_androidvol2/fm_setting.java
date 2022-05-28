@@ -49,7 +49,7 @@ public class fm_setting extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
-                 String num = (String) adapterView.getItemAtPosition(i);
+                String num = (String) adapterView.getItemAtPosition(i);
 
                 Log.v("i",num);
 

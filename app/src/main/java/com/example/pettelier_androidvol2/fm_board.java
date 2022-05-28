@@ -58,7 +58,11 @@ public class fm_board extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 tv_board.setText(board_drop[i]);
-                
+
+
+
+
+
 
             }
 
@@ -67,6 +71,13 @@ public class fm_board extends Fragment {
                 tv_board.setText("");
 
             }
+
+
+
+
+
+
+
         });
         return fragment;
     }

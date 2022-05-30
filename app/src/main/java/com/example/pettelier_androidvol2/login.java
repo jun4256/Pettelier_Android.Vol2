@@ -2,6 +2,7 @@ package com.example.pettelier_androidvol2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -59,7 +60,7 @@ public class login extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/andLogin.do";
+        String url = "http://59.0.129.176:8081/web/andLogin.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -83,14 +84,14 @@ public class login extends AppCompatActivity {
                         String joindate = jsonObject.getString("mb_joindate");
                         String type = jsonObject.getString("mb_type");
 
-                        //로그인 성공시 LoginSuccess 로 이동,
+                        //로그인 성공시 After_Login_Main 으로 이동,
                         // MemberVO 만들어서 넘기기
-                        MemberVO vo = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
-                        vo = loginCheck.info;
+                        //MemberVO vo = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
 
-                        //Intent intent = new Intent(getApplicationContext(),LoginSuccess.class);
+                        loginCheck.info= new MemberVO(id,pw,nick,name,phone,address,joindate,type);
+                        Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
                         //intent.putExtra("vo",vo);
-                        //startActivity(intent);
+                        startActivity(intent);
 
                         Toast.makeText(login.this,"로그인성공",Toast.LENGTH_SHORT).show();
 

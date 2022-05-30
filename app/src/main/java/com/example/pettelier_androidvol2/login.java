@@ -95,11 +95,8 @@ public class login extends AppCompatActivity {
                         String mb_type = jsonObject.getString("mb_type");
 
                         // MemberVO 만들어서 넘기기
-                        //loginCheck.info = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
-                        Log.v("info",mb_address);
-
-
-                        Intent intent = new Intent(getApplicationContext(),Real_Main.class);
+                        loginCheck.info = new MemberVO(mb_id,mb_pw,mb_nick,mb_name,mb_phone,mb_address,mb_joindate,mb_type);
+                        Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
                         startActivity(intent);
 
 

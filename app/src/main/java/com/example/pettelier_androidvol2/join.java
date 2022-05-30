@@ -77,7 +77,7 @@ public class join extends AppCompatActivity {
     }
 
 
-    private void sendRequest2() {
+    public void sendRequest2() {
 
         //RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();

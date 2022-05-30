@@ -1,12 +1,6 @@
 package com.example.pettelier_androidvol2;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 public class boardWrite extends Fragment {
-    private Button btn_upload, btn_reset;
+    private Button reg_button, cle_button;
     private EditText board_title,content;
     private TextView writer;
 
@@ -28,8 +26,8 @@ public class boardWrite extends Fragment {
 
         board_title = fragment.findViewById(R.id.board_title);
         content = fragment.findViewById(R.id.content);
-        btn_upload = fragment.findViewById(R.id.btn_upload);
-        btn_reset = fragment.findViewById(R.id.btn_reset);
+        reg_button = fragment.findViewById(R.id.reg_button);
+        cle_button = fragment.findViewById(R.id.cle_button);
         writer = fragment.findViewById(R.id.writer);
 
 

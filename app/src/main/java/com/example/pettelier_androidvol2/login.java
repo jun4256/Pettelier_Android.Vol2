@@ -46,6 +46,16 @@ public class login extends AppCompatActivity {
         tv_join = findViewById(R.id.tv_join);
         tv_find = findViewById(R.id.tv_find);
 
+
+        tv_join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),join.class);
+                startActivity(intent);
+            }
+        });
+
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,18 +85,18 @@ public class login extends AppCompatActivity {
                     // 0은 로그인실패
                     try {
                         JSONObject jsonObject = new JSONObject(response);   //response가 JSON타입이 아닐 수 있어서 예외처리 해주기
-                        String id = jsonObject.getString("mb_id");
-                        String pw = jsonObject.getString("mb_pw");
-                        String nick = jsonObject.getString("mb_nick");
-                        String name = jsonObject.getString("mb_name");
-                        String phone = jsonObject.getString("mb_phone");
-                        String address = jsonObject.getString("mb_address");
-                        String joindate = jsonObject.getString("mb_joindate");
-                        String type = jsonObject.getString("mb_type");
+                        String mb_id = jsonObject.getString("mb_id");
+                        String mb_pw = jsonObject.getString("mb_pw");
+                        String mb_nick = jsonObject.getString("mb_nick");
+                        String mb_name = jsonObject.getString("mb_name");
+                        String mb_phone = jsonObject.getString("mb_phone");
+                        String mb_address = jsonObject.getString("mb_address");
+                        String mb_joindate = jsonObject.getString("mb_joindate");
+                        String mb_type = jsonObject.getString("mb_type");
 
                         // MemberVO 만들어서 넘기기
-                        loginCheck.info = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
-                        Log.v("info",loginCheck.info.getAddress());
+                        //loginCheck.info = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
+                        Log.v("info",mb_address);
 
 
                         Intent intent = new Intent(getApplicationContext(),Real_Main.class);

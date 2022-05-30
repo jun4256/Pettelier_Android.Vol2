@@ -2,6 +2,7 @@ package com.example.pettelier_androidvol2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,7 +34,6 @@ public class login extends AppCompatActivity {
     private Button btn_login;
     private TextView tv_find,tv_join;
 
-
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
 
@@ -46,6 +46,16 @@ public class login extends AppCompatActivity {
         btn_login = findViewById(R.id.btn_login);
         tv_join = findViewById(R.id.tv_join);
         tv_find = findViewById(R.id.tv_find);
+
+
+        tv_join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),join.class);
+                startActivity(intent);
+            }
+        });
+
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,39 +80,35 @@ public class login extends AppCompatActivity {
             // 응답데이터를 받아오는 곳
             @Override
             public void onResponse(String response) {
-                Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
+                Log.v("resultValue", response);         //응답글자 수 보여짐,
                 if(response.length() > 0) {
                     //로그인 성공
                     // 0은 로그인실패
                     try {
                         JSONObject jsonObject = new JSONObject(response);   //response가 JSON타입이 아닐 수 있어서 예외처리 해주기
-                        String id = jsonObject.getString("mb_id");
-                        String pw = jsonObject.getString("mb_pw");
-                        String nick = jsonObject.getString("mb_nick");
-                        String name = jsonObject.getString("mb_name");
-                        String phone = jsonObject.getString("mb_phone");
-                        String address = jsonObject.getString("mb_address");
-                        String joindate = jsonObject.getString("mb_joindate");
-                        String type = jsonObject.getString("mb_type");
-
-                        //로그인 성공시 LoginSuccess 로 이동,
+                        String mb_id = jsonObject.getString("mb_id");
+                        String mb_pw = jsonObject.getString("mb_pw");
+                        String mb_nick = jsonObject.getString("mb_nick");
+                        String mb_name = jsonObject.getString("mb_name");
+                        String mb_phone = jsonObject.getString("mb_phone");
+                        String mb_address = jsonObject.getString("mb_address");
+                        String mb_joindate = jsonObject.getString("mb_joindate");
+                        String mb_type = jsonObject.getString("mb_type");
+                        Log.v("info",mb_address);
                         // MemberVO 만들어서 넘기기
-                        MemberVO vo = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
-                        vo = loginCheck.info;
-
-                        //Intent intent = new Intent(getApplicationContext(),LoginSuccess.class);
-                        //intent.putExtra("vo",vo);
-                        //startActivity(intent);
+                        loginCheck.info = new MemberVO(mb_id,mb_pw,mb_nick,mb_name,mb_phone,mb_address,mb_joindate,mb_type);
+                        Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
+                        startActivity(intent);
 
 
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
+                    Toast.makeText(getApplicationContext(),"로그인성공",Toast.LENGTH_SHORT).show();
                 }else {
                     //로그인실패
-                    Toast.makeText(login.this, "로그인실패", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "로그인실패", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -134,10 +140,9 @@ public class login extends AppCompatActivity {
                 String id = login_id.getText().toString();
                 String pw = login_pw.getText().toString();
 
-
                 params.put("mb_id", id);
                 params.put("mb_pw",pw);
-                // key값은 서버에서 지정한 name과 동일하게
+                // key값은 서버에서 지정한 name 동일하게
 
                 return params;
             }

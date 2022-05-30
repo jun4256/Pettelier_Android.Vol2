@@ -24,7 +24,7 @@
 
         <TextView
             android:id="@+id/tv_findname"
-            android:layout_width="104dp"
+            android:layout_width="153dp"
             android:layout_height="54dp"
             android:gravity="center"
             android:text="이름" />
@@ -43,7 +43,7 @@
 
         <TextView
             android:id="@+id/tv_findphone"
-            android:layout_width="104dp"
+            android:layout_width="152dp"
             android:layout_height="54dp"
             android:gravity="center"
             android:text="휴대폰 번호" />
@@ -61,18 +61,28 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="108dp"
-        android:orientation="vertical">
+        android:layout_height="108dp">
 
         <Button
             android:id="@+id/btn_f_id"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="125dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
             android:gravity="center"
             android:text="아이디 찾기"
+            android:textColor="#F3F3F6" />
+
+        <Button
+            android:id="@+id/btn_f_cancel"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="취소"
             android:textColor="#F3F3F6" />
     </LinearLayout>
 

@@ -1,36 +1,27 @@
 package com.example.pettelier_androidvol2;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class boardWrite extends Fragment {
+public class boardWrite extends AppCompatActivity {
     private Button reg_button, cle_button;
-    private EditText board_title,content;
+    private EditText board_title, content;
     private TextView writer;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View fragment = inflater.inflate(R.layout.activity_board_write, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_board_write);
 
-        //객체찾아오기
+        reg_button = findViewById(R.id.reg_button);
+        cle_button = findViewById(R.id.cle_button);
+        board_title = findViewById(R.id.board_title);
+        content = findViewById(R.id.content);
+        writer = findViewById(R.id.writer);
 
-        board_title = fragment.findViewById(R.id.board_title);
-        content = fragment.findViewById(R.id.content);
-        reg_button = fragment.findViewById(R.id.reg_button);
-        cle_button = fragment.findViewById(R.id.cle_button);
-        writer = fragment.findViewById(R.id.writer);
-
-
-        return fragment;
     }
 }

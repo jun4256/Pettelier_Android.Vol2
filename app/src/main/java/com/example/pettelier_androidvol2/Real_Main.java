@@ -13,7 +13,8 @@ public class Real_Main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.go_home);
+        setContentView(R.layout.activity_real_main);
+        Intent intent = getIntent();
     }
 
     // 웹 페이지 띄우기

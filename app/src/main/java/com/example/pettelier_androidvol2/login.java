@@ -142,6 +142,7 @@ public class login extends AppCompatActivity {
 
                 params.put("mb_id", id);
                 params.put("mb_pw",pw);
+                Log.v("testValue", id + pw);
                 // key값은 서버에서 지정한 name 동일하게
 
                 return params;

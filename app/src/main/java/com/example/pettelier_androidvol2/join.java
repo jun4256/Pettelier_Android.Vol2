@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class join extends AppCompatActivity {
 
-    private EditText edt_id, edt_pw, edt_nick, edt_name, edt_phone, edt_adr;
+    private EditText edt_id, edt_pw, edt_nick, edt_name, edt_phone, edt_adr, edt_adr2;
     private Button btn_confirm, btn_join, btn_cancel;
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
@@ -120,7 +120,7 @@ public class join extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/idCheck.do";
+        String url = "http://218.149.140.51:8089/web/idCheck.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -182,18 +182,13 @@ public class join extends AppCompatActivity {
 
 
 
-    private void sendRequest2() {
+    public void sendRequest2() {
 
         //RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/joinInsert.do";
-
-        // 고은 : 218.149.140.51:8089
-        // 시윤 : 59.0.129.176:8081
-        // 준범 : 210.223.239.212:8081
-        // 진관 : 220.80.165.82:8081
+        String url = "http://218.149.140.51:8089/web/joinInsert.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -206,7 +201,7 @@ public class join extends AppCompatActivity {
                 Log.v("resultValue",response);
                 Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
                 if(response.length() > 0) {
-                    Intent intent = new Intent(getApplicationContext(),Real_Main.class);
+                    Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
                     startActivity(intent);
 
 

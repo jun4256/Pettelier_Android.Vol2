@@ -32,7 +32,6 @@ public class find_id extends AppCompatActivity {
 
     private EditText edt_findname, edt_findphone;
     private Button btn_f_id, btn_f_cancel;
-    private String all_name, all_phone;
 
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
@@ -55,12 +54,12 @@ public class find_id extends AppCompatActivity {
                 String name = edt_findname.getText().toString();
                 String phone = edt_findphone.getText().toString();
 
-                if (edt_findname.length()==0){
+                if (name.length()==0){
                     Toast.makeText(getApplicationContext(),"이름을 입력해주세요",Toast.LENGTH_SHORT).show();
                     edt_findname.requestFocus();
                     return;
                 }
-                if (edt_findphone.length()==0){
+                if (phone.length()==0){
                     Toast.makeText(getApplicationContext(),"연락처를 입력해주세요",Toast.LENGTH_SHORT).show();
                     edt_findphone.requestFocus();
                     return;

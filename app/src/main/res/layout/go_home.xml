@@ -44,7 +44,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_Mainlogin"
+                    android:id="@+id/btn_nick"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -75,7 +75,7 @@
                 android:paddingTop="20dp">
 
                 <Button
-                    android:id="@+id/ClientFragment1_userInfoBtn"
+                    android:id="@+id/Main_btn3"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:layout_marginRight="30dp"
@@ -85,7 +85,7 @@
                     android:textSize="18dp" />
 
                 <Button
-                    android:id="@+id/ClientFragment1_userInfoChangeBtn"
+                    android:id="@+id/Main_btn4"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
 

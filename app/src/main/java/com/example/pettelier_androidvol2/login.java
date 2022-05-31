@@ -46,6 +46,7 @@ public class login extends AppCompatActivity {
         tv_join = findViewById(R.id.tv_join);
         tv_find = findViewById(R.id.tv_find);
         Intent intent = getIntent();
+
         tv_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,9 +75,9 @@ public class login extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/andLogin.do";
+        String url = "http://172.30.1.28:8089/web/andLogin.do";
 
-        // 고은 : 218.149.140.51:8089
+        // 고은 :  172.30.1.28:8089
         // 시윤 : 59.0.129.176:8081
         // 준범 : 210.223.239.212:8081
         // 진관 : 220.80.165.82:8081

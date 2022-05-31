@@ -75,7 +75,7 @@ public class MemberUpdate extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.29:8089/web/updateService.do";
+        String url = "http://172.30.1.28:8089/web/updateService.do";
 
 
         // 요청시 필요한 문자열 객체 생성  매개변수  4개(통신방식(get,post),요청url주소, new 리스너(익명클래스)-응답시필요한부분 작성함)
@@ -87,31 +87,21 @@ public class MemberUpdate extends AppCompatActivity {
                 if(response.length() > 0) {
                     //로그인 성공
                     // 0은 로그인실패
-                    try {
-                        JSONObject jsonObject = new JSONObject(response);   //response가 JSON타입이 아닐 수 있어서 예외처리 해주기
-                        String id = jsonObject.getString("mb_id");
-                        String pw = jsonObject.getString("mb_pw");
-                        String nick = jsonObject.getString("mb_nick");
-                        String name = jsonObject.getString("mb_name");
-                        String phone = jsonObject.getString("mb_phone");
-                        String address = jsonObject.getString("mb_address");
-                        String joindate = jsonObject.getString("mb_joindate");
-                        String type = jsonObject.getString("mb_type");
+                    String id = loginCheck.info.getId();
+                    String pw = update_pw.getText().toString();
+                    String nick = update_nick.getText().toString();
+                    String name = update_name.getText().toString();
+                    String phone = update_phone.getText().toString();
+                    String adr = update_adr.getText().toString();
 
-                        //로그인 성공시 After_Login_Main 으로 이동,
-                        // MemberVO 만들어서 넘기기
-                        //MemberVO vo = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
 
-                        loginCheck.info= new MemberVO(id,pw,nick,name,phone,address,joindate,type);
-                        Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
-                        //intent.putExtra("vo",vo);
-                        startActivity(intent);
+                    loginCheck.info= new MemberVO(id,pw,nick,name,phone,adr);
+                    Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
+                    //intent.putExtra("vo",vo);
+                    startActivity(intent);
 
-                        Toast.makeText(getApplicationContext(),"수정 완료!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"수정 완료!",Toast.LENGTH_SHORT).show();
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
 
                 }else {
                     //로그인실패
@@ -144,7 +134,7 @@ public class MemberUpdate extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                String id = update_id.getText().toString();
+                String id = loginCheck.info.getId();
                 String pw = update_pw.getText().toString();
                 String nick = update_nick.getText().toString();
                 String name = update_name.getText().toString();

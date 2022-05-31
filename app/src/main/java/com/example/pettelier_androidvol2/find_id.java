@@ -103,6 +103,7 @@ public class find_id extends AppCompatActivity {
                         Log.v("id", mb_id);
 
                         Intent intent = new Intent(getApplicationContext(),find_id_success.class);
+                        intent.putExtra("mb_id",mb_id);
                         startActivity(intent);
 
                     } catch (JSONException e) {

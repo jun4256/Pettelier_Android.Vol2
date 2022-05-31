@@ -58,12 +58,8 @@ public class join extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 idCheck();
-
-
             }
         });
-
-
 
 
         btn_join.setOnClickListener(new View.OnClickListener() {
@@ -167,8 +163,8 @@ public class join extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                String joinId = edt_id.getText().toString();
-                params.put("mb_id", joinId);
+                String checkId = edt_id.getText().toString();
+                params.put("mb_id", checkId);
 
                 // key값은 서버에서 지정한 name과 동일하게
 

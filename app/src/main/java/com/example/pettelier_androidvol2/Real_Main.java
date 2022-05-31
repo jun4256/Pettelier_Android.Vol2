@@ -4,17 +4,34 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.w3c.dom.Text;
+
 
 public class Real_Main extends AppCompatActivity {
+
+    private Button btn_Mainlogin,Main_btn1,Main_btn2;
+    private TextView welcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_real_main);
-        Intent intent = getIntent();
+
+
+
+
+        Main_btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 
     // 웹 페이지 띄우기

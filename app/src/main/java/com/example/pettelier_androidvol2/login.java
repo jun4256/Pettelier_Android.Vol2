@@ -54,6 +54,13 @@ public class login extends AppCompatActivity {
             }
         });
 
+        tv_find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),find_id.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void sendRequest() {

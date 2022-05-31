@@ -55,27 +55,18 @@ public class find_id extends AppCompatActivity {
                 String name = edt_findname.getText().toString();
                 String phone = edt_findphone.getText().toString();
 
-//                if(all_name.equals(name) && all_phone.equals(phone)){
-//                    Intent intent = new Intent(getApplicationContext(),find_id_success.class);
-//                    //intent.putExtra("vo",vo);
-//                    startActivity(intent);
-//                }
-
-                if (edt_findname.length()==0){  // id len이 0이면.
+                if (edt_findname.length()==0){
                     Toast.makeText(getApplicationContext(),"이름을 입력해주세요",Toast.LENGTH_SHORT).show();
-                    edt_findname.requestFocus();    // 그 칸으로 이동하는 기능
+                    edt_findname.requestFocus();
                     return;
                 }
-                if (edt_findphone.length()==0){  // id len이 0이면.
+                if (edt_findphone.length()==0){
                     Toast.makeText(getApplicationContext(),"연락처를 입력해주세요",Toast.LENGTH_SHORT).show();
-                    edt_findphone.requestFocus();    // 그 칸으로 이동하는 기능
+                    edt_findphone.requestFocus();
                     return;
                 }
-                if(all_name.equals(name) && all_phone.equals(phone)){
-                    Intent intent = new Intent(getApplicationContext(),find_id_success.class);
-                    //intent.putExtra("vo",vo);
-                    startActivity(intent);
-                }
+
+                sendRequest();
             }
         });
 
@@ -111,11 +102,22 @@ public class find_id extends AppCompatActivity {
                     // 0은 로그인실패
                     try {
                         JSONObject jsonObject = new JSONObject(response);   //response가 JSON타입이 아닐 수 있어서 예외처리 해주기
+                        String id = jsonObject.getString("mb_id");
+                        String pw = jsonObject.getString("mb_pw");
+                        String nick = jsonObject.getString("mb_nick");
                         String name = jsonObject.getString("mb_name");
                         String phone = jsonObject.getString("mb_phone");
+                        String address = jsonObject.getString("mb_address");
+                        String joindate = jsonObject.getString("mb_joindate");
+                        String type = jsonObject.getString("mb_type");
 
-                        all_name= name;
-                        all_phone= phone;
+                        String name1 = edt_findname.getText().toString();
+                        String phone1 = edt_findphone.getText().toString();
+
+                        if(name.equals(name1) && phone.equals(phone1)){
+                            Intent intent = new Intent(getApplicationContext(),find_id_success.class);
+                            startActivity(intent);
+                        }
 
 
                     } catch (JSONException e) {
@@ -166,21 +168,5 @@ public class find_id extends AppCompatActivity {
         stringRequest.setTag("main");       //구분자 어떤클라이언트에서 요청했는지 나타냄 (중요하지않음)
         requestQueue.add(stringRequest);        //실행 요청 add에 담으면 자동요청
     }
-//    private void findid(){
-//        String name = edt_findname.getText().toString().trim();
-//        String phone = edt_findphone.getText().toString().trim();
-//
-//        if(name.length()==0){
-//            Toast.makeText(this, "이름을 입력해주세요", Toast.LENGTH_SHORT).show();
-//            edt_findname.requestFocus();
-//
-//            return;
-//        }
-//        if(phone.length()==0){
-//            Toast.makeText(this, "연락처를 입력해주세요", Toast.LENGTH_SHORT).show();
-//            edt_findphone.requestFocus();
-//
-//            return;
-//        }
 
-    }
+}

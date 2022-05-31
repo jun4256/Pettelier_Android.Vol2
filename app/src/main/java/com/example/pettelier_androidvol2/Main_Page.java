@@ -1,15 +1,16 @@
 package com.example.pettelier_androidvol2;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -19,7 +20,7 @@ public class Main_Page extends AppCompatActivity {
     private BottomNavigationView navi;   // 하단 네비게이션 바
     private fm_board board;   //프라그먼트 보드 (게시판 페이지 만든거 이름변경 하세요)
     private fm_home home;     // 프라그먼트 홈 ( 홈 페이지 만든거에 맞춰 이름변경 하세요)
-    private fm_setting setting;   // 이거는 내가 만들었음
+    private Setting setting;   //  세팅수정함
     private FragmentManager fm;  // fragment 객체 관리
     private Button btn_feed;    // Feed 밥주기 버튼
 
@@ -33,7 +34,7 @@ public class Main_Page extends AppCompatActivity {
 
         board = new fm_board();   // 네비바 게시판
         home = new fm_home();     // 네비바   홈
-        setting = new fm_setting();  // 네비바 세팅
+        setting = new Setting();  // 네비바 세팅
         fm = getSupportFragmentManager();   // 프라그먼트 매니저 셋팅
 
 
@@ -52,7 +53,8 @@ public class Main_Page extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "홈", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.setting:
-                        fm.beginTransaction().replace(R.id.frame,setting).commit();
+                       Intent intent = new Intent(getApplicationContext(),Setting.class);
+                       startActivity(intent);
                         Toast.makeText(getApplicationContext(), "설정", Toast.LENGTH_SHORT).show();
                         break;
                 }

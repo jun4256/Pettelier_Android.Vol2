@@ -10,6 +10,15 @@ public class MemberVO {
     private String joindate;
     private String type;
 
+    public MemberVO(String id, String pw, String nick, String name, String phone, String adr) {
+        this.id = id;
+        this.pw = pw;
+        this.nick = nick;
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+    }
+
     public String getId() {
         return id;
     }
@@ -78,6 +87,7 @@ public class MemberVO {
 
     }
 
+
     public MemberVO(String id, String pw, String nick, String name, String phone, String address, String joindate, String type) {
         this.id = id;
         this.pw = pw;
@@ -102,4 +112,5 @@ public class MemberVO {
                 ", type='" + type + '\'' +
                 '}';
     }
+
 }

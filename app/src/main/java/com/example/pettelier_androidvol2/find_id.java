@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class find_id extends AppCompatActivity {
 
-    private EditText edt_findname, edt_findphone;
+    private EditText edt_findphone;
     private Button btn_f_id, btn_f_cancel;
 
     private RequestQueue requestQueue;
@@ -41,7 +41,6 @@ public class find_id extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_id);
 
-        edt_findname = findViewById(R.id.edt_findname);
         edt_findphone = findViewById(R.id.edt_findphone);
 
         btn_f_id = findViewById(R.id.btn_f_id);
@@ -51,21 +50,18 @@ public class find_id extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String name = edt_findname.getText().toString();
-                String phone = edt_findphone.getText().toString();
+                String mb_phone = edt_findphone.getText().toString();
 
-                if (name.length()==0){
-                    Toast.makeText(getApplicationContext(),"이름을 입력해주세요",Toast.LENGTH_SHORT).show();
-                    edt_findname.requestFocus();
-                    return;
-                }
-                if (phone.length()==0){
+
+                if (mb_phone.length()==0){
                     Toast.makeText(getApplicationContext(),"연락처를 입력해주세요",Toast.LENGTH_SHORT).show();
                     edt_findphone.requestFocus();
                     return;
+
+
                 }
 
-                sendRequest();
+                sendRequest(mb_phone);
             }
         });
 
@@ -76,12 +72,12 @@ public class find_id extends AppCompatActivity {
             }
         });
     }
-    private void sendRequest() {
+    private void sendRequest(String mb_phone) {
         //RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://59.0.129.176:8081/web/andLogin.do";
+        String url = "http://59.0.129.176:8081/web/findId.do";
 
         // 고은 : 218.149.140.51:8089
         // 시윤 : 59.0.129.176:8081
@@ -101,23 +97,13 @@ public class find_id extends AppCompatActivity {
                     // 0은 로그인실패
                     try {
                         JSONObject jsonObject = new JSONObject(response);   //response가 JSON타입이 아닐 수 있어서 예외처리 해주기
-                        String id = jsonObject.getString("mb_id");
-                        String pw = jsonObject.getString("mb_pw");
-                        String nick = jsonObject.getString("mb_nick");
-                        String name = jsonObject.getString("mb_name");
-                        String phone = jsonObject.getString("mb_phone");
-                        String address = jsonObject.getString("mb_address");
-                        String joindate = jsonObject.getString("mb_joindate");
-                        String type = jsonObject.getString("mb_type");
 
-                        String name1 = edt_findname.getText().toString();
-                        String phone1 = edt_findphone.getText().toString();
+                        // 서버에서 가져와서 안드로이드 창에 띄워줄 결과 = 폰번호와 일치하는 아이디값
+                        String mb_id = jsonObject.getString("mb_id");
+                        Log.v("id", mb_id);
 
-                        if(name.equals(name1) && phone.equals(phone1)){
-                            Intent intent = new Intent(getApplicationContext(),find_id_success.class);
-                            startActivity(intent);
-                        }
-
+                        Intent intent = new Intent(getApplicationContext(),find_id_success.class);
+                        startActivity(intent);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -153,12 +139,11 @@ public class find_id extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                String name = edt_findname.getText().toString();
-                String phone = edt_findphone.getText().toString();
 
+                //String name = loginCheck.info.getName();
+                //String mb_phone = loginCheck.info.getPhone();
 
-                params.put("mb_name", name);
-                params.put("mb_phone",phone);
+                params.put("mb_phone", mb_phone);
                 // key값은 서버에서 지정한 name과 동일하게
 
                 return params;

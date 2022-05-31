@@ -116,7 +116,7 @@ public class join extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://218.149.140.51:8089/web/idCheck.do";
+        String url = "http://210.223.239.212:8081/web/idCheck.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -184,7 +184,7 @@ public class join extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://218.149.140.51:8089/web/joinInsert.do";
+        String url = "http://210.223.239.212:8081/web/joinInsert.do";
 
         // 1.객체만들고 요청 주소만듦
 

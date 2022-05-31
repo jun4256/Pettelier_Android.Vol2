@@ -22,13 +22,28 @@ public class Real_Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_real_main);
 
-
+        btn_Mainlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),login.class);
+                startActivity(intent);
+            }
+        });
 
 
         Main_btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),join.class);
+                startActivity(intent);
+            }
+        });
 
+        Main_btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),find_id.class);
+                startActivity(intent);
             }
         });
 

@@ -45,6 +45,7 @@ public class login extends AppCompatActivity {
         btn_login = findViewById(R.id.btn_login);
         tv_join = findViewById(R.id.tv_join);
         tv_find = findViewById(R.id.tv_find);
+        Intent intent = getIntent();
 
 
         tv_join.setOnClickListener(new View.OnClickListener() {

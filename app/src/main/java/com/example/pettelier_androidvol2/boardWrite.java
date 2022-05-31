@@ -43,6 +43,10 @@ public class boardWrite extends AppCompatActivity {
         board_title = findViewById(R.id.board_title);
         board_content = findViewById(R.id.board_content);
         writer = findViewById(R.id.writer);
+        if((loginCheck.info)!=null){
+            writer.setText(loginCheck.info.getNick());
+
+        }
 
 
         btn_Board_insert.setOnClickListener(new View.OnClickListener() {

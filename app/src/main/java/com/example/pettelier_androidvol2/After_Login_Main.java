@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,9 +16,9 @@ public class After_Login_Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login_main);
-        btn_nick = findViewById(R.id.btn_nick);
-        Main_btn3 = findViewById(R.id.Main_btn3);
-        Main_btn4 = findViewById(R.id.Main_btn4);
+        btn_nick = findViewById(R.id.btn_Mainlogin);
+        Main_btn3 = findViewById(R.id.Main_btn1);
+        Main_btn4 = findViewById(R.id.Main_btn2);
 
         if((loginCheck.info)!=null){
             btn_nick.setText(loginCheck.info.getNick());

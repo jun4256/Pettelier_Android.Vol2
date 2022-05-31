@@ -20,31 +20,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp">
-
-        <TextView
-            android:id="@+id/tv_findname"
-            android:layout_width="153dp"
-            android:layout_height="54dp"
-            android:gravity="center"
-            android:text="이름" />
-
-        <EditText
-            android:id="@+id/edt_findname"
-            android:layout_width="163dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp">
+        android:layout_height="134dp">
 
         <TextView
             android:id="@+id/tv_findphone"
-            android:layout_width="152dp"
+            android:layout_width="194dp"
             android:layout_height="54dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="휴대폰 번호" />
 
@@ -52,6 +34,7 @@
             android:id="@+id/edt_findphone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="010-0000-0000"
             android:inputType="textPersonName"

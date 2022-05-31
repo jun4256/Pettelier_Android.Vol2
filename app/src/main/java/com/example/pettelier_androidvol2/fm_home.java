@@ -21,7 +21,7 @@ public class fm_home extends Fragment {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View fragment = inflater.inflate(R.layout.go_home, container, false);
+        View fragment = inflater.inflate(R.layout.activity_real_main, container, false);
         //tv_home = fragment.findViewById(R.id.tv_home);
         ClientFragment1_youtube1 =fragment.findViewById(R.id.ClientFragment1_youtube1);
         ClientFragment1_youtube2 =fragment.findViewById(R.id.ClientFragment1_youtube2);

@@ -65,12 +65,47 @@ public class join extends AppCompatActivity {
         btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(edt_id.length()==0){  // id len이 0이면.
+                    Toast.makeText(getApplicationContext(),"아이디를 입력해주세요",Toast.LENGTH_SHORT).show();
+                    edt_id.requestFocus();    // 그 칸으로 이동하는 기능
+                    return;
+                }
+                if(edt_pw.length()==0){
+                    Toast.makeText(getApplicationContext(),"비밀번호를 입력해주세요",Toast.LENGTH_SHORT).show();
+                    edt_pw.requestFocus();
+                    return;
+                }
+                if(edt_nick.length()==0) {
+                    Toast.makeText(getApplicationContext(),"닉네임을 입력해주세요",Toast.LENGTH_SHORT).show();
+                    edt_nick.requestFocus();
+                    return;
+                }
+                if(edt_name.length()==0) {
+                    Toast.makeText(getApplicationContext(),"이름을 입력해주세요",Toast.LENGTH_SHORT).show();
+                    edt_name.requestFocus();
+                    return;
+                }
+                if(edt_phone.length()==0) {
+                    Toast.makeText(getApplicationContext(),"핸드폰번호를 입력해주세요",Toast.LENGTH_SHORT).show();
+                    edt_phone.requestFocus();
+                    return;
+                }
+                if(edt_adr.length()==0) {
+                    Toast.makeText(getApplicationContext(),"주소를 입력해주세요",Toast.LENGTH_SHORT).show();
+                    edt_adr.requestFocus();
+                    return;
+                }
+
+
                 sendRequest2();
 
                 Toast.makeText(getApplicationContext(),"실행고",Toast.LENGTH_SHORT).show();
 
             }
         });
+
+
+
 
 
 

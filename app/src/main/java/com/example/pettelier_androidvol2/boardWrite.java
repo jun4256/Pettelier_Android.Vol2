@@ -78,7 +78,7 @@ public class boardWrite extends AppCompatActivity {
                 Log.v("resultValue",response);
                 Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
                 if(response.length() > 0) {
-                    Intent intent = new Intent(getApplicationContext(),fm_board.class);
+                    Intent intent = new Intent(getApplicationContext(),Real_Main.class);
                     startActivity(intent);
                     Toast.makeText(getApplicationContext(), "업로드 성공", Toast.LENGTH_SHORT).show();
 

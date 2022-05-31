@@ -94,7 +94,7 @@ public class fm_board extends Fragment {
 
     public void getBoardData() {
         //RequestQueue 객체 생성
-        requestQueue = Volley.newRequestQueue(getActivity());    // this==getApplicationContext();
+        requestQueue = Volley.newRequestQueue(getContext());    // this==getApplicationContext();
 
         // 서버에 요청할 주소
         String url = "http://218.149.140.51:8089/web/boardList.do";

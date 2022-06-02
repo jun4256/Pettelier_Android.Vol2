@@ -46,6 +46,16 @@ public class login extends AppCompatActivity {
         tv_join = findViewById(R.id.tv_join);
         tv_find = findViewById(R.id.tv_find);
         Intent intent = getIntent();
+
+        tv_find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), pw_reset.class);
+                startActivity(intent);
+            }
+        });
+
+
         tv_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

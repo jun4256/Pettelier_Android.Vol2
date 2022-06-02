@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
         private ArrayList<BoardVO> items = new ArrayList<BoardVO>();
 
-        public void addItem(String id, String title, String date) {
-            BoardVO vo = new BoardVO(id, title, date);
+        public void addItem(int seq, String id, String title, String date) {
+            BoardVO vo = new BoardVO(seq, id, title, date);
             items.add(vo);
         }
 
@@ -51,17 +51,17 @@ import java.util.ArrayList;
                 view = inflater.inflate(R.layout.board, viewGroup, false);
             }
 
-            TextView custom_tv1 = view.findViewById(R.id.custom_tv1);
-            TextView custom_tv2 = view.findViewById(R.id.custom_tv2);
-            TextView custom_tv3 = view.findViewById(R.id.custom_tv3);
-            TextView custom_tv4 = view.findViewById(R.id.custom_tv4);
+            TextView custom_tvSeq = view.findViewById(R.id.custom_tvSeq);
+            TextView custom_tvTitle = view.findViewById(R.id.custom_tvTitle);
+            TextView custom_tvWriter = view.findViewById(R.id.custom_tvWriter);
+            TextView custom_tvDate = view.findViewById(R.id.custom_tvDate);
 
             BoardVO vo = items.get(i);
 
-            custom_tv1.setText(String.valueOf(i));
-            custom_tv2.setText(vo.getTitle());
-            custom_tv3.setText(vo.getId());
-            custom_tv4.setText(vo.getDate());
+            custom_tvSeq.setText(String.valueOf(vo.getSeq()));
+            custom_tvTitle.setText(vo.getTitle());
+            custom_tvWriter.setText(vo.getId());
+            custom_tvDate.setText(vo.getDate());
 
             return view;
         }

@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +18,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -47,6 +50,8 @@ public class fm_board extends Fragment {
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
     private Button btn_write;
+    private FragmentManager fm;
+
 
 
 
@@ -59,6 +64,7 @@ public class fm_board extends Fragment {
         tv_board = fragment.findViewById(R.id.tv_board);
         board_list = fragment.findViewById(R.id.board_list);
         btn_write = fragment.findViewById(R.id.btn_write);
+        fm = getActivity().getSupportFragmentManager();
 
 
         //spinner 객체 생성 (드롭다운)
@@ -110,27 +116,43 @@ public class fm_board extends Fragment {
                 Log.v("resultValue",response);
                 try {
                     JSONArray jsonArray = new JSONArray(response);
-                    for(int i = 0; i < jsonArray.length(); i++ ){
+                    for (int i = 0; i< jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        // jsonObject에 게시글 정보가 담겨있음
-                        String board_seq = jsonObject.getString("board_seq");
-                        String mb_id = jsonObject.getString("id");
-                        String board_title = jsonObject.getString("board_title");
-                        String board_content = jsonObject.getString("board_content");
-                        String board_viewcount = jsonObject.getString("board_viewcount");
-                        String board_date = jsonObject.getString("board_date");
-                        // MemberVO vo = new MemberVO(id,pw,nick,phone);
-                        items.add((i+1)+"-"+board_seq+"-"+mb_id+"-"+board_title+"-"+board_content+"-"+board_viewcount+"-"+board_date);
 
 
-                        //회원정보를 리스트뷰에 보이게 하기
-                        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, items);
-                        board_list.setAdapter(adapter);
+                        int seq = jsonObject.getInt("board_seq");
+                        String id = jsonObject.getString("mb_id");
+                        String title = jsonObject.getString("board_title");
+                        String content = jsonObject.getString("board_content");
+                        String viewcount = jsonObject.getString("board_viewcount");
+                        String date = jsonObject.getString("board_date");
 
+                        adapter.addItem(seq, id, title, date);
                     }
+
+                    board_list.setAdapter(adapter);
+
+                    adapter.notifyDataSetChanged();
+
+                    board_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            BoardVO vo = (BoardVO) adapterView.getItemAtPosition(i);
+                            //Toast.makeText(getApplicationContext(), vo.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(),vo.toString(),Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(getContext(), boardWrite.class);
+                            intent.putExtra("vo", vo);
+                            startActivity(intent);
+
+                        }
+                    });
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
 
             }
         }, new Response.ErrorListener() {
@@ -154,14 +176,18 @@ public class fm_board extends Fragment {
                 }
             }
 
-            // 보낼 데이터를 저장하는 곳 해쉬맵에 저장해서 보냄 - key,value
+            // 보낼 데이터를 저장하는 곳
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
+                Map<String, String> params = new HashMap<String, String>();
+
+                // String c_manager_id = SharedPreference.getAttribute(getApplicationContext(), "m_id");
+                // params.put("c_manager_id", c_manager_id);
+
                 return params;
             }
         };
-        stringRequest.setTag("main");       //구분자 어떤클라이언트에서 요청했는지 나타냄 (중요하지않음)
-        requestQueue.add(stringRequest);        //실행 요청 add에 담으면 자동요청
+        stringRequest.setTag("main");
+        requestQueue.add(stringRequest);
     }
 }

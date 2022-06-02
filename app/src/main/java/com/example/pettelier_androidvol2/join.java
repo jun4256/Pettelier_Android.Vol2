@@ -99,7 +99,6 @@ public class join extends AppCompatActivity {
 
                 sendRequest2();
 
-                Toast.makeText(getApplicationContext(),"실행고",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -116,7 +115,7 @@ public class join extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/idCheck.do";
+        String url = "http://218.149.140.51:8089/web/idCheck.do";
         // 고은 : 218.149.140.51:8089
         // 시윤 : 59.0.129.176:8081
         // 준범 : 210.223.239.212:8081
@@ -190,7 +189,7 @@ public class join extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/joinInsert.do";
+        String url = "http://218.149.140.51:8089/web/joinInsert.do";
         // 고은 : 218.149.140.51:8089
         // 시윤 : 59.0.129.176:8081
         // 준범 : 210.223.239.212:8081
@@ -207,7 +206,8 @@ public class join extends AppCompatActivity {
                 Log.v("resultValue",response);
                 Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
                 if(response.length() > 0) {
-                    Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
+                    Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),login.class);
                     startActivity(intent);
 
 

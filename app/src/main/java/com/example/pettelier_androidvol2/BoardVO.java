@@ -1,6 +1,8 @@
 package com.example.pettelier_androidvol2;
 
-public class BoardVO {
+import java.io.Serializable;
+
+public class BoardVO implements Serializable {
 
     private int seq;
     private String id;
@@ -13,8 +15,11 @@ public class BoardVO {
     public  BoardVO(){
 
     }
-    public BoardVO(String id, String title, String date){
-
+    public BoardVO(int seq, String id, String title, String date){
+        this.seq = seq;
+        this.id = id;
+        this.title = title;
+        this.date = date;
     }
     public BoardVO(int seq, String id, String title, String content, int viewcount, String date) {
         this.seq = seq;

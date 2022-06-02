@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/custom_tv1"
+            android:id="@+id/custom_tvSeq"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -27,7 +27,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/custom_tv2"
+            android:id="@+id/custom_tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -38,7 +38,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/custom_tv3"
+            android:id="@+id/custom_tvWriter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -49,7 +49,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/custom_tv4"
+            android:id="@+id/custom_tvDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

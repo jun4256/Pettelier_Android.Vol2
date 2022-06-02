@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -93,5 +92,11 @@ public class After_Login_Main extends AppCompatActivity {
     public void info2(View view){
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://kfem.or.kr/?p=211296"));
         startActivity(intent);
+    }
+
+    public void register(View view){
+        Intent intent = new Intent(getApplicationContext(), Pet_register.class);
+        startActivity(intent);
+
     }
 }

@@ -80,8 +80,9 @@
                     android:layout_height="110dp"
                     android:layout_marginRight="30dp"
 
-                    android:text="반려동물 \n등록하기"
+                    android:onClick="register"
 
+                    android:text="반려동물 \n등록하기"
                     android:textColor="#F3F3F6"
                     android:textSize="18dp" />
 

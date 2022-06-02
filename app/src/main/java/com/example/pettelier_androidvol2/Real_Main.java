@@ -21,6 +21,7 @@ public class Real_Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_real_main);
+        Intent intent = getIntent();
 
         btn_Mainlogin.setOnClickListener(new View.OnClickListener() {
             @Override

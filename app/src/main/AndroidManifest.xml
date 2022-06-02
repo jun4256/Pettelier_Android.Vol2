@@ -97,6 +97,10 @@
         <activity
             android:name=".join"
             android:exported="true"></activity>
+        <activity android:name=".Pet_register"
+            android:exported="true">
+
+        </activity>
     </application>
 
 </manifest>

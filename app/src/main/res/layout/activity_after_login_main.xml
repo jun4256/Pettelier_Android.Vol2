@@ -91,8 +91,9 @@
                     android:layout_width="110dp"
                     android:layout_height="110dp"
 
-                    android:text="반려동물 \n모니터링"
+                    android:onClick="monitor"
 
+                    android:text="반려동물 \n모니터링"
                     android:textColor="#F3F3F6"
                     android:textSize="18dp" />
 
@@ -164,7 +165,7 @@
                         android:id="@+id/ClientFragment1_youtube3"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:onClick="onyoutube2"
+                        android:onClick="onyoutube3"
                         android:background="@drawable/img_youtube3" />
 
                     <TextView

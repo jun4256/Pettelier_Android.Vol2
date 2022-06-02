@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_add_register.xml" value="0.32019927536231885" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_admin_add_cage.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_admin_login_main.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_after_login_main.xml" value="0.3151041666666667" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_cage_register.xml" value="0.32019927536231885" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_main_page.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_main_pre_login.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_member_list.xml" value="0.3046875" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_member_update.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_my_page.xml" value="0.32019927536231885" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_new_pw_reset.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_pet_regi_retouch.xml" value="0.32019927536231885" />

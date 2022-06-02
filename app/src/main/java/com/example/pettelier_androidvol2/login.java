@@ -101,12 +101,21 @@ public class login extends AppCompatActivity {
                         //MemberVO vo = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
 
                         loginCheck.info= new MemberVO(id,pw,nick,name,phone,address,joindate,type);
-                        Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
-                        //intent.putExtra("vo",vo);
-                        startActivity(intent);
+                        Log.v("check", loginCheck.info.getId());
+                        if(loginCheck.info.getId().equals("admin")){
+                            Log.v("check", loginCheck.info.getId());
+                            Log.v("check", login_id.getText().toString());
+                            Intent intent = new Intent(getApplicationContext(),Admin_Login_Main.class);
+                            startActivity(intent);
+                            Toast.makeText(login.this,"관리자 로그인",Toast.LENGTH_SHORT).show();
+                        }else {
+                            Intent intent = new Intent(getApplicationContext(), After_Login_Main.class);
+                            //intent.putExtra("vo",vo);
 
-                        Toast.makeText(login.this,"로그인성공",Toast.LENGTH_SHORT).show();
+                            startActivity(intent);
 
+                            Toast.makeText(login.this, "로그인성공", Toast.LENGTH_SHORT).show();
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

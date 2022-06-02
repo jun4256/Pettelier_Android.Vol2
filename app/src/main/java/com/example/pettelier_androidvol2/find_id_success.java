@@ -13,11 +13,6 @@ import android.widget.TextView;
 public class find_id_success extends AppCompatActivity {
 
     private TextView finded_id;
-    private TextView tv1;
-    private TextView tv2;
-    private TextView tv3;
-    private ImageView img_findid2;
-    private View view2;
     private Button btn_f_s_login, btn_f_s_pwrs;
 
 

@@ -43,7 +43,7 @@
             android:text="이름" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/edt_pwrs_n"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -67,7 +67,7 @@
             android:text="아이디" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/edt_pwrs_i"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -91,7 +91,7 @@
             android:text="휴대폰 번호" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/edt_pwrs_p"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -103,18 +103,30 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_height="161dp">
 
         <Button
             android:id="@+id/btn_pwrs"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp"
+            android:layout_marginLeft="70dp"
             android:layout_marginTop="50dp"
             android:gravity="center"
             android:text="비밀번호 재설정"
             android:textColor="#F3F3F6" />
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="39dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_pwrs_c"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="100dp"
+            android:text="취소"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 </LinearLayout>

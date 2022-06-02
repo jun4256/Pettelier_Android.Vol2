@@ -107,8 +107,14 @@ public class login extends AppCompatActivity {
                         //로그인 성공시 After_Login_Main 으로 이동,
                         // MemberVO 만들어서 넘기기
                         //MemberVO vo = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
-
                         loginCheck.info= new MemberVO(id,pw,nick,name,phone,address,joindate,type);
+                        Log.v("check",loginCheck.info.getId());
+                        if((loginCheck.info.getId()).equals("admin")){
+                            Intent intent = new Intent(getApplicationContext(),Admin_Login_Main.class);
+                            startActivity(intent);
+                        }
+
+
                         Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
                         //intent.putExtra("vo",vo);
                         startActivity(intent);

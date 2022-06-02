@@ -1,7 +1,5 @@
 package com.example.pettelier_androidvol2;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -40,12 +40,13 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Intent intent = getIntent();
         login_id = findViewById(R.id.login_id);
         login_pw = findViewById(R.id.login_pw);
         btn_login = findViewById(R.id.btn_login);
         tv_join = findViewById(R.id.tv_join);
         tv_find = findViewById(R.id.tv_find);
-        Intent intent = getIntent();
+
 
         tv_join.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +58,8 @@ public class login extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendRequest();
+                 sendRequest();
+            //    Log.v("Test", "로그인버튼");
             }
         });
 

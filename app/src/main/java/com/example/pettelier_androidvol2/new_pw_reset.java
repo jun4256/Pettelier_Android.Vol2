@@ -29,18 +29,23 @@ import java.util.Map;
 
 public class new_pw_reset extends AppCompatActivity {
 
-    private EditText edt_nowpw, edt_newpw, edt_pwck;
+    private EditText edt_newpw, edt_pwck;
     private Button btn_new_pwrs;
 
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
+
+
+    private String mb_id;  // 변경할 아이디 변수 선언
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_pw_reset);
 
-        edt_nowpw = findViewById(R.id.edt_nowpw);
+        Intent intent = getIntent();
+        mb_id = intent.getStringExtra("mb_id");
         edt_newpw = findViewById(R.id.edt_newpw);
         edt_pwck = findViewById(R.id.edt_pwck);
 
@@ -48,24 +53,26 @@ public class new_pw_reset extends AppCompatActivity {
         btn_new_pwrs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nowp = edt_nowpw.getText().toString().trim();
+
                 String newp = edt_newpw.getText().toString().trim();
                 String pwck = edt_pwck.getText().toString().trim();
 
-                if(nowp.length()==0){
-                    Toast.makeText(new_pw_reset.this, "현재 비밀번호를 입력하세요", Toast.LENGTH_SHORT).show();
-                    edt_nowpw.requestFocus();
-                }
 
                 if(newp.length()==0){
                     Toast.makeText(new_pw_reset.this, "변경할 비밀번호를 입력하세요", Toast.LENGTH_SHORT).show();
                     edt_newpw.requestFocus();
+                    return;
                 }
 
                 if(pwck.length()==0){
                     Toast.makeText(new_pw_reset.this, "비밀번호 확인을 위해 한번 더 입력하세요", Toast.LENGTH_SHORT).show();
                     edt_pwck.requestFocus();
+                    return;
                 }
+                sendRequest();
+
+                Intent intent = new Intent(getApplicationContext(),login.class);
+                startActivity(intent);
 
             }
         });
@@ -73,7 +80,7 @@ public class new_pw_reset extends AppCompatActivity {
     private void sendRequest(){
         requestQueue = Volley.newRequestQueue(this);
 
-        String url = "http://59.0.129.176:8081/web/updateService.do";
+        String url = "http://59.0.129.176:8081/web/new_pwrs.do";
 
         // 고은 : 218.149.140.51:8089
         // 시윤 : 59.0.129.176:8081
@@ -98,6 +105,7 @@ public class new_pw_reset extends AppCompatActivity {
                         loginCheck.info= new MemberVO(name,pw,nick,id,phone,address,joindate,type);
                         Intent intent = new Intent(getApplicationContext(),new_pw_reset.class);
                         startActivity(intent);
+
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -129,14 +137,15 @@ public class new_pw_reset extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
 
-                String nowp = edt_nowpw.getText().toString().trim();
                 String newp = edt_newpw.getText().toString().trim();
                 String pwck = edt_pwck.getText().toString().trim();
 
-                params.put("mb_name", nowp);
-                params.put("mb_id", id);
-                params.put("mb_phone", phone);
-                // key값은 서버에서 지정한 name과 동일하게
+                params.put("mb_id",mb_id ); // 콘솔창 출력& 변경된 비밀번호에 맞는 아이디 값을 보내주기 위한 메소드
+
+                if(newp.equals(pwck))
+                {
+                    params.put("mb_pw", newp);
+                }
 
                 return params;
             }

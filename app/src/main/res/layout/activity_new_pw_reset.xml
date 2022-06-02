@@ -52,31 +52,6 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tv_nowpw"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="현재 비밀번호" />
-
-        <EditText
-            android:id="@+id/edt_nowpw"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="현재 비밀번호 입력"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-
-        <TextView
             android:id="@+id/tv_newpw"
             android:layout_width="80dp"
             android:layout_height="wrap_content"

@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class pw_reset extends AppCompatActivity {
 
-    private EditText edt_pwrs_n, edt_pwrs_i, edt_pwrs_p;
+    private EditText edt_pwrs_i;
     private Button btn_pwrs, btn_pwrs_c;
 
     private RequestQueue requestQueue;
@@ -41,9 +41,7 @@ public class pw_reset extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pw_reset);
 
-        edt_pwrs_n = findViewById(R.id.edt_pwrs_n);
         edt_pwrs_i = findViewById(R.id.edt_pwrs_i);
-        edt_pwrs_p = findViewById(R.id.edt_pwrs_p);
 
         btn_pwrs = findViewById(R.id.btn_pwrs);
         btn_pwrs_c = findViewById(R.id.btn_pwrs_c);
@@ -52,26 +50,15 @@ public class pw_reset extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String mb_name = edt_pwrs_n.getText().toString();
                 String mb_id = edt_pwrs_i.getText().toString();
-                String mb_phone = edt_pwrs_p.getText().toString();
 
 
-                if (mb_name.length()==0){
-                    Toast.makeText(getApplicationContext(),"이름을 입력해주세요",Toast.LENGTH_SHORT).show();
-                    edt_pwrs_n.requestFocus();
-                    return;
-                }
                 if (mb_id.length()==0){
                     Toast.makeText(getApplicationContext(),"아이디를 입력해주세요",Toast.LENGTH_SHORT).show();
                     edt_pwrs_i.requestFocus();
                     return;
                 }
-                if (mb_phone.length()==0){
-                    Toast.makeText(getApplicationContext(),"연락처를 입력해주세요",Toast.LENGTH_SHORT).show();
-                    edt_pwrs_p.requestFocus();
-                    return;
-                }
+
 
                 sendRequest();
             }
@@ -120,6 +107,9 @@ public class pw_reset extends AppCompatActivity {
 
                         loginCheck.info= new MemberVO(name,pw,nick,id,phone,address,joindate,type);
                         Intent intent = new Intent(getApplicationContext(),new_pw_reset.class);
+
+
+                        intent.putExtra("mb_id", id);
                         startActivity(intent);
 
                         Toast.makeText(pw_reset.this, "입력정보 일치", Toast.LENGTH_SHORT).show();
@@ -159,13 +149,9 @@ public class pw_reset extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
 
-                String name = edt_pwrs_n.getText().toString();
                 String id = edt_pwrs_i.getText().toString();
-                String phone = edt_pwrs_p.getText().toString();
 
-                params.put("mb_name", name);
                 params.put("mb_id", id);
-                params.put("mb_phone", phone);
                 // key값은 서버에서 지정한 name과 동일하게
 
                 return params;

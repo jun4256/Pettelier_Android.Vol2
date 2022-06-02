@@ -54,6 +54,14 @@ public class join extends AppCompatActivity {
         btn_cancel = findViewById(R.id.btn_cancel);
         btn_join = findViewById(R.id.btn_join);
 
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),login.class);
+                startActivity(intent);
+            }
+        });
+
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -13,6 +13,9 @@ public class BoardVO {
     public  BoardVO(){
 
     }
+    public BoardVO(String id, String title, String date){
+
+    }
     public BoardVO(int seq, String id, String title, String content, int viewcount, String date) {
         this.seq = seq;
         this.id = id;

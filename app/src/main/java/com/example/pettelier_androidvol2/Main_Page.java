@@ -49,12 +49,13 @@ public class Main_Page extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "게시판", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.go_home:  // 홈레이아웃은 진관씨가  만든 걸로 바꿉니다
-                        fm.beginTransaction().replace(R.id.frame,home).commit();
+                        Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
+                        startActivity(intent);
                         Toast.makeText(getApplicationContext(), "홈", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.setting:
-                       Intent intent = new Intent(getApplicationContext(),Setting.class);
-                       startActivity(intent);
+                        intent = new Intent(getApplicationContext(),Setting.class);
+                        startActivity(intent);
                         Toast.makeText(getApplicationContext(), "설정", Toast.LENGTH_SHORT).show();
                         break;
                 }

@@ -10,7 +10,7 @@ public class MemberVO {
     private String joindate;
     private String type;
 
-    public MemberVO(String id, String pw, String nick, String name, String phone, String adr) {
+    public MemberVO(String id, String pw, String nick, String name, String phone, String address) {
         this.id = id;
         this.pw = pw;
         this.nick = nick;

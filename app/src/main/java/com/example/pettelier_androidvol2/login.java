@@ -46,6 +46,7 @@ public class login extends AppCompatActivity {
         tv_join = findViewById(R.id.tv_join);
         tv_find = findViewById(R.id.tv_find);
         Intent intent = getIntent();
+
         tv_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +61,13 @@ public class login extends AppCompatActivity {
             }
         });
 
+        tv_find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),find_id.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void sendRequest() {
@@ -67,9 +75,9 @@ public class login extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/andLogin.do";
+        String url = "http://172.30.1.28:8089/web/andLogin.do";
 
-        // 고은 : 218.149.140.51:8089
+        // 고은 :  172.30.1.28:8089
         // 시윤 : 59.0.129.176:8081
         // 준범 : 210.223.239.212:8081
         // 진관 : 220.80.165.82:8081
@@ -101,21 +109,12 @@ public class login extends AppCompatActivity {
                         //MemberVO vo = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
 
                         loginCheck.info= new MemberVO(id,pw,nick,name,phone,address,joindate,type);
-                        Log.v("check", loginCheck.info.getId());
-                        if(loginCheck.info.getId().equals("admin")){
-                            Log.v("check", loginCheck.info.getId());
-                            Log.v("check", login_id.getText().toString());
-                            Intent intent = new Intent(getApplicationContext(),Admin_Login_Main.class);
-                            startActivity(intent);
-                            Toast.makeText(login.this,"관리자 로그인",Toast.LENGTH_SHORT).show();
-                        }else {
-                            Intent intent = new Intent(getApplicationContext(), After_Login_Main.class);
-                            //intent.putExtra("vo",vo);
+                        Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
+                        //intent.putExtra("vo",vo);
+                        startActivity(intent);
 
-                            startActivity(intent);
+                        Toast.makeText(login.this,"로그인성공",Toast.LENGTH_SHORT).show();
 
-                            Toast.makeText(login.this, "로그인성공", Toast.LENGTH_SHORT).show();
-                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

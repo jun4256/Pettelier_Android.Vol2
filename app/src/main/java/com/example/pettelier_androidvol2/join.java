@@ -1,7 +1,5 @@
 package com.example.pettelier_androidvol2;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -20,9 +20,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -123,7 +120,7 @@ public class join extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://218.149.140.51:8089/web/idCheck.do";
+        String url = "http://220.80.165.82:8081/web/idCheck.do";
         // 고은 : 218.149.140.51:8089
         // 시윤 : 59.0.129.176:8081
         // 준범 : 210.223.239.212:8081

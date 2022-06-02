@@ -19,13 +19,23 @@ public class After_Login_Main extends AppCompatActivity {
         btn_nick = findViewById(R.id.btn_nick);
         Main_btn3 = findViewById(R.id.Main_btn3);
         Main_btn4 = findViewById(R.id.Main_btn4);
-        Main_btn4.setOnClickListener(new View.OnClickListener() {
+
+        Main_btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Main_Page.class);
+                Intent intent = new Intent(getApplicationContext(),Pet_register.class);
                 startActivity(intent);
             }
         });
+
+        Main_btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Pet_register.class);
+                startActivity(intent);
+            }
+        });
+
         if((loginCheck.info)!=null){
             btn_nick.setText(loginCheck.info.getNick());
 
@@ -94,9 +104,4 @@ public class After_Login_Main extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void register(View view){
-        Intent intent = new Intent(getApplicationContext(), Pet_register.class);
-        startActivity(intent);
-
-    }
 }

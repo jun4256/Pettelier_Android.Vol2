@@ -55,7 +55,11 @@
         <activity
             android:name=".find_id"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -72,20 +76,12 @@
         <activity
             android:name=".pw_reset"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
-            android:name=".new_pw_reset"
-            android:exported="true">
-
-        </activity>
-
-
+            android:name=".MainActivity"
+            android:exported="true" />
         <activity
             android:name=".boardWrite"
             android:exported="true"

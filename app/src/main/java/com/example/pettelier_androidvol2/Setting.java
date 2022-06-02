@@ -24,7 +24,7 @@ public class Setting extends AppCompatActivity {
         re_member_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),new_pw_reset.class);
+                Intent intent=new Intent(getApplicationContext(),MemberUpdate.class);
                 startActivity(intent);
             }
         });

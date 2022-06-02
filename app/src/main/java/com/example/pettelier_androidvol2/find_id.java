@@ -40,6 +40,7 @@ public class find_id extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_id);
+        Intent intent = getIntent();
 
         edt_findphone = findViewById(R.id.edt_findphone);
 
@@ -103,6 +104,7 @@ public class find_id extends AppCompatActivity {
                         Log.v("id", mb_id);
 
                         Intent intent = new Intent(getApplicationContext(),find_id_success.class);
+                        intent.putExtra("mb_id",mb_id);
                         startActivity(intent);
 
                     } catch (JSONException e) {

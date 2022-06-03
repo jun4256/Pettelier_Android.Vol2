@@ -1,7 +1,5 @@
 package com.example.pettelier_androidvol2;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -75,7 +75,7 @@ public class login extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://59.0.129.176:8081/web/andLogin.do";
+        String url = "http://220.80.165.82:8081/web/andLogin.do";
 
         // 고은 :  172.30.1.28:8089
         // 시윤 : 59.0.129.176:8081
@@ -107,8 +107,14 @@ public class login extends AppCompatActivity {
                         //로그인 성공시 After_Login_Main 으로 이동,
                         // MemberVO 만들어서 넘기기
                         //MemberVO vo = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
-
                         loginCheck.info= new MemberVO(id,pw,nick,name,phone,address,joindate,type);
+                        Log.v("check",loginCheck.info.getId());
+                        if((loginCheck.info.getId()).equals("admin")){
+                            Intent intent = new Intent(getApplicationContext(),Admin_Login_Main.class);
+                            startActivity(intent);
+                        }
+
+
                         Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
                         //intent.putExtra("vo",vo);
                         startActivity(intent);

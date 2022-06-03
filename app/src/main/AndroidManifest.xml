@@ -43,9 +43,7 @@
         <activity
             android:name=".After_Login_Main"
             android:exported="true" />
-        <activity
-            android:name=".Real_Main"
-            android:exported="true" />
+
         <activity
             android:name=".Main_Page"
             android:exported="true">
@@ -97,7 +95,11 @@
 
         <activity
             android:name=".Pet_register"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
+
+
 
     </application>
 

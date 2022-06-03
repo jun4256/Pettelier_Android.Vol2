@@ -3,36 +3,44 @@ package com.example.pettelier_androidvol2;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 
-public class Real_Main extends AppCompatActivity {
+public class Real_Main extends Fragment {
 
     private Button btn_Mainlogin;
     private Button Main_btn1,Main_btn2;
     private TextView welcome;
+    private FragmentManager fm;
+
 
 
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_real_main);
-        Intent intent = getIntent();
+    @Nullable
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
+        View fragment = inflater.inflate(R.layout.activity_real_main, container, false);
 
-        btn_Mainlogin = findViewById(R.id.btn_Mainlogin);
-        Main_btn1 = findViewById(R.id.Main_btn1);  // 회원가입버튼
-        Main_btn2 = findViewById(R.id.Main_btn2); // id/pw 찾기 버튼
+        btn_Mainlogin = fragment.findViewById(R.id.btn_Mainlogin);
+        Main_btn1 = fragment.findViewById(R.id.Main_btn1);  // 회원가입버튼
+        Main_btn2 = fragment.findViewById(R.id.Main_btn2); // id/pw 찾기 버튼
+        fm = getActivity().getSupportFragmentManager();
 
         btn_Mainlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),login.class);
+                Intent intent = new Intent(getContext(),login.class);
                 startActivity(intent);
             }
         });
@@ -41,7 +49,7 @@ public class Real_Main extends AppCompatActivity {
         Main_btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),join.class);
+                Intent intent = new Intent(getContext(),join.class);
                 startActivity(intent);
             }
         });
@@ -49,11 +57,11 @@ public class Real_Main extends AppCompatActivity {
         Main_btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),find_id.class);
+                Intent intent = new Intent(getContext(),find_id.class);
                 startActivity(intent);
             }
         });
-
+        return fragment;
     }
 
     // 웹 페이지 띄우기

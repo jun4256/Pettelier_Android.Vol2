@@ -65,6 +65,13 @@ public class fm_board extends Fragment {
         board_list = fragment.findViewById(R.id.board_list);
         btn_write = fragment.findViewById(R.id.btn_write);
         fm = getActivity().getSupportFragmentManager();
+        btn_write.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),login.class);
+                startActivity(intent);
+            }
+        });
 
 
         //spinner 객체 생성 (드롭다운)
@@ -84,6 +91,9 @@ public class fm_board extends Fragment {
 
 
             }
+
+
+
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -118,7 +128,6 @@ public class fm_board extends Fragment {
                     JSONArray jsonArray = new JSONArray(response);
                     for (int i = 0; i< jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-
 
                         int seq = jsonObject.getInt("board_seq");
                         String id = jsonObject.getString("mb_id");

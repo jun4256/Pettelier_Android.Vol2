@@ -71,6 +71,11 @@
             android:exported="true">
 
         </activity>
+        <activity android:name=".fanPage"
+            android:exported="true">
+
+
+        </activity>
 
         <activity
             android:name=".pw_reset"

@@ -114,13 +114,13 @@ public class login extends AppCompatActivity {
                             startActivity(intent);
                         }
 
+                        else {
+                            Intent intent = new Intent(getApplicationContext(), After_Login_Main.class);
+                            //intent.putExtra("vo",vo);
+                            startActivity(intent);
 
-                        Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
-                        //intent.putExtra("vo",vo);
-                        startActivity(intent);
-
-                        Toast.makeText(login.this,"로그인성공",Toast.LENGTH_SHORT).show();
-
+                            Toast.makeText(login.this, "로그인성공", Toast.LENGTH_SHORT).show();
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

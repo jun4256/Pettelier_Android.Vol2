@@ -23,9 +23,9 @@ public class fm_home extends Fragment {
 
         View fragment = inflater.inflate(R.layout.activity_real_main, container, false);
         //tv_home = fragment.findViewById(R.id.tv_home);
-        ClientFragment1_youtube1 =fragment.findViewById(R.id.ClientFragment1_youtube1);
-        ClientFragment1_youtube2 =fragment.findViewById(R.id.ClientFragment1_youtube2);
-        ClientFragment1_youtube3 = fragment.findViewById(R.id.ClientFragment1_youtube3);
+        ClientFragment1_youtube1 =fragment.findViewById(R.id.onyoutube1);
+        ClientFragment1_youtube2 =fragment.findViewById(R.id.onyoutube2);
+        ClientFragment1_youtube3 = fragment.findViewById(R.id.onyoutube3);
 
         ClientFragment1_youtube1.setOnClickListener(new View.OnClickListener() {
             @Override

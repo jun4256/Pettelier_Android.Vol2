@@ -158,7 +158,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/ClientFragment1_youtube1"
+                        android:id="@+id/onyoutube1"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:onClick="onyoutube1"
@@ -179,7 +179,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/ClientFragment1_youtube2"
+                        android:id="@+id/onyoutube2"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:onClick="onyoutube2"
@@ -199,7 +199,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/ClientFragment1_youtube3"
+                        android:id="@+id/onyoutube3"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:onClick="onyoutube2"
@@ -232,7 +232,7 @@
                 <!--card는 10~2 까지 있으며 10이 가장상단,최신뉴스임-->
 
                 <ImageButton
-                    android:id="@+id/ClientFragment1_card10"
+                    android:id="@+id/info10"
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
@@ -240,7 +240,7 @@
                     android:background="@drawable/img_card10" />
 
                 <ImageButton
-                    android:id="@+id/ClientFragment1_card9"
+                    android:id="@+id/info9"
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
@@ -248,7 +248,7 @@
                     android:background="@drawable/img_card9" />
 
                 <ImageButton
-                    android:id="@+id/ClientFragment1_card8"
+                    android:id="@+id/info8"
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
@@ -256,7 +256,7 @@
                     android:background="@drawable/img_card8" />
 
                 <ImageButton
-                    android:id="@+id/ClientFragment1_card7"
+                    android:id="@+id/info7"
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
@@ -264,7 +264,7 @@
                     android:background="@drawable/img_card7" />
 
                 <ImageButton
-                    android:id="@+id/ClientFragment1_card6"
+                    android:id="@+id/info6"
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
@@ -272,7 +272,7 @@
                     android:background="@drawable/img_card6" />
 
                 <ImageButton
-                    android:id="@+id/ClientFragment1_card5"
+                    android:id="@+id/info5"
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
@@ -280,7 +280,7 @@
                     android:background="@drawable/img_card5" />
 
                 <ImageButton
-                    android:id="@+id/ClientFragment1_card4"
+                    android:id="@+id/info4"
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
@@ -288,7 +288,7 @@
                     android:background="@drawable/img_card4" />
 
                 <ImageButton
-                    android:id="@+id/ClientFragment1_card3"
+                    android:id="@+id/info3"
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"
@@ -296,7 +296,7 @@
                     android:background="@drawable/img_card3" />
 
                 <ImageButton
-                    android:id="@+id/ClientFragment1_card2"
+                    android:id="@+id/info2"
                     android:layout_width="320dp"
                     android:layout_height="320dp"
                     android:layout_marginVertical="5dp"

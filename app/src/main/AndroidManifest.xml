@@ -28,11 +28,7 @@
         <activity
             android:name=".Loading"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
@@ -47,15 +43,17 @@
         <activity
             android:name=".After_Login_Main"
             android:exported="true" />
-        <activity
-            android:name=".Real_Main"
-            android:exported="true" />
+
         <activity
             android:name=".Main_Page"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
 
         <activity
             android:name=".find_id"
@@ -95,6 +93,8 @@
         <activity android:name=".Pet_register"
             android:exported="true">
         </activity>
+
+
     </application>
 
 </manifest>

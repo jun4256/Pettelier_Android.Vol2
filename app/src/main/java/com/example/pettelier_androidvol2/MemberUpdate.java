@@ -40,6 +40,8 @@ public class MemberUpdate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_update);
+
+
         update_id = findViewById(R.id.update_id);
         update_pw = findViewById(R.id.update_pw);
         update_nick = findViewById(R.id.update_nick);

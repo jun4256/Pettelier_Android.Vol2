@@ -34,8 +34,8 @@ public class Cage_Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cage_register);
-        edt_date = findViewById(R.id.edt_date);
-        edt_serial= findViewById(R.id.edt_serial);
+        edt_date = findViewById(R.id.edt_regi_name);
+        edt_serial= findViewById(R.id.edt_regi_type);
         btn_regist = findViewById(R.id.btn_regist);
 
        btn_regist.setOnClickListener(new View.OnClickListener() {

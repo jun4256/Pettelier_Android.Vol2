@@ -62,14 +62,7 @@ public class fanPage extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://59.0.129.176:8081/web/.do";            //url 바꿔주셈
-
-        // 고은 : 218.149.140.51:8089
-        // 시윤 : 59.0.129.176:8081
-        // 준범 : 210.223.239.212:8081
-        // 진관 : 220.80.165.82:8081
-
-        // 1.객체만들고 요청 주소만듦
+        String url = "http://172.30.1.28:8089/web/fanControl.do";            //url 바꿔주셈
 
         // 요청시 필요한 문자열 객체 생성  매개변수  4개(통신방식(get,post),요청url주소, new 리스너(익명클래스)-응답시필요한부분 작성함)
         stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>(){
@@ -78,25 +71,9 @@ public class fanPage extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
                 if(response.length() > 0) {
-                    //로그인 성공
-                    // 0은 로그인실패
-                    try {
-                        JSONObject jsonObject = new JSONObject(response);   //response가 JSON타입이 아닐 수 있어서 예외처리 해주기
-                        String id = jsonObject.getString("mb_id");
-                        String pw = jsonObject.getString("mb_pw");
-                        String nick = jsonObject.getString("mb_nick");
-
-
-
-
-                        //Toast.makeText(login.this,"로그인성공",Toast.LENGTH_SHORT).show();
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
+                    Toast.makeText(getApplicationContext(),"팬 제어 보냄",Toast.LENGTH_SHORT).show();
                 }else {
-                    //Toast.makeText(login.this, "로그인실패", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "팬 제어 못보냄", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -130,11 +107,14 @@ public class fanPage extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                //String id = login_id.getText().toString();
-                //String pw = login_pw.getText().toString();
-                //params.put("mb_id", id);
-                //params.put("mb_pw",pw);
-                // key값은 서버에서 지정한 name과 동일하게
+                String fan = toggleFan1.getText().toString();
+                if(fan.equals("OFF")){
+                    fan="ON";
+                } else {
+                    fan = "OFF";
+                }
+                params.put("fan", fan);
+
 
                 return params;
             }

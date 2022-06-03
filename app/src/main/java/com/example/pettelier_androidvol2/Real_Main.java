@@ -9,12 +9,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
-
 
 public class Real_Main extends AppCompatActivity {
 
-    private Button btn_Mainlogin,Main_btn1,Main_btn2;
+    private Button btn_Mainlogin;
+    private Button Main_btn1,Main_btn2;
     private TextView welcome;
 
     @Override
@@ -24,8 +23,8 @@ public class Real_Main extends AppCompatActivity {
         Intent intent = getIntent();
 
         btn_Mainlogin = findViewById(R.id.btn_Mainlogin);
-        Main_btn1 = findViewById(R.id.Main_btn1);
-        Main_btn2 = findViewById(R.id.Main_btn2);
+        Main_btn1 = findViewById(R.id.Main_btn1);  // 회원가입버튼
+        Main_btn2 = findViewById(R.id.Main_btn2); // id/pw 찾기 버튼
 
         btn_Mainlogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,4 +113,6 @@ public class Real_Main extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://kfem.or.kr/?p=211296"));
         startActivity(intent);
     }
+
+
 }

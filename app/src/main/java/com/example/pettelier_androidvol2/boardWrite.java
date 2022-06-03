@@ -44,7 +44,7 @@ public class boardWrite extends AppCompatActivity {
         board_content = findViewById(R.id.board_content);
         writer = findViewById(R.id.writer);
         if((loginCheck.info)!=null){
-            writer.setText(loginCheck.info.getNick());
+            writer.setText(loginCheck.info.getId());
 
         }
 

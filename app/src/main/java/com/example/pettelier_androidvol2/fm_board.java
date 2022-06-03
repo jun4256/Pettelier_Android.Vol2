@@ -119,7 +119,6 @@ public class fm_board extends Fragment {
                     for (int i = 0; i< jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-
                         int seq = jsonObject.getInt("board_seq");
                         String id = jsonObject.getString("mb_id");
                         String title = jsonObject.getString("board_title");

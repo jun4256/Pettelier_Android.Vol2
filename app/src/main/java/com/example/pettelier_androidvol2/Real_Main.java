@@ -16,6 +16,9 @@ public class Real_Main extends AppCompatActivity {
     private Button Main_btn1,Main_btn2;
     private TextView welcome;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

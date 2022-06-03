@@ -140,7 +140,7 @@ public class new_pw_reset extends AppCompatActivity {
                 String newp = edt_newpw.getText().toString().trim();
                 String pwck = edt_pwck.getText().toString().trim();
 
-                params.put("mb_id",mb_id ); // 콘솔창 출력& 변경된 비밀번호에 맞는 아이디 값을 보내주기 위한 메소드
+                params.put("mb_id",mb_id ); // 콘솔창 출력& 변경할 비밀번호에 맞는 아이디 값을 보내주기 위한 코드
 
                 if(newp.equals(pwck))
                 {

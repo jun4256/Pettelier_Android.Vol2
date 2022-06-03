@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="72dp"
-            android:text="환풍기 제어"
+            android:text="CAGE 모니터링"
             android:textColor="#4E4E4E"
             android:textSize="34sp" />
     </LinearLayout>

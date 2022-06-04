@@ -43,13 +43,13 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_Mainlogin"
+                    android:id="@+id/btn_MainNick"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:onClick="login"
-                    android:text="로그인"
+                    android:text="크르릌컄"
                     android:textColor="#F3F3F6"
                     android:textSize="30dp"
                     android:textStyle="bold" />
@@ -60,7 +60,7 @@
                     android:layout_gravity="bottom|left"
                     android:layout_weight="1"
                     android:gravity="bottom|left"
-                    android:text="해주세요."
+                    android:text="환영합니다 !"
                     android:textColor="#000000"
                     android:textSize="22dp"
                     android:textStyle="bold" />
@@ -76,11 +76,11 @@
 
                 <Button
                     android:id="@+id/Main_btn1"
-                    android:layout_width="110dp"
+                    android:layout_width="109dp"
                     android:layout_height="110dp"
                     android:layout_marginRight="30dp"
 
-                    android:text="회원가입"
+                    android:text="반려동물 \n등록하기"
 
                     android:textColor="#F3F3F6"
                     android:textSize="18dp" />
@@ -90,7 +90,7 @@
                     android:layout_width="110dp"
                     android:layout_height="110dp"
 
-                    android:text="ID/PW \n찾기"
+                    android:text="반려동물 \n모니터링"
 
                     android:textColor="#F3F3F6"
                     android:textSize="18dp" />

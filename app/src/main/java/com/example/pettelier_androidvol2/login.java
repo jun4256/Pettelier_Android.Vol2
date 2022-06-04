@@ -1,13 +1,10 @@
 package com.example.pettelier_androidvol2;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,8 +33,6 @@ public class login extends AppCompatActivity {
     private EditText login_id,login_pw;
     private Button btn_login;
     private TextView tv_find,tv_join;
-    private CheckBox box_autologin;
-
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
 
@@ -51,10 +46,6 @@ public class login extends AppCompatActivity {
         tv_join = findViewById(R.id.tv_join);
         tv_find = findViewById(R.id.tv_find);
         Intent intent = getIntent();
-
-        SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-       // login_id = auto.getString("login_id",null);
-       // loginPwd = auto.getString("login_pw",null);
 
         tv_join.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,9 +75,9 @@ public class login extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://59.0.129.176:8081/web/andLogin.do";
+        String url = "http://220.80.165.82:8081/web/andLogin.do";
 
-        // 고은 : 172.30.1.28:8089
+        // 고은 :  172.30.1.28:8089
         // 시윤 : 59.0.129.176:8081
         // 준범 : 210.223.239.212:8081
         // 진관 : 220.80.165.82:8081
@@ -123,13 +114,13 @@ public class login extends AppCompatActivity {
                             startActivity(intent);
                         }
 
+                        else {
+                            Intent intent = new Intent(getApplicationContext(), After_Login_Main.class);
+                            //intent.putExtra("vo",vo);
+                            startActivity(intent);
 
-                        Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
-                        //intent.putExtra("vo",vo);
-                        startActivity(intent);
-
-                        Toast.makeText(login.this,"로그인성공",Toast.LENGTH_SHORT).show();
-
+                            Toast.makeText(login.this, "로그인성공", Toast.LENGTH_SHORT).show();
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

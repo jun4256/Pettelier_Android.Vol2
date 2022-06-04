@@ -40,11 +40,13 @@
 
     <ListView
         android:id="@+id/board_list"
-        android:layout_width="409dp"
-        android:layout_height="440dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="163dp" />
+        android:layout_width="405dp"
+        android:layout_height="420dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="176dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <Spinner
         android:id="@+id/spinner"

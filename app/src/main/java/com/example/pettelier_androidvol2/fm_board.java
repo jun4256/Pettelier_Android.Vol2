@@ -130,14 +130,16 @@ public class fm_board extends Fragment {
                     for (int i = 0; i< jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                        int seq = jsonObject.getInt("board_seq");
+                        String seq = jsonObject.getString("board_seq");
                         String id = jsonObject.getString("mb_id");
                         String title = jsonObject.getString("board_title");
                         String content = jsonObject.getString("board_content");
                         String viewcount = jsonObject.getString("board_viewcount");
                         String date = jsonObject.getString("board_date");
 
+                        Log.v("d",seq);
                         adapter.addItem(seq, id, title, date);
+
                     }
 
                     board_list.setAdapter(adapter);
@@ -151,7 +153,7 @@ public class fm_board extends Fragment {
                             //Toast.makeText(getApplicationContext(), vo.toString(), Toast.LENGTH_SHORT).show();
                             Toast.makeText(getContext(),vo.toString(),Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(getContext(), boardWrite.class);
+                            Intent intent = new Intent(getContext(), boardContent.class);
                             intent.putExtra("vo", vo);
                             startActivity(intent);
 

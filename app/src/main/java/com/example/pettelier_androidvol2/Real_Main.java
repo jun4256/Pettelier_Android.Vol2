@@ -19,7 +19,6 @@ import androidx.fragment.app.FragmentManager;
 
 public class Real_Main extends Fragment {
 
-    private Button btn_Mainlogin;
     private Button Main_btn1,Main_btn2;
     private TextView welcome;
     private FragmentManager fm;
@@ -32,7 +31,6 @@ public class Real_Main extends Fragment {
         View fragment = inflater.inflate(R.layout.activity_real_main,container,false);
 
 
-        btn_Mainlogin = fragment.findViewById(R.id.btn_Mainlogin);
         Main_btn1 = fragment.findViewById(R.id.Main_btn1);  // 회원가입버튼
         Main_btn2 = fragment.findViewById(R.id.Main_btn2); // id/pw 찾기 버튼
 
@@ -50,19 +48,6 @@ public class Real_Main extends Fragment {
         info4 = fragment.findViewById(R.id.info4);
         info3 = fragment.findViewById(R.id.info3);
         info2 = fragment.findViewById(R.id.info2);
-
-
-
-
-
-
-        btn_Mainlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(),login.class);
-                startActivity(intent);
-            }
-        });
 
 
         Main_btn1.setOnClickListener(new View.OnClickListener() {

@@ -45,7 +45,7 @@
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="72dp"
         android:background="#F6907B"
         android:gravity="center"
         android:text="로그인"
@@ -53,7 +53,7 @@
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_pw" />
 
@@ -62,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="102dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="100dp"
         android:ems="10"
         android:hint="아이디 입력"
@@ -70,6 +70,7 @@
         android:minHeight="48dp"
         android:textColorHint="#707070"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/FirstInput_Profile" />
 
@@ -89,27 +90,38 @@
 
     <TextView
         android:id="@+id/tv_join"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginBottom="144dp"
+        android:layout_width="83dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginBottom="120dp"
         android:text="회원가입"
         android:textColor="#707070"
-        android:textSize="14sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_find"
-        android:layout_width="147dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="144dp"
+        android:layout_width="148dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="120dp"
         android:text="아이디/비밀번호 찾기"
         android:textColor="#707070"
-        android:textSize="14sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_join" />
+
+    <CheckBox
+        android:id="@+id/box_autologin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:minHeight="48dp"
+        android:text="자동 로그인"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@+id/login_pw"
+        tools:layout_editor_absoluteX="102dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

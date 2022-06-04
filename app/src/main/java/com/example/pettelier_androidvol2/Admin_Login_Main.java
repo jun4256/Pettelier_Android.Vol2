@@ -37,6 +37,7 @@ public class Admin_Login_Main extends AppCompatActivity {
         btn_admin_feed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),fm_feedPage.class);
 
             }
         });
@@ -44,6 +45,7 @@ public class Admin_Login_Main extends AppCompatActivity {
         btn_admin_fan_control.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),fanPage.class);
 
             }
         });

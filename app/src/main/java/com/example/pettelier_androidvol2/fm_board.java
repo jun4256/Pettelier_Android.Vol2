@@ -65,10 +65,11 @@ public class fm_board extends Fragment {
         board_list = fragment.findViewById(R.id.board_list);
         btn_write = fragment.findViewById(R.id.btn_write);
         fm = getActivity().getSupportFragmentManager();
+
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(),login.class);
+                Intent intent = new Intent(getContext(),boardWrite.class);
                 startActivity(intent);
             }
         });
@@ -113,7 +114,7 @@ public class fm_board extends Fragment {
         requestQueue = Volley.newRequestQueue(getContext());    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://218.149.140.51:8089/web/boardList.do";
+        String url = "http://172.30.1.28:8089/web/boardList.do";
 
         // 1.객체만들고 요청 주소만듦
 

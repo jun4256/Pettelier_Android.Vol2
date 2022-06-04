@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FBF6F6"
-    android:orientation="vertical">
+    android:orientation="vertical"><![CDATA[
     tools:context=".After_Login_Main">
+
+    ]]>
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -282,4 +284,5 @@
 
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

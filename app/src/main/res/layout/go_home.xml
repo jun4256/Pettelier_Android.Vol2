@@ -44,7 +44,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_Mainlogin"
+                    android:id="@+id/btn_MainNick"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"

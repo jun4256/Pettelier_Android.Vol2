@@ -78,7 +78,7 @@ public class Pet_register extends AppCompatActivity {
                 Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
                 if(response.length() > 0) {
                     Toast.makeText(getApplicationContext(), "강아지 등록 성공", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
+                    Intent intent = new Intent(getApplicationContext(),Main_Page.class);
                     startActivity(intent);
 
 
@@ -124,7 +124,7 @@ public class Pet_register extends AppCompatActivity {
 
 
 
-                params.put("mb_id", loginCheck.info.getId());
+                params.put("mb_id", mb_id);
                 params.put("dog_age",dog_age);
                 params.put("dog_etc",dog_etc);
                 params.put("dog_name",dog_name);

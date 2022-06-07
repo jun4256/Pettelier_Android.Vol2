@@ -35,30 +35,6 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tv_pwrs_n"
-            android:layout_width="35dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="이름" />
-
-        <EditText
-            android:id="@+id/edt_pwrs_n"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="a"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-
-        <TextView
             android:id="@+id/tv_pwrs_id"
             android:layout_width="35dp"
             android:layout_height="wrap_content"
@@ -79,30 +55,6 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tv_pwrs_p"
-            android:layout_width="35dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="휴대폰 번호" />
-
-        <EditText
-            android:id="@+id/edt_pwrs_p"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="a"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="161dp">
 
         <Button
@@ -111,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="50dp"
+            android:background="@drawable/button_radius"
             android:gravity="center"
             android:text="비밀번호 재설정"
             android:textColor="#F3F3F6" />
@@ -126,6 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:layout_marginRight="100dp"
+            android:background="@drawable/button_radius"
             android:text="취소"
             android:textColor="#FFFFFF" />
     </LinearLayout>

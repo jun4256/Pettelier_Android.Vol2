@@ -2,12 +2,28 @@ package com.example.pettelier_androidvol2;
 
 import androidx.annotation.NonNull;
 
-public class DogVO {
+import java.io.Serializable;
+
+public class DogVO implements Serializable {
     private String id;
     private String dog_name;
     private String dog_type;
     private String dog_etc;
     private String dog_age;
+
+//    public DogVO(String id, String dog_name, String dog_type) {
+//        this.id = id;
+//        this.dog_name = dog_name;
+//        this.dog_type = dog_type;
+//    }
+
+
+    public DogVO(String id, String dog_name, String dog_etc, String dog_age) {
+        this.id = id;
+        this.dog_name = dog_name;
+        this.dog_etc = dog_etc;
+        this.dog_age = dog_age;
+    }
 
     public DogVO(String id, String dog_name, String dog_type, String dog_etc, String dog_age) {
         this.id = id;
@@ -18,6 +34,13 @@ public class DogVO {
     }
 
     public DogVO(){
+
+    }
+
+    public DogVO(String dog_name, String dog_type, String dog_age) {
+        this.dog_age = dog_age;
+        this.dog_name = dog_name;
+        this.dog_type = dog_type;
 
     }
 

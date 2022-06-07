@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -35,6 +36,8 @@ public class login extends AppCompatActivity {
     private TextView tv_find,tv_join;
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
+    private FragmentManager fm;
+    private Real_Main RM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class login extends AppCompatActivity {
         tv_join = findViewById(R.id.tv_join);
         tv_find = findViewById(R.id.tv_find);
         Intent intent = getIntent();
+
 
         tv_join.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +79,7 @@ public class login extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://220.80.165.82:8081/web/andLogin.do";
+        String url = "http://172.30.1.28:8089/web/andLogin.do";
 
         // 고은 :  172.30.1.28:8089
         // 시윤 : 59.0.129.176:8081
@@ -115,10 +119,14 @@ public class login extends AppCompatActivity {
                         }
 
                         else {
-                            Intent intent = new Intent(getApplicationContext(), After_Login_Main.class);
-                            //intent.putExtra("vo",vo);
-                            startActivity(intent);
+//                            fm.beginTransaction().replace(R.id.frame,RM).commit();
 
+                            Intent intent = new Intent(getApplicationContext(), Main_Page.class);
+                            //intent.putExtra("response", response);
+                            startActivity(intent);
+                            //Intent intent = new Intent(getApplicationContext(), Real_Main.class);
+
+                            //startActivity(intent);
                             Toast.makeText(login.this, "로그인성공", Toast.LENGTH_SHORT).show();
                         }
                     } catch (JSONException e) {

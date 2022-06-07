@@ -65,10 +65,11 @@ public class fm_board extends Fragment {
         board_list = fragment.findViewById(R.id.board_list);
         btn_write = fragment.findViewById(R.id.btn_write);
         fm = getActivity().getSupportFragmentManager();
+
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(),login.class);
+                Intent intent = new Intent(getContext(),boardWrite.class);
                 startActivity(intent);
             }
         });
@@ -113,7 +114,7 @@ public class fm_board extends Fragment {
         requestQueue = Volley.newRequestQueue(getContext());    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://218.149.140.51:8089/web/boardList.do";
+        String url = "http://172.30.1.28:8089/web/boardList.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -129,14 +130,16 @@ public class fm_board extends Fragment {
                     for (int i = 0; i< jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                        int seq = jsonObject.getInt("board_seq");
+                        String seq = jsonObject.getString("board_seq");
                         String id = jsonObject.getString("mb_id");
                         String title = jsonObject.getString("board_title");
                         String content = jsonObject.getString("board_content");
                         String viewcount = jsonObject.getString("board_viewcount");
                         String date = jsonObject.getString("board_date");
 
+                        Log.v("d",seq);
                         adapter.addItem(seq, id, title, date);
+
                     }
 
                     board_list.setAdapter(adapter);
@@ -150,7 +153,7 @@ public class fm_board extends Fragment {
                             //Toast.makeText(getApplicationContext(), vo.toString(), Toast.LENGTH_SHORT).show();
                             Toast.makeText(getContext(),vo.toString(),Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(getContext(), boardWrite.class);
+                            Intent intent = new Intent(getContext(), boardContent.class);
                             intent.putExtra("vo", vo);
                             startActivity(intent);
 

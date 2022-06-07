@@ -7,13 +7,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import androidx.fragment.app.FragmentManager;
+
 import java.util.ArrayList;
 
     public class BoardAdapter extends BaseAdapter {
+        private FragmentManager fm;
 
         private ArrayList<BoardVO> items = new ArrayList<BoardVO>();
 
-        public void addItem(int seq, String id, String title, String date) {
+        public void addItem(String seq, String id, String title, String date) {
             BoardVO vo = new BoardVO(seq, id, title, date);
             items.add(vo);
         }
@@ -48,7 +51,7 @@ import java.util.ArrayList;
             if (view == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 // R.layout.보드리스트 이런식으로 수정해야함
-                view = inflater.inflate(R.layout.board, viewGroup, false);
+                view = inflater.inflate(R.layout.board_custom, viewGroup, false);
             }
 
             TextView custom_tvSeq = view.findViewById(R.id.custom_tvSeq);
@@ -58,7 +61,7 @@ import java.util.ArrayList;
 
             BoardVO vo = items.get(i);
 
-            custom_tvSeq.setText(String.valueOf(vo.getSeq()));
+            custom_tvSeq.setText(vo.getSeq());
             custom_tvTitle.setText(vo.getTitle());
             custom_tvWriter.setText(vo.getId());
             custom_tvDate.setText(vo.getDate());

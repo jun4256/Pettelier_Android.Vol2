@@ -65,7 +65,7 @@ public class boardWrite extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://218.149.140.51:8089/web/boardInsert.do";
+        String url = "http://172.30.1.28:8089/web/boardInsert.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -78,7 +78,7 @@ public class boardWrite extends AppCompatActivity {
                 Log.v("resultValue",response);
                 Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
                 if(response.length() > 0) {
-                    Intent intent = new Intent(getApplicationContext(),Real_Main.class);
+                    Intent intent = new Intent(getApplicationContext(),fm_board.class);
                     startActivity(intent);
                     Toast.makeText(getApplicationContext(), "업로드 성공", Toast.LENGTH_SHORT).show();
 
@@ -116,7 +116,7 @@ public class boardWrite extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 String title = board_title.getText().toString();
                 String content = board_content.getText().toString();
-                String b_writer = writer.getText().toString();
+                String b_writer = loginCheck.info.getId();
 
                 params.put("board_title", title);
                 params.put("board_content",content);

@@ -38,6 +38,10 @@ public class Main_Page extends AppCompatActivity {
         fm = getSupportFragmentManager();   // 프라그먼트 매니저 셋팅
 
 
+        fm.beginTransaction().replace(R.id.frame,home).commit();
+
+
+
         navi = findViewById(R.id.navi);      //하단 네비바
         navi.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -54,9 +58,9 @@ public class Main_Page extends AppCompatActivity {
                         break;
                     case R.id.setting:
                         fm.beginTransaction().replace(R.id.frame,setting).commit();
-//
                         Toast.makeText(getApplicationContext(), "설정", Toast.LENGTH_SHORT).show();
                         break;
+
                 }
                 return false;
             }

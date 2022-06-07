@@ -10,7 +10,8 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -49,6 +50,7 @@
         android:ems="10"
         android:hint="이름 입력"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:textColor="#090808"
         android:textColorHint="#A7A1A1" />
 
@@ -59,6 +61,7 @@
         android:ems="10"
         android:hint="품종 입력"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:textColor="#090808"
         android:textColorHint="#A7A1A1" />
 
@@ -69,6 +72,7 @@
         android:ems="10"
         android:hint="나이 입력"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:textColor="#090808"
         android:textColorHint="#A7A1A1" />
 
@@ -79,12 +83,13 @@
         android:ems="10"
         android:hint="특이사항 입력"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:textColor="#090808"
         android:textColorHint="#A7A1A1" />
 
     <LinearLayout
         android:layout_width="381dp"
-        android:layout_height="30dp"
+        android:layout_height="18dp"
         android:orientation="vertical">
 
     </LinearLayout>
@@ -93,7 +98,7 @@
         android:id="@+id/btn_regist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F6907B"
+        android:background="@drawable/button_radius"
         android:shadowColor="#F6907B"
         android:text="등록"
         android:textColor="#F3F3F6"

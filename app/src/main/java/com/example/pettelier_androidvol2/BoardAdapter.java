@@ -48,7 +48,7 @@ import java.util.ArrayList;
             if (view == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 // R.layout.보드리스트 이런식으로 수정해야함
-                view = inflater.inflate(R.layout.board, viewGroup, false);
+                view = inflater.inflate(R.layout.board_custom, viewGroup, false);
             }
 
             TextView custom_tvSeq = view.findViewById(R.id.custom_tvSeq);

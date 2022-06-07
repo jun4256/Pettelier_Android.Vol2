@@ -1,5 +1,7 @@
 package com.example.pettelier_androidvol2;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -26,53 +26,50 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class boardWrite extends AppCompatActivity {
-    private Button btn_Board_cancel, btn_Board_insert;
-    private EditText board_title,board_content;
-    private TextView writer;
+public class qnaBoardWrite extends AppCompatActivity {
+    private Button qna_cancel, qna_insert;
+    private EditText qna_title,qna_content;
+    private TextView qna_writer;
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_board_write);
+        setContentView(R.layout.activity_qna_board_write);
 
-        btn_Board_insert = findViewById(R.id.btn_Board_insert);
-        btn_Board_cancel = findViewById(R.id.btn_Board_cancel);
-        board_title = findViewById(R.id.board_title);
-        board_content = findViewById(R.id.board_content);
-        writer = findViewById(R.id.writer);
+        qna_cancel = findViewById(R.id.qna_cancel);
+        qna_insert = findViewById(R.id.qna_insert);
+        qna_writer = findViewById(R.id.qna_writer);
+        qna_title = findViewById(R.id.qna_title);
+        qna_content = findViewById(R.id.qna_content);
         if((loginCheck.info)!=null){
-            writer.setText(loginCheck.info.getId());
-
+            qna_writer.setText(loginCheck.info.getId());
         }
 
-
-        btn_Board_insert.setOnClickListener(new View.OnClickListener() {
+        qna_insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendBoardInsert();
-
+                qnaInsert();
             }
         });
 
-        btn_Board_cancel.setOnClickListener(new View.OnClickListener() {
+        qna_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
 
+
     }
 
-    public void sendBoardInsert() {
-
+    public void qnaInsert() {
         //RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/boardInsert.do";
+        String url = "http://172.30.1.28:8089/web/qnaInsert.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -121,13 +118,13 @@ public class boardWrite extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                String title = board_title.getText().toString();
-                String content = board_content.getText().toString();
-                String b_writer = loginCheck.info.getId();
+                String title = qna_title.getText().toString();
+                String content = qna_content.getText().toString();
+                String q_writer = loginCheck.info.getId();
 
-                params.put("board_title", title);
-                params.put("board_content",content);
-                params.put("mb_id",b_writer);
+                params.put("qna_title", title);
+                params.put("qna_content",content);
+                params.put("mb_id",q_writer);
                 // key값은 서버에서 지정한 name과 동일하게
 
                 return params;
@@ -136,8 +133,7 @@ public class boardWrite extends AppCompatActivity {
         stringRequest.setTag("main");       //구분자 어떤클라이언트에서 요청했는지 나타냄 (중요하지않음)
         requestQueue.add(stringRequest);        //실행 요청 add에 담으면 자동요청
 
+
+
     }
-
 }
-
-

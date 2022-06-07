@@ -47,9 +47,10 @@ public class fm_board extends Fragment {
     private ListView board_list;
     private ArrayList<String> items = new ArrayList<>();    //어댑터에 들어갈 데이터
     private BoardAdapter adapter = new BoardAdapter(); //리스트뷰에 적용되는 보드어댑터
+    private QnaAdapter qnaAdapter = new QnaAdapter(); //리스트뷰에 적용되는 보드어댑터
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
-    private Button btn_write;
+    private Button btn_write,btn_write2;
     private FragmentManager fm;
 
 
@@ -64,12 +65,22 @@ public class fm_board extends Fragment {
         tv_board = fragment.findViewById(R.id.tv_board);
         board_list = fragment.findViewById(R.id.board_list);
         btn_write = fragment.findViewById(R.id.btn_write);
+        btn_write2 = fragment.findViewById(R.id.btn_write2);
         fm = getActivity().getSupportFragmentManager();
+        btn_write2.setVisibility(View.INVISIBLE);
 
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(),boardWrite.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_write2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),qnaBoardWrite.class);
                 startActivity(intent);
             }
         });
@@ -88,7 +99,15 @@ public class fm_board extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 tv_board.setText(board_drop[i]);
-                getBoardData();
+                if(board_drop[i].equals("정보공유")){
+                    getBoardData();
+                } else{
+                    getQnA_BoardData();
+                    btn_write.setVisibility(View.INVISIBLE);
+                    btn_write2.setVisibility(View.VISIBLE);
+                }
+
+                // Log.v("i",board_drop[i]);        텍스트로 찍힘
 
 
             }
@@ -106,6 +125,100 @@ public class fm_board extends Fragment {
         });
         return fragment;
     }
+
+
+    // 문의게시판 리스트뷰
+    public void getQnA_BoardData() {
+        //RequestQueue 객체 생성
+        requestQueue = Volley.newRequestQueue(getContext());    // this==getApplicationContext();
+
+        // 서버에 요청할 주소
+        String url = "http://172.30.1.28:8089/web/qnaList.do";
+
+        // 1.객체만들고 요청 주소만듦
+
+        // 요청시 필요한 문자열 객체 생성  매개변수  4개(통신방식(get,post),요청url주소, new 리스너(익명클래스)-응답시필요한부분 작성함)
+        stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>(){
+            // 응답데이터를 받아오는 곳
+            // 응답시 데이터 받아오는 곳 - 통신이 잘됐다면 로그캣에서 확인하게출력함
+            @Override
+            public void onResponse(String response) {
+                Log.v("resultValue",response);
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    for (int i = 0; i< jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                        String qna_seq = jsonObject.getString("qna_seq");
+                        String mb_id = jsonObject.getString("mb_id");
+                        String qna_title = jsonObject.getString("qna_title");
+                        String qna_content = jsonObject.getString("qna_content");
+                        String qna_date = jsonObject.getString("qna_date");
+
+                        qnaAdapter.addItem(qna_seq, mb_id, qna_title, qna_content, qna_date);
+
+                    }
+
+                    board_list.setAdapter(qnaAdapter);
+
+                    qnaAdapter.notifyDataSetChanged();
+
+                    board_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            QnaBoardVO qvo = (QnaBoardVO) adapterView.getItemAtPosition(i);
+                            //Toast.makeText(getApplicationContext(), vo.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(),qvo.toString(),Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getContext(), qnaContent.class);
+                            intent.putExtra("qvo", qvo);
+                            startActivity(intent);
+
+                        }
+                    });
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            // 서버와의 연동 에러시 출력
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        }){
+            @Override //response를 UTF8로 변경해주는 소스코드
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    String utf8String = new String(response.data, "UTF-8");
+                    return Response.success(utf8String, HttpHeaderParser.parseCacheHeaders(response));
+                } catch (UnsupportedEncodingException e) {
+                    // log error
+                    return Response.error(new ParseError(e));
+                } catch (Exception e) {
+                    // log error
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+            // 보낼 데이터를 저장하는 곳
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+
+                // String c_manager_id = SharedPreference.getAttribute(getApplicationContext(), "m_id");
+                // params.put("c_manager_id", c_manager_id);
+
+                return params;
+            }
+        };
+        stringRequest.setTag("main");
+        requestQueue.add(stringRequest);
+    }
+
 
 
 
@@ -134,11 +247,11 @@ public class fm_board extends Fragment {
                         String id = jsonObject.getString("mb_id");
                         String title = jsonObject.getString("board_title");
                         String content = jsonObject.getString("board_content");
-                        String viewcount = jsonObject.getString("board_viewcount");
+                        //String viewcount = jsonObject.getString("board_viewcount");
                         String date = jsonObject.getString("board_date");
 
                         Log.v("d",seq);
-                        adapter.addItem(seq, id, title, date);
+                        adapter.addItem(seq, id, title, content, date);
 
                     }
 
@@ -151,8 +264,7 @@ public class fm_board extends Fragment {
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             BoardVO vo = (BoardVO) adapterView.getItemAtPosition(i);
                             //Toast.makeText(getApplicationContext(), vo.toString(), Toast.LENGTH_SHORT).show();
-                            Toast.makeText(getContext(),vo.toString(),Toast.LENGTH_SHORT).show();
-
+                            //Toast.makeText(getContext(),vo.toString(),Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getContext(), boardContent.class);
                             intent.putExtra("vo", vo);
                             startActivity(intent);

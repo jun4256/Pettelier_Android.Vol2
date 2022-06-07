@@ -7,18 +7,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import androidx.fragment.app.FragmentManager;
-
 import java.util.ArrayList;
 
-public class CommentAdapter extends BaseAdapter {
+public class QnaCmtAdapter extends BaseAdapter {
+    private ArrayList<QnaCmtVO> items = new ArrayList<QnaCmtVO>();
 
-    private ArrayList<CmtVO> items = new ArrayList<CmtVO>();
-
-    public void addItem(String id, String title, String date) {
-        CmtVO vo = new CmtVO(id, title, date);
+    public void addItem(String content, String date) {
+        QnaCmtVO vo = new QnaCmtVO(content, date);
         items.add(vo);
     }
+
 
     @Override
     public int getCount() {
@@ -40,6 +38,7 @@ public class CommentAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
+
         // Adapter가 가지고 있는 item만큼 만들어놓은 xml에 틀에 맞게 넣어주는 메소드
         // 필수 구현
 
@@ -49,22 +48,20 @@ public class CommentAdapter extends BaseAdapter {
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             // R.layout.보드리스트 이런식으로 수정해야함
-            view = inflater.inflate(R.layout.cmt_custom, viewGroup, false);
+            view = inflater.inflate(R.layout.qna_cmt_custom, viewGroup, false);
         }
 
         //TextView cmt_tvSeq = view.findViewById(R.id.cmt_tvSeq);
-        TextView cmt_tvContent = view.findViewById(R.id.cmt_tvContent);
-        TextView cmt_tvWriter = view.findViewById(R.id.cmt_tvWriter);
-        TextView cmt_tvDate = view.findViewById(R.id.cmt_tvDate);
+        TextView cmt2_tvContent = view.findViewById(R.id.cmt_tvContent);
+        TextView cmt2_tvDate = view.findViewById(R.id.cmt_tvDate);
 
-        CmtVO vo = items.get(i);
+        QnaCmtVO vo = items.get(i);
 
         //cmt_tvSeq.setText(vo.getCmt_seq());
-        cmt_tvContent.setText(vo.getCmt_content());
-        cmt_tvWriter.setText(vo.getMb_id());
-        cmt_tvDate.setText(vo.getCmt_date());
+        cmt2_tvContent.setText(vo.getQna_cmt_content());
+        //cmt_tvWriter.setText(vo.getQna_seq());
+        cmt2_tvDate.setText(vo.getQna_cmt_date());
 
         return view;
     }
 }
-

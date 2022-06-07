@@ -4,24 +4,27 @@ import java.io.Serializable;
 
 public class BoardVO implements Serializable {
 
-    private int seq;
+    private static final long serialVersionUID = 1L;
+
+
+    private String seq;
     private String id;
     private String title;
     private String content;
-    private int viewcount;
+    private String viewcount;
     private String date;
 
 
     public  BoardVO(){
 
     }
-    public BoardVO(int seq, String id, String title, String date){
+    public BoardVO(String seq, String id, String title, String date){
         this.seq = seq;
         this.id = id;
         this.title = title;
         this.date = date;
     }
-    public BoardVO(int seq, String id, String title, String content, int viewcount, String date) {
+    public BoardVO(String seq, String id, String title, String content, String viewcount, String date) {
         this.seq = seq;
         this.id = id;
         this.title = title;
@@ -30,11 +33,11 @@ public class BoardVO implements Serializable {
         this.date = date;
     }
 
-    public int getSeq() {
+    public String getSeq() {
         return seq;
     }
 
-    public void setSeq(int seq) {
+    public void setSeq(String seq) {
         this.seq = seq;
     }
 
@@ -62,11 +65,11 @@ public class BoardVO implements Serializable {
         this.content = content;
     }
 
-    public int getViewcount() {
+    public String getViewcount() {
         return viewcount;
     }
 
-    public void setViewcount(int viewcount) {
+    public void setViewcount(String viewcount) {
         this.viewcount = viewcount;
     }
 

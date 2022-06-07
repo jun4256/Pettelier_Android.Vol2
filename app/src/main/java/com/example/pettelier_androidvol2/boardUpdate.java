@@ -1,5 +1,7 @@
 package com.example.pettelier_androidvol2;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -26,64 +26,67 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class boardWrite extends AppCompatActivity {
-    private Button btn_Board_cancel, btn_Board_insert;
-    private EditText board_title,board_content;
-    private TextView writer;
+public class boardUpdate extends AppCompatActivity {
+
+    private Button btn_up_Board_cancel, btn_Board_update;
+    private EditText up_board_title,up_board_content;
+    private TextView up_writer;
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
+    String seq;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_board_write);
+        setContentView(R.layout.activity_board_update);
+        Intent intent = getIntent();
+        BoardVO vo = (BoardVO) intent.getSerializableExtra("vo");
 
-        btn_Board_insert = findViewById(R.id.btn_Board_insert);
-        btn_Board_cancel = findViewById(R.id.btn_Board_cancel);
-        board_title = findViewById(R.id.board_title);
-        board_content = findViewById(R.id.board_content);
-        writer = findViewById(R.id.writer);
+        seq = vo.getSeq();
+
+
+        btn_Board_update = findViewById(R.id.btn_Board_update);
+        btn_up_Board_cancel = findViewById(R.id.btn_up_Board_cancel);
+        up_board_title = findViewById(R.id.up_board_title);
+        up_board_content = findViewById(R.id.up_board_content);
+        up_writer = findViewById(R.id.up_writer);
         if((loginCheck.info)!=null){
-            writer.setText(loginCheck.info.getId());
-
+            up_writer.setText(loginCheck.info.getId());
         }
 
+        up_board_content.setText(vo.getContent());
+        up_board_title.setText(vo.getTitle());
 
-        btn_Board_insert.setOnClickListener(new View.OnClickListener() {
+        btn_Board_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendBoardInsert();
-
+                sendBoardUpdate();
             }
         });
 
-        btn_Board_cancel.setOnClickListener(new View.OnClickListener() {
+        btn_up_Board_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
 
+
+
+
     }
 
-    public void sendBoardInsert() {
-
+    public void sendBoardUpdate() {
         //RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/boardInsert.do";
-
-        // 고은 : 172.30.1.28:8089
-        // 시윤 : 59.0.129.176:8081
-        // 준범 : 210.223.239.212:8081
-        // 진관 : 220.80.165.82:8081
-
+        String url = "http://172.30.1.28:8089/web/boardUpdate.do";
 
         // 1.객체만들고 요청 주소만듦
 
         // 요청시 필요한 문자열 객체 생성  매개변수  4개(통신방식(get,post),요청url주소, new 리스너(익명클래스)-응답시필요한부분 작성함)
-        stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>(){
+        stringRequest = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>(){
             // 응답데이터를 받아오는 곳
             // 응답시 데이터 받아오는 곳 - 통신이 잘됐다면 로그캣에서 확인하게출력함
             @Override
@@ -93,15 +96,15 @@ public class boardWrite extends AppCompatActivity {
                 if(response.length() > 0) {
                     Intent intent = new Intent(getApplicationContext(),Main_Page.class);
                     startActivity(intent);
-                    Toast.makeText(getApplicationContext(), "업로드 성공", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), " 수정 성공", Toast.LENGTH_SHORT).show();
 
                 }else {
                     // 실패
-                    Toast.makeText(getApplicationContext(), "업로드 실패", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "수정 실패", Toast.LENGTH_SHORT).show();
                 }
 
             }
-        }, new Response.ErrorListener() {
+        }, new com.android.volley.Response.ErrorListener() {
             // 서버와의 연동 에러시 출력
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -110,13 +113,13 @@ public class boardWrite extends AppCompatActivity {
             }
         }){
             @Override //response를 UTF8로 변경해주는 소스코드
-            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+            protected com.android.volley.Response<String> parseNetworkResponse(NetworkResponse response) {
                 try {
                     String utf8String = new String(response.data, "UTF-8");
-                    return Response.success(utf8String, HttpHeaderParser.parseCacheHeaders(response));
+                    return com.android.volley.Response.success(utf8String, HttpHeaderParser.parseCacheHeaders(response));
                 } catch (UnsupportedEncodingException e) {
                     // log error
-                    return Response.error(new ParseError(e));
+                    return com.android.volley.Response.error(new ParseError(e));
                 } catch (Exception e) {
                     // log error
                     return Response.error(new ParseError(e));
@@ -127,13 +130,13 @@ public class boardWrite extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                String title = board_title.getText().toString();
-                String content = board_content.getText().toString();
-                String b_writer = loginCheck.info.getId();
+                String title = up_board_title.getText().toString();
+                String content = up_board_content.getText().toString();
+                String board_seq = seq;
 
                 params.put("board_title", title);
                 params.put("board_content",content);
-                params.put("mb_id",b_writer);
+                params.put("board_seq",board_seq);
                 // key값은 서버에서 지정한 name과 동일하게
 
                 return params;
@@ -143,7 +146,4 @@ public class boardWrite extends AppCompatActivity {
         requestQueue.add(stringRequest);        //실행 요청 add에 담으면 자동요청
 
     }
-
 }
-
-

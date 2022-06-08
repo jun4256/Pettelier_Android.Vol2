@@ -114,7 +114,7 @@ public class login extends AppCompatActivity {
                         loginCheck.info= new MemberVO(id,pw,nick,name,phone,address,joindate,type);
                         Log.v("check",loginCheck.info.getId());
                         if((loginCheck.info.getId()).equals("admin")){
-                            Intent intent = new Intent(getApplicationContext(),Admin_Login_Main.class);
+                            Intent intent = new Intent(getApplicationContext(),Main_Page.class);
                             startActivity(intent);
                         }
 

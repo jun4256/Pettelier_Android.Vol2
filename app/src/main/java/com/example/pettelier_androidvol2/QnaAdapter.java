@@ -12,11 +12,14 @@ import java.util.ArrayList;
 public class QnaAdapter extends BaseAdapter {
     private ArrayList<QnaBoardVO> items = new ArrayList<QnaBoardVO>();
 
+
     public void addItem(String seq, String id, String title, String content, String date) {
         QnaBoardVO vo = new QnaBoardVO(seq, id, title, content, date);
         items.add(vo);
     }
-
+    public void clear(){
+        items.clear();
+    }
 
     @Override
     public int getCount() {
@@ -61,6 +64,7 @@ public class QnaAdapter extends BaseAdapter {
         custom_tvTitle.setText(vo.getQna_title());
         custom_tvWriter.setText(vo.getMb_id());
         custom_tvDate.setText(vo.getQna_date());
+
 
 
         return view;

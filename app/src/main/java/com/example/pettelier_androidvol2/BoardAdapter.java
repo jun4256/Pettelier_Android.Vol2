@@ -16,7 +16,9 @@ import java.util.ArrayList;
 
         private ArrayList<BoardVO> items = new ArrayList<BoardVO>();
 
+
         public void addItem(String seq, String id, String title, String content, String date) {
+
             BoardVO vo = new BoardVO(seq, id, title, content, date);
             items.add(vo);
         }

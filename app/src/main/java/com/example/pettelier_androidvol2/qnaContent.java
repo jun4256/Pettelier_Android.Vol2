@@ -65,6 +65,8 @@ public class qnaContent extends AppCompatActivity {
         input_q_cmt = findViewById(R.id.input_q_cmt);
         q_cmt_view = findViewById(R.id.q_cmt_view);
 
+        btn_q_cmt.setVisibility(View.INVISIBLE);
+        input_q_cmt.setVisibility(View.INVISIBLE);
         btn_q_update.setVisibility(View.INVISIBLE);
         btn_q_del.setVisibility(View.INVISIBLE);
 
@@ -73,6 +75,12 @@ public class qnaContent extends AppCompatActivity {
             btn_q_del.setVisibility(View.VISIBLE);
             btn_q_update.setVisibility(View.VISIBLE);
         }
+        if(loginCheck.info.getId().equals("admin")){
+            btn_q_cmt.setVisibility(View.VISIBLE);
+            input_q_cmt.setVisibility(View.VISIBLE);
+
+
+        }
         c_qna_writer.setText(qvo.getMb_id());
         c_qna_title.setText(qvo.getQna_title());
         c_qna_content.setText(qvo.getQna_content());
@@ -80,6 +88,9 @@ public class qnaContent extends AppCompatActivity {
         btn_q_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),qnaUpdate.class);
+                intent.putExtra("qvo",qvo);
+                startActivity(intent);
 
             }
         });
@@ -87,6 +98,7 @@ public class qnaContent extends AppCompatActivity {
         btn_q_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                qnaDelete();
 
             }
         });
@@ -117,16 +129,19 @@ public class qnaContent extends AppCompatActivity {
                 Log.v("resultValue",response);
                 try {
                     JSONArray jsonArray = new JSONArray(response);
+
                     for (int i = 0; i< jsonArray.length(); i++) {
+
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                        String cmt_seq = jsonObject.getString("cmt_seq");
-                        String cmt_content = jsonObject.getString("cmt_content");
-                        String cmt_date = jsonObject.getString("cmt_date");
-                        String admin = " ";
+                        // String cmt_seq = jsonObject.getString("qna_cmt_seq");
+                        String qna_cmt_content = jsonObject.getString("qna_cmt_content");
+                        String qna_cmt_date = jsonObject.getString("qna_cmt_date");
 
-                        Log.v("cmt_content",cmt_content);
-                        qnaCmtAdapter.addItem(cmt_content,cmt_date);
+
+                        Log.v("qna_cmt_content",qna_cmt_content);
+
+                        qnaCmtAdapter.addItem(qna_cmt_content,qna_cmt_date);
 
                     }
 
@@ -141,7 +156,7 @@ public class qnaContent extends AppCompatActivity {
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             QnaCmtVO vo = (QnaCmtVO) adapterView.getItemAtPosition(i);
                             //Toast.makeText(getApplicationContext(), vo.toString(), Toast.LENGTH_SHORT).show();
-                            Toast.makeText(getApplicationContext(),vo.toString(),Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(),vo.toString(),Toast.LENGTH_SHORT).show();
 
                             //Intent intent = new Intent(getApplicationContext(), boardContent.class);
                             //intent.putExtra("vo", vo);
@@ -197,6 +212,77 @@ public class qnaContent extends AppCompatActivity {
 
 
     }
+
+    public void qnaDelete() {
+        //RequestQueue 객체 생성
+        requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
+
+        // 서버에 요청할 주소
+        String url = "http://172.30.1.28:8089/web/qnaDelete.do";
+
+        // 1.객체만들고 요청 주소만듦
+
+        // 요청시 필요한 문자열 객체 생성  매개변수  4개(통신방식(get,post),요청url주소, new 리스너(익명클래스)-응답시필요한부분 작성함)
+        stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>(){
+            // 응답데이터를 받아오는 곳
+            // 응답시 데이터 받아오는 곳 - 통신이 잘됐다면 로그캣에서 확인하게출력함
+            @Override
+            public void onResponse(String response) {
+                Log.v("resultValue",response);
+                Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
+                if(response.length() > 0) {
+                    Intent intent = new Intent(getApplicationContext(),Main_Page.class);
+                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "삭제 성공", Toast.LENGTH_SHORT).show();
+
+                }else {
+                    // 실패
+                    Toast.makeText(getApplicationContext(), "삭제 실패", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            // 서버와의 연동 에러시 출력
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+
+            }
+        }){
+            @Override //response를 UTF8로 변경해주는 소스코드
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    String utf8String = new String(response.data, "UTF-8");
+                    return Response.success(utf8String, HttpHeaderParser.parseCacheHeaders(response));
+                } catch (UnsupportedEncodingException e) {
+                    // log error
+                    return Response.error(new ParseError(e));
+                } catch (Exception e) {
+                    // log error
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+            // 보낼 데이터를 저장하는 곳 해쉬맵에 저장해서 보냄 - key,value
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                String qna_seq = qnaSeq;
+
+                params.put("qna_seq", qna_seq);
+
+                // key값은 서버에서 지정한 name과 동일하게
+
+                return params;
+            }
+        };
+        stringRequest.setTag("main");       //구분자 어떤클라이언트에서 요청했는지 나타냄 (중요하지않음)
+        requestQueue.add(stringRequest);        //실행 요청 add에 담으면 자동요청
+
+    }
+
+
+
     //문의사항 댓글 서버로 보내는 메소드
     public void qnacmtInput() {
         //RequestQueue 객체 생성

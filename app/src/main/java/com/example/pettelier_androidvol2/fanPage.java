@@ -144,14 +144,7 @@ public class fanPage extends AppCompatActivity {
         requestQueue.add(stringRequest);        //실행 요청 add에 담으면 자동요청
 
 
-        fan_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                CageVO cvo = (CageVO) adapterView.getItemAtPosition(i);
 
-
-            }
-        });
     }
 
 

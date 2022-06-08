@@ -71,7 +71,6 @@ public class Real_Main extends Fragment {
         Main_btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // 카메라 주소 붙여주면 됩니다 ^^ㅁ^
                 Intent intent = new Intent(getContext(),Pet_register.class);
                 startActivity(intent);
             }

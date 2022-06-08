@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -21,105 +22,82 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class find_id extends AppCompatActivity {
-
-    private EditText edt_findphone;
-    private Button btn_f_id, btn_f_cancel;
-
+public class qnaBoardWrite extends AppCompatActivity {
+    private Button qna_cancel, qna_insert;
+    private EditText qna_title,qna_content;
+    private TextView qna_writer;
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_id);
+        setContentView(R.layout.activity_qna_board_write);
 
-        edt_findphone = findViewById(R.id.edt_findphone);
+        qna_cancel = findViewById(R.id.qna_cancel);
+        qna_insert = findViewById(R.id.qna_insert);
+        qna_writer = findViewById(R.id.qna_writer);
+        qna_title = findViewById(R.id.qna_title);
+        qna_content = findViewById(R.id.qna_content);
+        if((loginCheck.info)!=null){
+            qna_writer.setText(loginCheck.info.getId());
+        }
 
-        btn_f_id = findViewById(R.id.btn_f_id);
-        btn_f_cancel = findViewById(R.id.btn_f_cancel);
-
-        btn_f_id.setOnClickListener(new View.OnClickListener() {
+        qna_insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                String mb_phone = edt_findphone.getText().toString();
-
-
-                if (mb_phone.length()==0){
-                    Toast.makeText(getApplicationContext(),"연락처를 입력해주세요",Toast.LENGTH_SHORT).show();
-                    edt_findphone.requestFocus();
-                    return;
-
-
-                }
-
-                sendRequest(mb_phone);
+                qnaInsert();
             }
         });
 
-        btn_f_cancel.setOnClickListener(new View.OnClickListener() {
+        qna_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
+
+
     }
-    private void sendRequest(String mb_phone) {
+
+    public void qnaInsert() {
         //RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://59.0.129.176:8081/web/findId.do";
-
-        // 고은 : 218.149.140.51:8089
-        // 시윤 : 59.0.129.176:8081
-        // 준범 : 210.223.239.212:8081
-        // 진관 : 220.80.165.82:8081
+        String url = "http://172.30.1.28:8089/web/qnaInsert.do";
 
         // 1.객체만들고 요청 주소만듦
 
         // 요청시 필요한 문자열 객체 생성  매개변수  4개(통신방식(get,post),요청url주소, new 리스너(익명클래스)-응답시필요한부분 작성함)
         stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>(){
             // 응답데이터를 받아오는 곳
+            // 응답시 데이터 받아오는 곳 - 통신이 잘됐다면 로그캣에서 확인하게출력함
             @Override
             public void onResponse(String response) {
+                Log.v("resultValue",response);
                 Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
                 if(response.length() > 0) {
-                    //로그인 성공
-                    // 0은 로그인실패
-                    try {
-                        JSONObject jsonObject = new JSONObject(response);   //response가 JSON타입이 아닐 수 있어서 예외처리 해주기
-
-                        // 서버에서 가져와서 안드로이드 창에 띄워줄 결과 = 폰번호와 일치하는 아이디값
-                        String mb_id = jsonObject.getString("mb_id");
-                        Log.v("id", mb_id);
-
-                        Intent intent = new Intent(getApplicationContext(),find_id_success.class);
-                        intent.putExtra("mb_id",mb_id);
-                        startActivity(intent);
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                    Intent intent = new Intent(getApplicationContext(),Main_Page.class);
+                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "업로드 성공", Toast.LENGTH_SHORT).show();
 
                 }else {
-
+                    // 실패
+                    Toast.makeText(getApplicationContext(), "업로드 실패", Toast.LENGTH_SHORT).show();
                 }
 
             }
-        }, new Response.ErrorListener(){
+        }, new Response.ErrorListener() {
             // 서버와의 연동 에러시 출력
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
+
             }
         }){
             @Override //response를 UTF8로 변경해주는 소스코드
@@ -140,11 +118,13 @@ public class find_id extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
+                String title = qna_title.getText().toString();
+                String content = qna_content.getText().toString();
+                String q_writer = loginCheck.info.getId();
 
-                //String name = loginCheck.info.getName();
-                //String mb_phone = loginCheck.info.getPhone();
-
-                params.put("mb_phone", mb_phone);
+                params.put("qna_title", title);
+                params.put("qna_content",content);
+                params.put("mb_id",q_writer);
                 // key값은 서버에서 지정한 name과 동일하게
 
                 return params;
@@ -152,6 +132,8 @@ public class find_id extends AppCompatActivity {
         };
         stringRequest.setTag("main");       //구분자 어떤클라이언트에서 요청했는지 나타냄 (중요하지않음)
         requestQueue.add(stringRequest);        //실행 요청 add에 담으면 자동요청
-    }
 
+
+
+    }
 }

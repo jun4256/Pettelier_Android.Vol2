@@ -73,7 +73,7 @@
         android:id="@+id/btn_regist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F6907B"
+        android:background="@drawable/button_radius"
         android:shadowColor="#F6907B"
         android:text="등록"
         android:textColor="#F3F3F6"

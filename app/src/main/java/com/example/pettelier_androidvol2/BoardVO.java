@@ -11,7 +11,7 @@ public class BoardVO implements Serializable {
     private String id;
     private String title;
     private String content;
-    private String viewcount;
+    //private String viewcount;
     private String date;
 
 
@@ -24,12 +24,12 @@ public class BoardVO implements Serializable {
         this.title = title;
         this.date = date;
     }
-    public BoardVO(String seq, String id, String title, String content, String viewcount, String date) {
+    public BoardVO(String seq, String id, String title, String content, String date) {
         this.seq = seq;
         this.id = id;
         this.title = title;
         this.content = content;
-        this.viewcount = viewcount;
+        //this.viewcount = viewcount;
         this.date = date;
     }
 
@@ -65,13 +65,13 @@ public class BoardVO implements Serializable {
         this.content = content;
     }
 
-    public String getViewcount() {
+/*    public String getViewcount() {
         return viewcount;
     }
 
     public void setViewcount(String viewcount) {
         this.viewcount = viewcount;
-    }
+    }*/
 
     public String getDate() {
         return date;
@@ -79,5 +79,17 @@ public class BoardVO implements Serializable {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+
+    @Override
+    public String toString() {
+        return "BoardVO{" +
+                "seq='" + seq + '\'' +
+                ", id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", date='" + date + '\'' +
+                '}';
     }
 }

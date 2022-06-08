@@ -14,8 +14,7 @@ public class CmtVO implements Serializable {
 
     }
 
-    public CmtVO(String cmt_seq, String mb_id, String cmt_content, String cmt_date) {
-        this.cmt_seq = cmt_seq;
+    public CmtVO(String mb_id, String cmt_content, String cmt_date) {
         this.mb_id = mb_id;
         this.cmt_content = cmt_content;
         this.cmt_date = cmt_date;

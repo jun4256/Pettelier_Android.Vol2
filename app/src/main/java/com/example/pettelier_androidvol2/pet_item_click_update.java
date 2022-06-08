@@ -65,7 +65,7 @@ public class pet_item_click_update extends AppCompatActivity {
             DogVO dvo = (DogVO) intent.getSerializableExtra("dvo");
             String dd= dvo.getDog_name();
 
-            // 겟 인텐트 이거 맞음?
+
 
 
 

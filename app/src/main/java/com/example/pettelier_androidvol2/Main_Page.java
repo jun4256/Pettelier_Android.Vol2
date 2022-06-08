@@ -3,6 +3,7 @@ package com.example.pettelier_androidvol2;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
@@ -23,6 +24,9 @@ public class Main_Page extends AppCompatActivity {
     private Setting setting;   //  세팅수정함
     private FragmentManager fm;  // fragment 객체 관리
     private Button btn_feed;    // Feed 밥주기 버튼
+    private Admin_Login_Main home2;   // 이거 프래그먼트 쓰려면 40번째 라인에도 써줘 제발 ...
+    ///제바ㅓㄹ 제발제발제발 제발 읽엊 ㅝ..
+
 
 
     @Override
@@ -35,10 +39,21 @@ public class Main_Page extends AppCompatActivity {
         board = new fm_board();   // 네비바 게시판
         home = new Real_Main();     // 네비바   홈
         setting = new Setting();  // 네비바 세팅
+        home2 = new Admin_Login_Main();
         fm = getSupportFragmentManager();   // 프라그먼트 매니저 셋팅
 
 
-        fm.beginTransaction().replace(R.id.frame,home).commit();
+        if((loginCheck.info.getId()).equals("admin")){
+            Log.v("이프문", loginCheck.info.getId());
+
+            fm.beginTransaction().replace(R.id.frame,home2).commit();
+        }
+        else {
+            Log.v("엘스문", loginCheck.info.getId().toString());
+            fm.beginTransaction().replace(R.id.frame, home).commit();
+        }
+
+
 
 
 
@@ -52,9 +67,12 @@ public class Main_Page extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "게시판", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.go_home:  // 홈레이아웃은 진관씨가  만든 걸로 바꿉니다
+                        if((loginCheck.info.getId()).equals("admin")){
+                            Log.v("이프문", loginCheck.info.getId());
+                            fm.beginTransaction().replace(R.id.frame,home2).commit();
+                        }else{
                         fm.beginTransaction().replace(R.id.frame,home).commit();
-//
-                        Toast.makeText(getApplicationContext(), "홈", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "홈", Toast.LENGTH_SHORT).show();}
                         break;
                     case R.id.setting:
                         fm.beginTransaction().replace(R.id.frame,setting).commit();

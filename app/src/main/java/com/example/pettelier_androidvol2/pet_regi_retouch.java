@@ -35,13 +35,11 @@ import java.util.Map;
 
 public class pet_regi_retouch extends AppCompatActivity {
     private ArrayList<String> items = new ArrayList<String>();
-    private EditText dog_type, dog_name, dog_age, dog_etc;
-    private Button btn_dog_update;
     private ListView listview;
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
     private petAdapter adapter = new petAdapter(); //리스트뷰에 적용되는 보드어댑터
-    private TextView tv_mb, tv_type, tv_dog_name;
+    private TextView tv_mb, tv_type, tv_dog_name, tv_etc;
 
     private int cnt = 1;
 
@@ -52,13 +50,10 @@ public class pet_regi_retouch extends AppCompatActivity {
         setContentView(R.layout.activity_pet_regi_retouch);
         Intent intent =getIntent();
         listview = findViewById(R.id.listview);
-        dog_age = findViewById(R.id.dog_age2);
-        dog_type = findViewById(R.id.dog_type);
-        dog_name = findViewById(R.id.dog_name);
-        dog_etc = findViewById(R.id.dog_etc2);
         tv_mb = findViewById(R.id.tv_mb);
         tv_type = findViewById(R.id.tv_type);
         tv_dog_name = findViewById(R.id.tv_dog_name);
+        tv_etc = findViewById(R.id.tv_etc);
 
         // 개 정보 수정 버튼
 //        btn_dog_update = findViewById(R.id.btn_dog_update);
@@ -76,7 +71,12 @@ public class pet_regi_retouch extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/dog_select.do";
+        String url = "http://59.0.129.176:8081/web/dog_select.do";
+        // 고은 : 172.30.1.28:8089
+        // 시윤 : 59.0.129.176:8081
+        // 준범 : 210.223.239.212:8081
+        // 진관 : 220.80.165.82:8081
+
 
         // 1.객체만들고 요청 주소만듦
 
@@ -175,6 +175,18 @@ public class pet_regi_retouch extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), pet_item_click_update.class);
                 intent.putExtra("dvo", dvo);
                 startActivity(intent);
+            }
+        });
+
+        listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                DogVO dvo = (DogVO) adapterView.getItemAtPosition(i);
+                items.remove(i);
+                Toast.makeText(getApplication(), "정보가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                adapter.notifyDataSetChanged();
+                return true; // true로 하면 onclick과 longclick이 동시 실행 안됨
+                // false로 하면 동시 실행될 수 있음 (안 좋음)
             }
         });
 

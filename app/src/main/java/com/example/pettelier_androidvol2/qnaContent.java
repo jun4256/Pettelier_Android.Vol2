@@ -1,14 +1,17 @@
 package com.example.pettelier_androidvol2;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -21,111 +24,86 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class join extends AppCompatActivity {
-
-    private EditText edt_id, edt_pw, edt_nick, edt_name, edt_phone, edt_adr, edt_adr2;
-    private Button btn_confirm, btn_join, btn_cancel;
+public class qnaContent extends AppCompatActivity {
+    private TextView c_qna_title,c_qna_writer,c_qna_content;
+    private Button btn_q_update,btn_q_del,btn_q_cmt;
+    private EditText input_q_cmt;
+    private ListView q_cmt_view;
+    private ArrayList<String> items = new ArrayList<>();
+    private QnaCmtAdapter qnaCmtAdapter = new QnaCmtAdapter(); //리스트뷰에 적용되는 코멘트 어댑터
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
+    private String qnaSeq;
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_join);
+        setContentView(R.layout.activity_qna_content);
         Intent intent = getIntent();
+        QnaBoardVO qvo = (QnaBoardVO) intent.getSerializableExtra("qvo");
+        qnaSeq =  qvo.getQna_seq();
+        String mb_id = qvo.getMb_id();
 
-        // id, pw, nick, name, phone, addr -> 회원가입
-        edt_id = findViewById(R.id.edt_id);
-        edt_pw = findViewById(R.id.edt_pw);
-        edt_nick = findViewById(R.id.edt_nick);
-        edt_name = findViewById(R.id.edt_name);
-        edt_phone = findViewById(R.id.edt_phone);
-        edt_adr = findViewById(R.id.edt_adr);
+        c_qna_writer = findViewById(R.id.c_qna_writer);
+        c_qna_title = findViewById(R.id.c_qna_title);
+        c_qna_content = findViewById(R.id.c_qna_content);
+        btn_q_update = findViewById(R.id.btn_q_update);
+        btn_q_del = findViewById(R.id.btn_q_del);
+        btn_q_cmt = findViewById(R.id.btn_q_cmt);
+        input_q_cmt = findViewById(R.id.input_q_cmt);
+        q_cmt_view = findViewById(R.id.q_cmt_view);
 
-        btn_confirm = findViewById(R.id.btn_confirm);
-        btn_cancel = findViewById(R.id.btn_cancel);
-        btn_join = findViewById(R.id.btn_join);
+        btn_q_update.setVisibility(View.INVISIBLE);
+        btn_q_del.setVisibility(View.INVISIBLE);
 
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
+        //글작성자와 로그인 아이디가 같을때만 버튼 보여줌
+        if((loginCheck.info.getId()).equals(mb_id)) {
+            btn_q_del.setVisibility(View.VISIBLE);
+            btn_q_update.setVisibility(View.VISIBLE);
+        }
+        c_qna_writer.setText(qvo.getMb_id());
+        c_qna_title.setText(qvo.getQna_title());
+        c_qna_content.setText(qvo.getQna_content());
+
+        btn_q_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),login.class);
-                startActivity(intent);
-            }
-        });
-
-        btn_confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                idCheck();
-            }
-        });
-
-
-        btn_join.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(edt_id.length()==0){  // id len이 0이면.
-                    Toast.makeText(getApplicationContext(),"아이디를 입력해주세요",Toast.LENGTH_SHORT).show();
-                    edt_id.requestFocus();    // 그 칸으로 이동하는 기능
-                    return;
-                }
-                if(edt_pw.length()==0){
-                    Toast.makeText(getApplicationContext(),"비밀번호를 입력해주세요",Toast.LENGTH_SHORT).show();
-                    edt_pw.requestFocus();
-                    return;
-                }
-                if(edt_nick.length()==0) {
-                    Toast.makeText(getApplicationContext(),"닉네임을 입력해주세요",Toast.LENGTH_SHORT).show();
-                    edt_nick.requestFocus();
-                    return;
-                }
-                if(edt_name.length()==0) {
-                    Toast.makeText(getApplicationContext(),"이름을 입력해주세요",Toast.LENGTH_SHORT).show();
-                    edt_name.requestFocus();
-                    return;
-                }
-                if(edt_phone.length()==0) {
-                    Toast.makeText(getApplicationContext(),"핸드폰번호를 입력해주세요",Toast.LENGTH_SHORT).show();
-                    edt_phone.requestFocus();
-                    return;
-                }
-                if(edt_adr.length()==0) {
-                    Toast.makeText(getApplicationContext(),"주소를 입력해주세요",Toast.LENGTH_SHORT).show();
-                    edt_adr.requestFocus();
-                    return;
-                }
-
-
-                sendRequest2();
-
 
             }
         });
 
+        btn_q_del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        //댓글입력 버튼
+        btn_q_cmt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                qnacmtInput();
+            }
+        });
 
 
-
-
-
-    }
-
-    public void idCheck() {
-        //RequestQueue 객체 생성
+        // 게시글 열면 관리자의 댓글이 바로 나오게됨
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
-
         // 서버에 요청할 주소
-        String url = "http://220.80.165.82:8081/web/idCheck.do";
-        // 고은 : 218.149.140.51:8089
-        // 시윤 : 59.0.129.176:8081
-        // 준범 : 210.223.239.212:8081
-        // 진관 : 220.80.165.82:8081
-
+        String url = "http://172.30.1.28:8089/web/qnaCmtList.do";
 
 
         // 1.객체만들고 요청 주소만듦
@@ -137,14 +115,46 @@ public class join extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.v("resultValue",response);
-                Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
-                if(response.length() > 0) {
-                    Toast.makeText(getApplicationContext(), "아이디 중복", Toast.LENGTH_SHORT).show();
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    for (int i = 0; i< jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                        String cmt_seq = jsonObject.getString("cmt_seq");
+                        String cmt_content = jsonObject.getString("cmt_content");
+                        String cmt_date = jsonObject.getString("cmt_date");
+                        String admin = " ";
+
+                        Log.v("cmt_content",cmt_content);
+                        qnaCmtAdapter.addItem(cmt_content,cmt_date);
+
+                    }
+
+                    q_cmt_view.setAdapter(qnaCmtAdapter);
+
+                    qnaCmtAdapter.notifyDataSetChanged();
 
 
-                }else {
-                    Toast.makeText(getApplicationContext(), "아이디 사용 가능", Toast.LENGTH_SHORT).show();
+                    //댓글 삭제 기능? 추가할수도 안할수도..
+                    q_cmt_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            QnaCmtVO vo = (QnaCmtVO) adapterView.getItemAtPosition(i);
+                            //Toast.makeText(getApplicationContext(), vo.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),vo.toString(),Toast.LENGTH_SHORT).show();
+
+                            //Intent intent = new Intent(getApplicationContext(), boardContent.class);
+                            //intent.putExtra("vo", vo);
+                            //startActivity(intent);
+
+                        }
+                    });
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+
 
             }
         }, new Response.ErrorListener() {
@@ -152,7 +162,6 @@ public class join extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
-
             }
         }){
             @Override //response를 UTF8로 변경해주는 소스코드
@@ -169,36 +178,32 @@ public class join extends AppCompatActivity {
                 }
             }
 
-            // 보낼 데이터를 저장하는 곳 해쉬맵에 저장해서 보냄 - key,value
+            // 보낼 데이터를 저장하는 곳
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                String checkId = edt_id.getText().toString();
-                params.put("mb_id", checkId);
+                Map<String, String> params = new HashMap<String, String>();
 
-                // key값은 서버에서 지정한 name과 동일하게
+                String qna_seq = qvo.getQna_seq();
+                params.put("qna_seq", qna_seq);
 
                 return params;
             }
         };
-        stringRequest.setTag("main");       //구분자 어떤클라이언트에서 요청했는지 나타냄 (중요하지않음)
-        requestQueue.add(stringRequest);        //실행 요청 add에 담으면 자동요청
+        stringRequest.setTag("main");
+        requestQueue.add(stringRequest);
+
+
+
+
 
     }
-
-
-
-    public void sendRequest2() {
-
+    //문의사항 댓글 서버로 보내는 메소드
+    public void qnacmtInput() {
         //RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://59.0.129.176:8081/web/joinInsert.do";
-        // 고은 : 218.149.140.51:8089
-        // 시윤 : 59.0.129.176:8081
-        // 준범 : 210.223.239.212:8081
-        // 진관 : 220.80.165.82:8081
+        String url = "http://172.30.1.28:8089/web/qnaCmtInsert.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -211,14 +216,13 @@ public class join extends AppCompatActivity {
                 Log.v("resultValue",response);
                 Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
                 if(response.length() > 0) {
-                    Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(),login.class);
+                    Intent intent = new Intent(getApplicationContext(),Main_Page.class);
                     startActivity(intent);
-
+                    Toast.makeText(getApplicationContext(), "업로드 성공", Toast.LENGTH_SHORT).show();
 
                 }else {
                     // 실패
-                    Toast.makeText(getApplicationContext(), "가입 실패", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "업로드 실패", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -248,20 +252,13 @@ public class join extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                String joinId = edt_id.getText().toString();
-                String joinPw = edt_pw.getText().toString();
-                String joinNick = edt_nick.getText().toString();
-                String joinName = edt_name.getText().toString();
-                String joinPhone = edt_phone.getText().toString();
-                String joinAdr = edt_adr.getText().toString();
 
+                //String boardSeq = boardSeq;
+                String qna_cmt_content = input_q_cmt.getText().toString();
 
-                params.put("mb_id", joinId);
-                params.put("mb_pw",joinPw);
-                params.put("mb_nick",joinNick);
-                params.put("mb_name",joinName);
-                params.put("mb_phone",joinPhone);
-                params.put("mb_address",joinAdr);
+                params.put("qna_seq", qnaSeq);
+                params.put("qna_cmt_content",qna_cmt_content);
+
                 // key값은 서버에서 지정한 name과 동일하게
 
                 return params;

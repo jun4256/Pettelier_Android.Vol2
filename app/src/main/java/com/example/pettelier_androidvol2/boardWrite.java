@@ -57,15 +57,28 @@ public class boardWrite extends AppCompatActivity {
             }
         });
 
+        btn_Board_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
     }
 
-    private void sendBoardInsert() {
+    public void sendBoardInsert() {
 
         //RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
         String url = "http://172.30.1.28:8089/web/boardInsert.do";
+
+        // 고은 : 172.30.1.28:8089
+        // 시윤 : 59.0.129.176:8081
+        // 준범 : 210.223.239.212:8081
+        // 진관 : 220.80.165.82:8081
+
 
         // 1.객체만들고 요청 주소만듦
 
@@ -78,7 +91,7 @@ public class boardWrite extends AppCompatActivity {
                 Log.v("resultValue",response);
                 Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
                 if(response.length() > 0) {
-                    Intent intent = new Intent(getApplicationContext(),fm_board.class);
+                    Intent intent = new Intent(getApplicationContext(),Main_Page.class);
                     startActivity(intent);
                     Toast.makeText(getApplicationContext(), "업로드 성공", Toast.LENGTH_SHORT).show();
 

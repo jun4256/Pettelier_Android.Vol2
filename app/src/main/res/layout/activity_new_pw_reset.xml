@@ -106,6 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="130dp"
             android:layout_marginTop="50dp"
+            android:background="@drawable/button_radius"
             android:text="비밀번호 재설정"
             android:textColor="#F3F3F6" />
     </LinearLayout>

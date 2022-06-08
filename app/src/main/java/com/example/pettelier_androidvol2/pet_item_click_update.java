@@ -70,7 +70,11 @@ public class pet_item_click_update extends AppCompatActivity {
 
 
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/dog_update.do";
+        String url = "http://59.0.129.176:8081/web/dog_update.do";
+            // 고은 : 172.30.1.28:8089
+            // 시윤 : 59.0.129.176:8081
+            // 준범 : 210.223.239.212:8081
+            // 진관 : 220.80.165.82:8081
 
         // 1.객체만들고 요청 주소만듦
 
@@ -93,7 +97,7 @@ public class pet_item_click_update extends AppCompatActivity {
 
 
                         // MemberVO 만들어서 넘기기
-                        loginCheck.dog_info = new DogVO(mb_id,dog_name,dog_age,dog_etc);
+                        loginCheck.dog_info = new DogVO(mb_id,dog_type,dog_name,dog_age,dog_etc);
                         Intent intent = new Intent(getApplicationContext(), pet_regi_retouch.class);
                         startActivity(intent);
 

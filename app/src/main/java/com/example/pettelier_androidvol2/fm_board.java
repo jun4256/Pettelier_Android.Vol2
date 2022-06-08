@@ -54,13 +54,11 @@ public class fm_board extends Fragment {
     private StringRequest stringRequest;
     private Button btn_write, btn_write2;
     private FragmentManager fm;
-    private int cnt;
 
 
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
 
         View fragment = inflater.inflate(R.layout.board, container, false);
         //객체 찾아옴
@@ -134,7 +132,7 @@ public class fm_board extends Fragment {
 
     // 문의게시판 리스트뷰
     public void getQnA_BoardData() {
-        //q_items.clear();
+        qnaAdapter.clear();
 
         qnaAdapter.notifyDataSetChanged();
         //RequestQueue 객체 생성
@@ -234,6 +232,7 @@ public class fm_board extends Fragment {
 
 
     public void getBoardData() {
+        adapter.clear();
 
             //RequestQueue 객체 생성
             requestQueue = Volley.newRequestQueue(getContext());    // this==getApplicationContext();

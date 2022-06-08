@@ -23,6 +23,9 @@ import java.util.ArrayList;
             items.add(vo);
         }
 
+        public void clear(){
+            items.clear();
+        }
 
         @Override
         public int getCount() {

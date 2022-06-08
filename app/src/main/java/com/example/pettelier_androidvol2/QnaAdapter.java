@@ -17,7 +17,9 @@ public class QnaAdapter extends BaseAdapter {
         QnaBoardVO vo = new QnaBoardVO(seq, id, title, content, date);
         items.add(vo);
     }
-
+    public void clear(){
+        items.clear();
+    }
 
     @Override
     public int getCount() {

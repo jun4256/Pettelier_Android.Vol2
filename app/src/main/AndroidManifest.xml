@@ -94,6 +94,33 @@
         <activity android:name=".Pet_register"
             android:exported="true">
         </activity>
+        <service android:name=".MyService"
+            android:exported="true">
+        </service>
+        <activity android:name=".feed_angle"
+            android:exported="true">
+        </activity>
+        <activity android:name=".qnaBoardWrite"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".new_pw_reset"
+            android:exported="true">
+        </activity>
+        <activity android:name=".qnaContent"
+            android:exported="true">
+        </activity>
+        <activity android:name=".qnaUpdate"
+            android:exported="true">
+        </activity>
+        <activity android:name=".boardContent"
+            android:exported="true">
+        </activity>
+        <activity android:name=".pet_item_click_update"
+            android:exported="true">
+        </activity>
+
+
 
 <!--        <activity android:name=".Real_Main"-->
 <!--            android:exported="false"-->

@@ -159,13 +159,7 @@ public class MyService extends Service {
                                     // 나 진짜 천잰가?
 
                                     Notifi_M.notify(i, noti);
-
-
-
-
                                     Toast.makeText(getApplicationContext(), "배변 검출", Toast.LENGTH_SHORT).show();
-
-
                                 }
 
                             }

@@ -122,7 +122,7 @@ public class boardContent extends AppCompatActivity {
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             CmtVO vo = (CmtVO) adapterView.getItemAtPosition(i);
                             //Toast.makeText(getApplicationContext(), vo.toString(), Toast.LENGTH_SHORT).show();
-                            Toast.makeText(getApplicationContext(),vo.toString(),Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(),vo.toString(),Toast.LENGTH_SHORT).show();
 
                             //Intent intent = new Intent(getApplicationContext(), boardContent.class);
                             //intent.putExtra("vo", vo);

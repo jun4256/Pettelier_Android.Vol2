@@ -52,8 +52,9 @@ public class QnaCmtAdapter extends BaseAdapter {
         }
 
         //TextView cmt_tvSeq = view.findViewById(R.id.cmt_tvSeq);
-        TextView cmt2_tvContent = view.findViewById(R.id.cmt_tvContent);
-        TextView cmt2_tvDate = view.findViewById(R.id.cmt_tvDate);
+
+        TextView cmt2_tvContent = view.findViewById(R.id.cmt2_tvContent);
+        TextView cmt2_tvDate = view.findViewById(R.id.cmt2_tvDate);
 
         QnaCmtVO vo = items.get(i);
 

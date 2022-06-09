@@ -77,7 +77,7 @@ public class MemberUpdate extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://59.0.129.176:8081/web/updateService.do";
+        String url = "http://210.223.239.212:8081/web/updateService.do";
 
 
         // 요청시 필요한 문자열 객체 생성  매개변수  4개(통신방식(get,post),요청url주소, new 리스너(익명클래스)-응답시필요한부분 작성함)
@@ -98,7 +98,7 @@ public class MemberUpdate extends AppCompatActivity {
 
 
                     loginCheck.info= new MemberVO(id,pw,nick,name,phone,adr);
-                    Intent intent = new Intent(getApplicationContext(),After_Login_Main.class);
+                    Intent intent = new Intent(getApplicationContext(),Main_Page.class);
                     //intent.putExtra("vo",vo);
                     startActivity(intent);
 

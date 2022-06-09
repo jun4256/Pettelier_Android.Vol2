@@ -11,6 +11,7 @@ public class CageVO implements Serializable {
     private String cg_time;
     private String cg_hum;
     private String cg_motor;
+    private int cg_tmp;
 
     public CageVO(String cg_serial, String cg_gas, String cg_temp, String cg_angle, String cg_time, String cg_hum,String cg_motor) {
         this.cg_serial = cg_serial;
@@ -22,9 +23,21 @@ public class CageVO implements Serializable {
         this.cg_motor = cg_motor;
     }
 
-    public CageVO(String cg_serial, String cg_motor) {
+    public CageVO(String cg_serial, String cg_time, String cg_angle){
+        this.cg_serial = cg_serial;
+        this.cg_time = cg_time;
+        this.cg_angle = cg_angle;
+    }
+
+    public CageVO(String cg_serial, String cg_motor, int cg_tmp) {
         this.cg_serial = cg_serial;
         this.cg_motor = cg_motor;
+        this.cg_tmp = cg_tmp;
+    }
+
+    public CageVO(String cg_serial, String cg_gas){
+        this.cg_serial = cg_serial;
+        this.cg_gas = cg_gas;
     }
 
     public String getCg_serial() {

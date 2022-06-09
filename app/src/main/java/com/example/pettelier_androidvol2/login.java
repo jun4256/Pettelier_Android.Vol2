@@ -79,7 +79,7 @@ public class login extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/andLogin.do";
+        String url = "http://59.0.129.176:8081/web/andLogin.do";
 
         // 고은 : 172.30.1.28:8089
         // 시윤 : 59.0.129.176:8081
@@ -113,7 +113,6 @@ public class login extends AppCompatActivity {
                         //MemberVO vo = new MemberVO(id,pw,nick,name,phone,address,joindate,type);
                         loginCheck.info= new MemberVO(id,pw,nick,name,phone,address,joindate,type);
                         Log.v("check",loginCheck.info.getId());
-
                         if((loginCheck.info.getId()).equals("admin")){
                             Intent intent = new Intent(getApplicationContext(),Main_Page.class);
                             startActivity(intent);

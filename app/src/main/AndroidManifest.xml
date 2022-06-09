@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".CageMatching"
+            android:exported="true" />
+        <activity
             android:name=".qnaUpdate"
             android:exported="false" />
         <activity
@@ -45,48 +48,48 @@
             android:exported="true" />
         <activity
             android:name=".Main_Page"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".qnaContent"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".find_id"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".find_id_success"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".find_id_fail"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".fanPage"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".boardContent"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".pw_reset"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".pet_item_click_update"
+            android:exported="true" />
+        <activity
+            android:name=".qnaBoardWrite"
             android:exported="true"></activity>
-        <activity android:name=".qnaBoardWrite"
-            android:exported="true">
 
-        </activity>
         <activity
             android:name=".boardWrite"
             android:exported="true"
             tools:ignore="Instantiatable" />
         <activity
             android:name=".join"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Cage_Register"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Pet_register"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

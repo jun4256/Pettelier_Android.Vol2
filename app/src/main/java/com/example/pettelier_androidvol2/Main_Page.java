@@ -45,7 +45,6 @@ public class Main_Page extends AppCompatActivity {
 
         if((loginCheck.info.getId()).equals("admin")){
             Log.v("이프문", loginCheck.info.getId());
-
             fm.beginTransaction().replace(R.id.frame,home2).commit();
         }
         else {

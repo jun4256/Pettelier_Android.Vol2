@@ -79,7 +79,7 @@ public class login extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://59.0.129.176:8081/web/andLogin.do";
+        String url = "http://210.223.239.212:8081/web/andLogin.do";
 
         // 고은 : 172.30.1.28:8089
         // 시윤 : 59.0.129.176:8081

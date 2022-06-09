@@ -73,7 +73,7 @@ public class Admin_Login_Main extends Fragment {
         btn_add_cage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(),MyService.class);
+                Intent intent = new Intent(getContext(),Cage_Register.class);
                 startActivity(intent);
             }
         });

@@ -25,29 +25,26 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-public class fanPage extends AppCompatActivity {
-    private ListView fan_list;
+public class feed_angle extends AppCompatActivity {
+    private ListView angle_list;
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
-    private fanAdapter adapter = new fanAdapter(); //리스트뷰에 적용되는 보드어댑터
+    private angleAdapter adapter = new angleAdapter(); //리스트뷰에 적용되는 보드어댑터
     private ArrayList<String> items = new ArrayList<String>();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fan_page);
-        Intent intent = getIntent();
-        fan_list = findViewById(R.id.angle_list);
-
-
+        setContentView(R.layout.activity_feed_angle);
+        Intent intent = getIntent();   // 쓸 수도 있으니 일단 선언
+        angle_list = findViewById(R.id.angle_list);
         // ID에 맞는 LIST 출력하는 partㅇㅇㅇ
         //RequestQueue 객체 생성
+
+
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/select_cage.do";
+        String url = "http://210.223.239.212:8081/web/select_angle.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -63,17 +60,17 @@ public class fanPage extends AppCompatActivity {
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
                             String cg_serial = jsonObject.getString("cg_serial");
-                            String cg_motor = jsonObject.getString("cg_motor");
+                            String cg_angle = jsonObject.getString("cg_angle");
                             String cg_time = jsonObject.getString("cg_time");
-                            CageVO cvo = new CageVO(cg_serial,cg_motor,1);
+                            CageVO cvo = new CageVO(cg_serial,cg_time,cg_angle);
                             // ㅇㅇ아무튼 ..... ,ID 바꿔보기
-                            adapter.addItem(cg_serial,cg_motor,1);
+                            adapter.addItem(cg_serial,cg_time,cg_angle);
                             Log.v("타입", cg_serial);
-                            Log.v("이름", cg_motor);
+                            Log.v("시간시간", cg_time);
 
                         }
 
-                        fan_list.setAdapter(adapter);
+                        angle_list.setAdapter(adapter);
 
                         adapter.notifyDataSetChanged();
 
@@ -83,7 +80,7 @@ public class fanPage extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    Toast.makeText(getApplicationContext(), "??", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getApplicationContext(), "??", Toast.LENGTH_SHORT).show();
                 } else {
                     //로그인실패
                     Toast.makeText(getApplicationContext(), "fail", Toast.LENGTH_SHORT).show();
@@ -111,30 +108,10 @@ public class fanPage extends AppCompatActivity {
                 }
             }
 
-            // 보낼 데이터를 저장하는 곳 해쉬맵에 저장해서 보냄 - key,value
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<>();
-//                String id = loginCheck.info.getId();
-//                String cg_serial = loginCheck.cage_info.getCg_serial();
-//                String cg_motor = loginCheck.cage_info.getCg_motor();
-//                //params.put("mb_id", id);
-////                params.put("cg_serial", cg_serial);
-////                params.put("cg_motor", cg_motor);
-//
-//                // key값은 서버에서 지정한 name과 동일하게
-//
-//                return params;
-//            }
         };
         stringRequest.setTag("main");       //구분자 어떤클라이언트에서 요청했는지 나타냄 (중요하지않음)
         requestQueue.add(stringRequest);        //실행 요청 add에 담으면 자동요청
 
 
-
     }
-
-
-
-
 }

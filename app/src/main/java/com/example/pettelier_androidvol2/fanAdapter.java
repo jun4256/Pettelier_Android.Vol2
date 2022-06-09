@@ -35,8 +35,8 @@ public class fanAdapter extends BaseAdapter {
     private StringRequest stringRequest;
 
     private ArrayList<CageVO> items = new ArrayList<CageVO>();
-    public void addItem(String cg_serial, String cg_motor) {
-        CageVO cvo = new CageVO(cg_serial, cg_motor);
+    public void addItem(String cg_serial, String cg_motor, int i) {
+        CageVO cvo = new CageVO(cg_serial, cg_motor,i);
         items.add(cvo);
     }
 
@@ -123,7 +123,7 @@ public class fanAdapter extends BaseAdapter {
 
 
                               // MemberVO 만들어서 넘기기
-                              loginCheck.cage_info = new CageVO(cg_serial,cg_motor);
+                              loginCheck.cage_info = new CageVO(cg_serial,cg_motor,1);
 
 
                           } catch (JSONException e) {

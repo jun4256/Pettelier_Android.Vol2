@@ -71,7 +71,7 @@ public class Real_Main extends Fragment {
         Main_btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(),Pet_register.class);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://192.168.43.183:81/stream"));
                 startActivity(intent);
             }
         });

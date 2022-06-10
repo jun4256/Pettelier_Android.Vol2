@@ -135,18 +135,16 @@
 
         <EditText
             android:id="@+id/input_cmt"
-            android:layout_width="343dp"
+            android:layout_width="243dp"
             android:layout_height="61dp"
-            android:layout_weight="1"
             android:background="#DED6D6"
             android:padding="16dp"
             android:textSize="14sp" />
 
         <Button
             android:id="@+id/btn_cmt"
-            android:layout_width="114dp"
+            android:layout_width="89dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:background="#F6907B"
             android:text="댓글 입력"
             android:textColor="#FFFFFF" />

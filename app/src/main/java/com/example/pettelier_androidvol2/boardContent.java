@@ -84,7 +84,7 @@ public class boardContent extends AppCompatActivity {
         // 게시글 열면 댓글이 바로 나오게됨
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/cmtList.do";
+        String url = "http://59.0.129.176:8081/web/cmtList.do";
 
 
         // 1.객체만들고 요청 주소만듦
@@ -218,7 +218,7 @@ public class boardContent extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/boardDelete.do";
+        String url = "http://59.0.129.176:8081/web/boardDelete.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -295,7 +295,7 @@ public class boardContent extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/cmtInsert.do";
+        String url = "http://59.0.129.176:8081/web/cmtInsert.do";
 
         // 1.객체만들고 요청 주소만듦
 

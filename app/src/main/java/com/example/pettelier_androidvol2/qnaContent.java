@@ -115,7 +115,7 @@ public class qnaContent extends AppCompatActivity {
         // 게시글 열면 관리자의 댓글이 바로 나오게됨
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/qnaCmtList.do";
+        String url = "http://59.0.129.176:8081/web/qnaCmtList.do";
 
 
         // 1.객체만들고 요청 주소만듦
@@ -218,7 +218,7 @@ public class qnaContent extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/qnaDelete.do";
+        String url = "http://59.0.129.176:8081/web/qnaDelete.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -289,7 +289,7 @@ public class qnaContent extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/qnaCmtInsert.do";
+        String url = "http://59.0.129.176:8081/web/qnaCmtInsert.do";
 
         // 1.객체만들고 요청 주소만듦
 

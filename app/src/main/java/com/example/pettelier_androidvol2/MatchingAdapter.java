@@ -95,7 +95,7 @@ public class MatchingAdapter extends BaseAdapter {
 
 
                 // 서버에 요청할 주소
-                String url = "http://210.223.239.212:8081/web/cageMbidUpdate.do";
+                String url = "http://59.0.129.176:8081/web/cageMbidUpdate.do";
                 // 고은 : 172.30.1.28:8089
                 // 시윤 : 59.0.129.176:8081
                 // 준범 : 210.223.239.212:8081

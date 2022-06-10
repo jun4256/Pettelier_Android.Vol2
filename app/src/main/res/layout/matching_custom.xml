@@ -18,27 +18,24 @@
             android:id="@+id/match_cage_serial"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:fontFamily="@font/coffee"
+            android:gravity="center"
             android:text="케이지 번호"
-            android:textSize="30dp"
-            android:gravity="center"     />
+            android:textSize="30dp" />
 
         <EditText
             android:id="@+id/match_idInput"
-            android:layout_width="30dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="18dp"
             android:fontFamily="@font/coffee"
             android:gravity="center"
-            android:text="아이디 입력ㅋ" />
+            android:text="아이디 입력ㅋ"
+            android:textSize="18dp" />
 
         <Button
             android:id="@+id/btn_m_update"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Button" />
 
     </LinearLayout>

@@ -70,11 +70,7 @@ public class fanAdapter extends BaseAdapter {
 
         TextView ctv_cage_serial = view.findViewById(R.id.ctv_cage_serial);
         Button btn_fan_state = view.findViewById(R.id.btn_fan_state);
-
-
-
         CageVO cvo = items.get(i);
-
         ctv_cage_serial.setText(cvo.getCg_serial());
         btn_fan_state.setText(cvo.getCg_motor());
 

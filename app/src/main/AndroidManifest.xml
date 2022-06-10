@@ -120,6 +120,10 @@
             android:exported="true">
         </activity>
 
+        <activity android:name=".CageMatching"
+            android:exported="true">
+        </activity>
+
 
 
 <!--        <activity android:name=".Real_Main"-->

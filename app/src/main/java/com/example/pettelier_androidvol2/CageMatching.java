@@ -27,6 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,32 +36,23 @@ public class CageMatching extends AppCompatActivity {
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
     private MatchingAdapter adapter = new MatchingAdapter();
-    private Button btn_matchUpdate;
-    private MatchingVO vo;
+    private ArrayList<String> items = new ArrayList<String>();
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cage_matching);
-        btn_matchUpdate = findViewById(R.id.btn_matchUpdate);
         cage_list = findViewById(R.id.cage_list);
 
-        btn_matchUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                matchUpdate();
-            }
-        });
-        
-        
-        adapter.clear();
+        // adapter.clear();
 
         //RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(getApplicationContext());    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/matchingList.do";
+        String url = "http://210.223.239.212:8081/web/matchingList.do";
 
         // 1.객체만들고 요청 주소만듦
 
@@ -80,6 +72,9 @@ public class CageMatching extends AppCompatActivity {
                         String cg_serial = jsonObject.getString("cg_serial");
 
                         adapter.addItem(mb_id,cg_serial);
+                        Log.v("짬",mb_id);
+                        Log.v("집 보내주세요",cg_serial);
+
 
                     }
 
@@ -87,27 +82,12 @@ public class CageMatching extends AppCompatActivity {
 
                     adapter.notifyDataSetChanged();
 
-                    //클릭시 인덱스저장
-                    cage_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                            MatchingVO vo = (MatchingVO) adapterView.getItemAtPosition(i);
-                            //Toast.makeText(getApplicationContext(), vo.toString(), Toast.LENGTH_SHORT).show();
-                            //Toast.makeText(getContext(),vo.toString(),Toast.LENGTH_SHORT).show();
-                            //Intent intent = new Intent(getApplicationContext(), boardContent.class);
-                            //intent.putExtra("vo", vo);
-                            //startActivity(intent);
-                            //Log.v("매칭매칭매칭",vo.toString());
-
-                        }
-                    });
 
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-
+                Toast.makeText(getApplicationContext(), "케이지매칭", Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             // 서버와의 연동 에러시 출력
@@ -148,77 +128,5 @@ public class CageMatching extends AppCompatActivity {
 
     }
 
-    public void matchUpdate() {
-        //RequestQueue 객체 생성
-        requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
-        // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/cageMbidUpdate.do";
-
-        // 1.객체만들고 요청 주소만듦
-
-        // 요청시 필요한 문자열 객체 생성  매개변수  4개(통신방식(get,post),요청url주소, new 리스너(익명클래스)-응답시필요한부분 작성함)
-        stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>(){
-            // 응답데이터를 받아오는 곳
-            // 응답시 데이터 받아오는 곳 - 통신이 잘됐다면 로그캣에서 확인하게출력함
-            @Override
-            public void onResponse(String response) {
-                Log.v("resultValue",response);
-                Log.v("resultValue", response.length()+"");         //응답글자 수 보여짐,
-                if(response.length() > 0) {
-                    Intent intent = new Intent(getApplicationContext(),Main_Page.class);
-                    startActivity(intent);
-                    Toast.makeText(getApplicationContext(), "매칭 성공", Toast.LENGTH_SHORT).show();
-
-                }else {
-                    // 실패
-                    Toast.makeText(getApplicationContext(), "매칭 실패", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            // 서버와의 연동 에러시 출력
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-
-            }
-        }){
-            @Override //response를 UTF8로 변경해주는 소스코드
-            protected Response<String> parseNetworkResponse(NetworkResponse response) {
-                try {
-                    String utf8String = new String(response.data, "UTF-8");
-                    return Response.success(utf8String, HttpHeaderParser.parseCacheHeaders(response));
-                } catch (UnsupportedEncodingException e) {
-                    // log error
-                    return Response.error(new ParseError(e));
-                } catch (Exception e) {
-                    // log error
-                    return Response.error(new ParseError(e));
-                }
-            }
-
-            // 보낼 데이터를 저장하는 곳 해쉬맵에 저장해서 보냄 - key,value
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-
-                //String boardSeq = boardSeq;
-               String mb_id =  vo.getMb_id();
-                String cg_serial = vo.getCg_serial();
-
-                params.put("mb_id", mb_id);
-                params.put("cg_serial",cg_serial);
-
-                // key값은 서버에서 지정한 name과 동일하게
-
-                return params;
-            }
-        };
-        stringRequest.setTag("main");       //구분자 어떤클라이언트에서 요청했는지 나타냄 (중요하지않음)
-        requestQueue.add(stringRequest);        //실행 요청 add에 담으면 자동요청
-
-
-
-    }
 }

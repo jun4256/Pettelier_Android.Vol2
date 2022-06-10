@@ -7,6 +7,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_admin_add_cage.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_admin_login_main.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_after_login_main.xml" value="0.3151041666666667" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_cage_matching.xml" value="0.18" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_cage_register.xml" value="0.32019927536231885" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_fan_page.xml" value="0.27943840579710144" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/activity_feed_angle.xml" value="0.23278985507246377" />
@@ -39,6 +40,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/fragment_gallery.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/go_home.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/go_home2.xml" value="0.32019927536231885" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/matching_custom.xml" value="0.22" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/pet_regi_retouch_custom.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/real_main.xml" value="0.24390243902439024" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/Pettelier_Android.Vol2/app/src/main/res/layout/setting.xml" value="0.3333333333333333" />

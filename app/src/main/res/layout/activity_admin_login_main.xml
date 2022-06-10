@@ -100,7 +100,7 @@
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:background="@drawable/button_radius"
-                    android:text="반려동물 \n모니터링"
+                    android:text="고객 \n매칭하기"
 
                     android:textColor="#F3F3F6"
                     android:textSize="18dp" />

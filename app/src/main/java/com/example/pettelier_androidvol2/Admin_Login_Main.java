@@ -81,7 +81,7 @@ public class Admin_Login_Main extends Fragment {
         btn_admin_moniter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(),Pet_register.class);
+                Intent intent = new Intent(getContext(),CageMatching.class);
                 startActivity(intent);     // 나중에 parse uri해주셈
             }
         });

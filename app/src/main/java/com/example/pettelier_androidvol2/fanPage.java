@@ -83,12 +83,11 @@ public class fanPage extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    Toast.makeText(getApplicationContext(), "??", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "FAN페이지", Toast.LENGTH_SHORT).show();
                 } else {
                     //로그인실패
                     Toast.makeText(getApplicationContext(), "fail", Toast.LENGTH_SHORT).show();
                 }
-
             }
         }, new Response.ErrorListener() {
             // 서버와의 연동 에러시 출력

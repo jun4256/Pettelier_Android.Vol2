@@ -1,11 +1,15 @@
 package com.example.pettelier_androidvol2;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -27,68 +31,63 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MemberList extends AppCompatActivity {
-
-    private ListView listview; // 리스트뷰 객체
-    private ArrayAdapter<String> adapter; // 리스트뷰에 적용되는 어댑터
-
-    // 어댑터에 들어갈 데이터
-    private ArrayList<String> items = new ArrayList<String>();
-
-    // 서버통신에 필요한것들
+public class CageMatching extends AppCompatActivity {
+    private ListView cage_list;
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
+    private MatchingAdapter adapter = new MatchingAdapter();
+    private ArrayList<String> items = new ArrayList<String>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_member_list);
+        setContentView(R.layout.activity_cage_matching);
+        cage_list = findViewById(R.id.cage_list);
 
-        // listview = findViewById(R.id.listview);
+        // adapter.clear();
 
-        sendRequest();
+        //RequestQueue 객체 생성
+        requestQueue = Volley.newRequestQueue(getApplicationContext());    // this==getApplicationContext();
 
-    }
-
-    public void sendRequest(){
-        // RequestQueue 객체 생성
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/memberList.do";
+        String url = "http://210.223.239.212:8081/web/matchingList.do";
 
-        // 요청시 필요한 문자열 객체
+        // 1.객체만들고 요청 주소만듦
+
+        // 요청시 필요한 문자열 객체 생성  매개변수  4개(통신방식(get,post),요청url주소, new 리스너(익명클래스)-응답시필요한부분 작성함)
         stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             // 응답데이터를 받아오는 곳
+            // 응답시 데이터 받아오는 곳 - 통신이 잘됐다면 로그캣에서 확인하게출력함
             @Override
             public void onResponse(String response) {
-                Log.v("resultValue",response);
-
-                // try catch하는법 : ctrl + alt + T
+                Log.v("resultValue", response);
                 try {
                     JSONArray jsonArray = new JSONArray(response);
-                    for(int i =0; i< jsonArray.length(); i++){
-                        JSONObject jo = jsonArray.getJSONObject(i);
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                        //jsonObject에는 회원정보가 담겨있다
-                        // 회원들의 정보를 리스트뷰에 보이게 하쇼
-                        // ex)  pbk-1234-호두아빠-010-4611-5278
+                        String mb_id = jsonObject.getString("mb_id");
+                        String cg_serial = jsonObject.getString("cg_serial");
 
-                        String id = jo.getString("id");
-                        String pw = jo.getString("pw");
-                        String nick = jo.getString("nick");
-                        String name = jo.getString("name");
-                        String phone = jo.getString("phone");
-                        String address = jo.getString("address");
+                        adapter.addItem(mb_id,cg_serial);
+                        Log.v("짬",mb_id);
+                        Log.v("집 보내주세요",cg_serial);
 
-                        items.add((i+1)+"."+id+" "+pw+" "+nick+" "+name+" "+phone+" "+address);
+
                     }
-                    adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, items);
-                    listview.setAdapter(adapter);
+
+                    cage_list.setAdapter(adapter);
+
+                    adapter.notifyDataSetChanged();
+
 
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                Toast.makeText(getApplicationContext(), "케이지매칭", Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             // 서버와의 연동 에러시 출력
@@ -96,7 +95,7 @@ public class MemberList extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
             }
-        }){
+        }) {
             @Override //response를 UTF8로 변경해주는 소스코드
             protected Response<String> parseNetworkResponse(NetworkResponse response) {
                 try {
@@ -114,11 +113,20 @@ public class MemberList extends AppCompatActivity {
             // 보낼 데이터를 저장하는 곳
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
+                Map<String, String> params = new HashMap<String, String>();
+
+                // String c_manager_id = SharedPreference.getAttribute(getApplicationContext(), "m_id");
+                // params.put("c_manager_id", c_manager_id);
+
                 return params;
             }
         };
-        stringRequest.setTag("main"); //구분자 (안써도됨.)
+        stringRequest.setTag("main");
         requestQueue.add(stringRequest);
+
+
+
     }
+
+
 }

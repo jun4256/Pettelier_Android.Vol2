@@ -81,7 +81,7 @@ public class boardUpdate extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://59.0.129.176:8081/web/boardUpdate.do";
+        String url = "http://210.223.239.212:8081/web/boardUpdate.do";
 
         // 1.객체만들고 요청 주소만듦
 

@@ -73,7 +73,7 @@ public class Cage_Register extends AppCompatActivity {
                 Log.v("resultValue", response);
                 Log.v("resultValue", response.length() + "");         //응답글자 수 보여짐,
                 if (response.length() > 0) {
-                    Intent intent = new Intent(getApplicationContext(), Admin_Login_Main.class);
+                    Intent intent = new Intent(getApplicationContext(), Main_Page.class);
                     startActivity(intent);
 
 
@@ -111,11 +111,10 @@ public class Cage_Register extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 String regi_date = edt_date.getText().toString();
                 String regi_serial = edt_serial.getText().toString();
-
-                params.put("cg_state",loginCheck.info.getId());
+                String cg_state = loginCheck.info.getId();
+                params.put("cg_state",cg_state);
                 params.put("cg_serial", regi_serial);
                 params.put("cg_date", regi_date);
-
                 // key값은 서버에서 지정한 name과 동일하게
 
                 return params;

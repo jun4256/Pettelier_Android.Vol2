@@ -26,7 +26,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="60dp"
         android:text="설정"
         android:textColor="#000000"
@@ -36,7 +36,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="110dp"
         android:text="회원님의 정보와 반려견의 정보를 수정하세요."
@@ -50,78 +50,58 @@
         android:layout_gravity="center_horizontal|center_vertical"
         android:orientation="horizontal">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true">
+        <Button
+            android:id="@+id/re_member_btn"
+            android:layout_width="83dp"
+            android:layout_height="83dp"
 
-            <Button
-                android:id="@+id/re_member_btn"
-                android:layout_width="97dp"
-                android:layout_height="97dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
 
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_radius"
+            android:contentDescription="select manager mode"
+            android:elevation="20dp"
+            android:text="회원 정보\n수정"
+            android:textColor="#F1EDED"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/button_radius"
-                android:contentDescription="select manager mode"
-                android:elevation="20dp"
-                android:text="회원 정보\n수정"
-                android:textColor="#F1EDED"
-                android:textSize="15dp"
-                android:textStyle="bold" />
+        <Button
+            android:id="@+id/re_pet_btn"
+            android:layout_width="83dp"
+            android:layout_height="83dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
 
-        </RelativeLayout>
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_radius"
+            android:contentDescription="select client mode"
+            android:elevation="15dp"
+            android:text="반려견 정보\n수정"
+            android:textColor="#F1EDED"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true">
+        <Button
+            android:id="@+id/add_pet_btn"
+            android:layout_width="83dp"
+            android:layout_height="83dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
 
-            <Button
-                android:id="@+id/re_pet_btn"
-                android:layout_width="97dp"
-                android:layout_height="97dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_radius"
+            android:contentDescription="select client mode"
+            android:elevation="15dp"
+            android:text="반려견 추가\n등록"
+            android:textColor="#F1EDED"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/button_radius"
-                android:contentDescription="select client mode"
-                android:elevation="15dp"
-                android:text="반려견 정보\n수정"
-                android:textColor="#F1EDED"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true">
-
-            <Button
-                android:id="@+id/add_pet_btn"
-                android:layout_width="97dp"
-                android:layout_height="97dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/button_radius"
-                android:contentDescription="select client mode"
-                android:elevation="15dp"
-                android:text="반려견 추가\n등록"
-                android:textColor="#F1EDED"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>
 

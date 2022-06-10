@@ -115,11 +115,7 @@ public class qnaContent extends AppCompatActivity {
         // 게시글 열면 관리자의 댓글이 바로 나오게됨
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
         // 서버에 요청할 주소
-        String url = "http://59.0.129.176:8081/web/qnaCmtList.do";
-        // 고은 : 218.149.140.51:8089
-        // 시윤 : 59.0.129.176:8081
-        // 준범 : 210.223.239.212:8081
-        // 진관 : 220.80.165.82:8081
+        String url = "http://210.223.239.212:8081/web/qnaCmtList.do";
 
 
         // 1.객체만들고 요청 주소만듦

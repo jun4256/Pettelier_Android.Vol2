@@ -139,7 +139,7 @@ public class fm_board extends Fragment {
         requestQueue = Volley.newRequestQueue(getContext());    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://172.30.1.28:8089/web/qnaList.do";
+        String url = "http://210.223.239.212:8081/web/qnaList.do";
 
         // 1.객체만들고 요청 주소만듦
 

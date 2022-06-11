@@ -75,19 +75,11 @@
             android:text="나이"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/tv_etc"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="특이사항"
-            android:textSize="20sp" />
     </LinearLayout>
 
     <ListView
         android:id="@+id/listview"
-        android:layout_width="match_parent"
+        android:layout_width="331dp"
         android:layout_height="450dp"
         android:layout_gravity="center" />
 

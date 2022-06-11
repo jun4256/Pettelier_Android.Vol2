@@ -54,7 +54,7 @@ public class MemberList extends AppCompatActivity {
         // RequestQueue 객체 생성
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/memberList.do";
+        String url = "http://192.168.43.220:8081/web/memberList.do";
 
         // 요청시 필요한 문자열 객체
         stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

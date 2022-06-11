@@ -124,6 +124,10 @@
             android:exported="true">
         </activity>
 
+        <activity android:name=".boardUpdate"
+            android:exported="true">
+        </activity>
+
 
 
 <!--        <activity android:name=".Real_Main"-->

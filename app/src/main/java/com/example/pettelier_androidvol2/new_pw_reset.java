@@ -80,7 +80,7 @@ public class new_pw_reset extends AppCompatActivity {
     private void sendRequest(){
         requestQueue = Volley.newRequestQueue(this);
 
-        String url = "http://210.223.239.212:8081/web/new_pwrs.do";
+        String url = "http://192.168.43.220:8081/web/new_pwrs.do";
 
         // 고은 : 218.149.140.51:8089
         // 시윤 : 59.0.129.176:8081

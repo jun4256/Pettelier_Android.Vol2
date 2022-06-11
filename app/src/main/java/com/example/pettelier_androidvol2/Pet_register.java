@@ -60,7 +60,7 @@ public class Pet_register extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/dog_regist.do";
+        String url = "http://192.168.43.220:8081/web/dog_regist.do";
         // 고은 : 218.149.140.51:8089
         // 시윤 : 59.0.129.176:8081
         // 준범 : 210.223.239.212:8081

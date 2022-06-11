@@ -52,7 +52,7 @@ public class CageMatching extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(getApplicationContext());    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/matchingList.do";
+        String url = "http://192.168.43.220:8081/web/matchingList.do";
 
         // 1.객체만들고 요청 주소만듦
 

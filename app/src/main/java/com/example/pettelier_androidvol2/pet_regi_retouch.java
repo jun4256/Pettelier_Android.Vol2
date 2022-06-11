@@ -53,7 +53,7 @@ public class pet_regi_retouch extends AppCompatActivity {
         tv_mb = findViewById(R.id.tv_mb);
         tv_type = findViewById(R.id.tv_type);
         tv_dog_name = findViewById(R.id.tv_dog_name);
-        tv_etc = findViewById(R.id.tv_etc);
+        //tv_etc = findViewById(R.id.tv_etc);
 
         // 개 정보 수정 버튼
 //        btn_dog_update = findViewById(R.id.btn_dog_update);
@@ -71,7 +71,7 @@ public class pet_regi_retouch extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/dog_select.do";
+        String url = "http://192.168.43.220:8081/web/dog_select.do";
         // 고은 : 172.30.1.28:8089
         // 시윤 : 59.0.129.176:8081
         // 준범 : 210.223.239.212:8081

@@ -44,7 +44,7 @@ public class feed_angle extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);    // this==getApplicationContext();
 
         // 서버에 요청할 주소
-        String url = "http://210.223.239.212:8081/web/select_angle.do";
+        String url = "http://192.168.43.220:8081/web/select_angle.do";
 
         // 1.객체만들고 요청 주소만듦
 

@@ -95,7 +95,7 @@ public class MatchingAdapter extends BaseAdapter {
 
 
                 // 서버에 요청할 주소
-                String url = "http://210.223.239.212:8081/web/cageMbidUpdate.do";
+                String url = "http://192.168.43.220:8081/web/cageMbidUpdate.do";
                 // 고은 : 172.30.1.28:8089
                 // 시윤 : 59.0.129.176:8081
                 // 준범 : 210.223.239.212:8081
@@ -108,7 +108,7 @@ public class MatchingAdapter extends BaseAdapter {
                     // 응답데이터를 받아오는 곳
                     @Override
                     public void onResponse(String response) {
-                        Log.v("집보내줘~", response);         //응답글자 수 보여짐,
+                        Log.v("매칭어댑터", response);         //응답글자 수 보여짐,
                         if (response.length() > 0) {
                             //로그인 성공
                             // 0은 로그인실패
@@ -170,21 +170,7 @@ public class MatchingAdapter extends BaseAdapter {
             }
 
 
-
-
-
-
         });
-
-
-
-
-
-
-
-
-
-
 
 
         return view;

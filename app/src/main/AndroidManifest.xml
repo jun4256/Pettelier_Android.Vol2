@@ -149,6 +149,10 @@
             android:exported="true">
         </activity>
 
+        <activity android:name=".boardUpdate"
+            android:exported="true">
+        </activity>
+
 
 
         <activity
